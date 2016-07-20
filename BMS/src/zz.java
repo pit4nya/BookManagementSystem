@@ -422,17 +422,7 @@ public class zz extends JFrame {
 		radioButton_1.setBounds(12, 100, 121, 23);
 		panel_13.add(radioButton_1);
 		
-		JButton btnNewButton_1 = new JButton("삭제");
-		btnNewButton_1.setBounds(121, 509, 97, 23);
-		panel_12.add(btnNewButton_1);
 		
-		JButton button_1 = new JButton("저장");
-		button_1.setBounds(230, 509, 97, 23);
-		panel_12.add(button_1);
-		
-		JButton button_2 = new JButton("검색");
-		button_2.setBounds(339, 509, 97, 23);
-		panel_12.add(button_2);
 		
 		JPanel panel_10 = new JPanel();
 		panel_3.add(panel_10, "cell 0 1,grow");

@@ -1,5 +1,6 @@
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -15,15 +16,16 @@ import javax.swing.border.EmptyBorder;
 
 import net.miginfocom.swing.MigLayout;
 
-public class Main extends JFrame {
+public class mainFrame extends JFrame {
 
 	private JPanel contentPane;
-
+	Toolkit tk = Toolkit.getDefaultToolkit();
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Main frame = new Main("Version 1.0");
+					mainFrame frame = new mainFrame("Version 1.0");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,10 +34,11 @@ public class Main extends JFrame {
 		});
 	}
 
-	public Main(String title) {
+	public mainFrame(String title) {
 		super(title);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1700, 1000);
+		setLocation((tk.getScreenSize().width - getWidth()) / 2, (tk.getScreenSize().height - getHeight()) / 2);
 		//////////////////////////////////////////////////////////////////////
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -70,15 +73,11 @@ public class Main extends JFrame {
 		ad_Panel.setLayout(null);
 		contentPane.add(ad_Panel, "cell 1 0,grow");
 
-		tabbedPanel_Left tabpL = new tabbedPanel_Left();
-		tabbedPanel_Right_bookMngt tabpR_bM = new tabbedPanel_Right_bookMngt();
+		tabbedPanel_Left tabpL = new tabbedPanel_Left("z");
+		tabbedPanel_Right_bookMngt tabpR_bM = new tabbedPanel_Right_bookMngt("정보열람");
 
 		contentPane.add(tabpL.getPanel(), "cell 0 1,grow");
 
 		contentPane.add(tabpR_bM.getPanel(), "cell 1 1,grow");
 	}
-}
-
-abstract class MyMouseListener extends MouseAdapter {
-	abstract public void mouseClicked(MouseEvent e);
 }

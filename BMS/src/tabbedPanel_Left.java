@@ -11,31 +11,33 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class tabbedPanel_Left extends JTabbedPane {
-	private JTable book_table;
-	private JTable member_table;
+	JTable book_table;
+	static JTable member_table;
 	private JTabbedPane tabbedPane;
-	
-	tabbedPanel_Right_bookMngt tbprb = new tabbedPanel_Right_bookMngt();
+	JScrollPane scrollPane_Mem;
 	Vector data_Book = new Vector();
 	Vector data_Member = new Vector();
 	Vector title_Book = new Vector();
 	Vector title_Member = new Vector();
 
 	public tabbedPanel_Left() {
+
+	}
+
+	public tabbedPanel_Left(String title) {
+		init();
+	}
+
+	public void init() {
+		////////////////////////////////////////////////////////////////////
+		tabbedPanel_Right_bookMngt tbprb = new tabbedPanel_Right_bookMngt();
+		////////////////////////////////////////////////////////////////////
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		JScrollPane scrollPane_1 = new JScrollPane();
-		tabbedPane.addTab("도서현황", null, scrollPane_1, null);
+
+		JScrollPane scrollPane_Book = new JScrollPane();
+		tabbedPane.addTab("도서현황", null, scrollPane_Book, null);
 		////////////////////////////////////////////////////////////////////////
 		DefaultTableModel model_Book = new DefaultTableModel() {
-			public boolean isCellEditable(int row, int column) {
-				if (column >= 0) {
-					return false;
-				} else {
-					return true;
-				}
-			}
-		};
-		DefaultTableModel model_Member = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
 				if (column >= 0) {
 					return false;
@@ -52,23 +54,21 @@ public class tabbedPanel_Left extends JTabbedPane {
 		title_Book.add("도서명");
 		title_Book.add("저자");
 		title_Book.add("출판사");
-		
-		DAO_DB dao_Book = new DAO_DB();
-		data_Book = dao_Book.book_selectAll();	//data Vector에 DB에 있는 책 목록 다 불러옴
 
+		DAO_DB dao_Book = new DAO_DB();
+		data_Book = dao_Book.book_selectAll(); // data Vector에 DB에 있는 책 목록 다 불러옴
 		model_Book.setDataVector(data_Book, title_Book);
-		scrollPane_1.setViewportView(book_table);
+
+		scrollPane_Book.setViewportView(book_table);
 		//////////////////////////////////////////////////////////////////// 마우스
 		//////////////////////////////////////////////////////////////////// 클릭
 		//////////////////////////////////////////////////////////////////// 이벤트
-		
 
 		book_table.addMouseListener(new MyMouseListener_Book() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getButton() == 1) {
 					Vector inner_Book = new Vector();
-					System.out.println(data_Book.size());
 					inner_Book = (Vector) data_Book.elementAt(book_table.getSelectedRow());
 					tbprb.setBookTextField((int) inner_Book.elementAt(0), (String) inner_Book.elementAt(1),
 							(String) inner_Book.elementAt(2), (String) inner_Book.elementAt(3));
@@ -76,22 +76,32 @@ public class tabbedPanel_Left extends JTabbedPane {
 			}
 		});
 		//////////////////////////////////////////////////////////////////////
-		
-		JScrollPane scrollPane = new JScrollPane();
-		tabbedPane.addTab("회원현황", null, scrollPane, null);
 
-		
+		scrollPane_Mem = new JScrollPane();
+		tabbedPane.addTab("회원현황", null, scrollPane_Mem, null);
+
+		DefaultTableModel model_Member = new DefaultTableModel() {
+			public boolean isCellEditable(int row, int column) {
+				if (column >= 0) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+		};
+
 		member_table = new JTable(model_Member);
-		scrollPane.setViewportView(member_table);
+		scrollPane_Mem.setViewportView(member_table);
 		title_Member.add("회원번호");
 		title_Member.add("회원명");
 		title_Member.add("전화번호");
 		title_Member.add("주소");
 		title_Member.add("이메일");
-		
+
 		DAO_DB dao_Member = new DAO_DB();
 		data_Member = dao_Member.mem_selectAll();
 		model_Member.setDataVector(data_Member, title_Member);
+
 		member_table.addMouseListener(new MyMouseListener_Member() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -103,7 +113,20 @@ public class tabbedPanel_Left extends JTabbedPane {
 				} // 클릭
 			}
 		});
-
+	}
+	
+	public void setTable(Vector data_Member, Vector title_Member){
+		DefaultTableModel model_Temp = new DefaultTableModel() {
+			public boolean isCellEditable(int row, int column) {
+				if (column >= 0) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+		};
+		member_table.setModel(model_Temp);
+		model_Temp.setDataVector(data_Member, title_Member);
 	}
 
 	public JTabbedPane getPanel() {
@@ -114,6 +137,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 abstract class MyMouseListener_Book extends MouseAdapter {
 	abstract public void mouseClicked(MouseEvent e);
 }
+
 abstract class MyMouseListener_Member extends MouseAdapter {
 	abstract public void mouseClicked(MouseEvent e);
 }

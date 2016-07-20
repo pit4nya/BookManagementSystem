@@ -26,17 +26,18 @@ public class DAO_DB {
 		}
 	}
 
-	public void insert(Book book) throws FileNotFoundException, IOException {
+	public void insert(Member member) throws FileNotFoundException, IOException {
 		try {
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/book.properties"));
+			pro.load(new FileInputStream("src/properties/member.properties"));
 
-			pstmt = con.prepareStatement(pro.getProperty("book_insert"));
-			pstmt.setInt(1, book.getNum());
-			pstmt.setString(2, book.getName());
-			pstmt.setString(3, book.getAuthor());
-			pstmt.setString(4, book.getPub());
-
+			pstmt = con.prepareStatement(pro.getProperty("member_insert"));
+			pstmt.setInt(1, member.getNum());
+			pstmt.setString(2, member.getName());
+			pstmt.setString(3, member.getTel());
+			pstmt.setString(4, member.getAddr());
+			pstmt.setString(5, member.getEmail());
+			
 			int n = pstmt.executeUpdate();
 			System.out.println(n + "개의 행이 수정되었습니다.");
 

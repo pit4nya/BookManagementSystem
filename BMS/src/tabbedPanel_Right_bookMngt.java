@@ -42,12 +42,20 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 	private static JTextArea ta_Memo_Down;
 	private JPanel blank;
 
+	public tabbedPanel_Right_bookMngt(String title) {
+		init(title);
+	}
+
 	public tabbedPanel_Right_bookMngt() {
+
+	}
+
+	public void init(String title) {
 		//////////////////////////////////// 이거 나중에 tabbedPane 하나 따로만들어서 다 불러와서
 		//////////////////////////////////// 붙이는게 나을듯
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		book_Mngt = new JPanel();
-		tabbedPane.addTab("정보열람", null, book_Mngt, null);
+		tabbedPane.addTab(title, null, book_Mngt, null);
 		book_Mngt.setLayout(new MigLayout("", "[grow]", "[571.00,grow][232.00,grow]"));
 
 		inner_bookMngt = new JPanel();
@@ -201,7 +209,7 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 		blank.setLayout(null);
 		book_Mngt.add(blank, "cell 0 1,grow");
 		/////////////////////////////////// 도서관리 끝
-		
+
 		tabbedPanel_Right_memMngt tabpR_mM = new tabbedPanel_Right_memMngt();
 		tabbedPane.add(tabpR_mM.getPanel(), "회원관리");
 	}
@@ -212,6 +220,7 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 		tf_Author.setText(author);
 		tf_Pub.setText(pub);
 	}
+
 	public void setMemTextField(int num, String name, String tel) {
 		tf_memNum.setText(Integer.toString(num));
 		tf_memName.setText(name);

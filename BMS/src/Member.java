@@ -54,7 +54,7 @@ public class Member {
 		return email;
 	}
 
-	public void setEmail(String addr) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
