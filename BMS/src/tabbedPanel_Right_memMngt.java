@@ -182,7 +182,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		button_Save.setBounds(121, 509, 97, 23);
 		mem_Info.add(button_Save);
 
-		button_Delete = new JButton("저장");
+		button_Delete = new JButton("삭제");
 		button_Delete.setBounds(230, 509, 97, 23);
 		mem_Info.add(button_Delete);
 		///////////////////////////////////////////////////////////////////// Save
