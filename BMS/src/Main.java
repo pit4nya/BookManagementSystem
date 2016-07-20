@@ -36,7 +36,7 @@ public class Main extends JFrame {
 		super(title);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1700, 1000);
-		///////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
