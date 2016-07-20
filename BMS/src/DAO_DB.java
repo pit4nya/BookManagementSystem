@@ -1,4 +1,3 @@
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -131,8 +130,8 @@ public class DAO_DB {
 	public static void printStudent(Vector<Book> List) {
 		for (int i = 0; i < List.size(); i++) {
 			Book tmp = List.get(i);
-			System.out.println("책 번호: " + tmp.getNum() + "\n" + "이름: " + tmp.getName() + "\n" + "저자: " + tmp.getAuthor() + " \n" + "출판사: " + tmp.getPub());
-			System.out.println("/////////////");
+//			System.out.println("책 번호: " + tmp.getNum() + "\n" + "이름: " + tmp.getName() + "\n" + "저자: " + tmp.getAuthor() + " \n" + "출판사: " + tmp.getPub());
+//			System.out.println("/////////////");
 		}
 	}
 
@@ -159,7 +158,6 @@ public class DAO_DB {
 				tmp.setName(rs.getString("name"));
 				temp_str = rs.getString("name");
 				dataVec.add(temp_str);
-//				System.out.println(temp_str);
 				tmp.setAuthor(rs.getString("author"));
 				temp_str = rs.getString("author");
 				dataVec.add(temp_str);
