@@ -56,7 +56,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 		title_Book.add("출판사");
 
 		DAO_DB dao_Book = new DAO_DB();
-		data_Book = dao_Book.book_selectAll(); // data Vector에 DB에 있는 책 목록 다 불러옴
+		data_Book = dao_Book.book_selectAll();
 		model_Book.setDataVector(data_Book, title_Book);
 
 		scrollPane_Book.setViewportView(book_table);
@@ -76,7 +76,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 			}
 		});
 		//////////////////////////////////////////////////////////////////////
-
+		//////////////////////////////////////////////////////////////////////
 		scrollPane_Mem = new JScrollPane();
 		tabbedPane.addTab("회원현황", null, scrollPane_Mem, null);
 
@@ -110,7 +110,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 					inner_Member = (Vector) data_Member.elementAt(member_table.getSelectedRow());
 					tbprb.setMemTextField((int) inner_Member.elementAt(0), (String) inner_Member.elementAt(1),
 							(String) inner_Member.elementAt(2));
-				} // 클릭
+				}
 			}
 		});
 	}

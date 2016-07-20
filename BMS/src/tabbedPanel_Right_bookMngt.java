@@ -51,8 +51,6 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 	}
 
 	public void init(String title) {
-		//////////////////////////////////// 이거 나중에 tabbedPane 하나 따로만들어서 다 불러와서
-		//////////////////////////////////// 붙이는게 나을듯
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		book_Mngt = new JPanel();
 		tabbedPane.addTab(title, null, book_Mngt, null);

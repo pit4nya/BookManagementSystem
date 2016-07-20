@@ -71,9 +71,6 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public tabbedPanel_Right_memMngt() {
 		mem_Mngt = new JPanel();
 		mem_Mngt.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));

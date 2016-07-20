@@ -130,10 +130,6 @@ public class DAO_DB {
 	public static void printStudent(Vector<Book> List) {
 		for (int i = 0; i < List.size(); i++) {
 			Book tmp = List.get(i);
-			// System.out.println("책 번호: " + tmp.getNum() + "\n" + "이름: " +
-			// tmp.getName() + "\n" + "저자: " + tmp.getAuthor() + " \n" + "출판사: "
-			// + tmp.getPub());
-			// System.out.println("/////////////");
 		}
 	}
 
