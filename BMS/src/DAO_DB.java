@@ -196,7 +196,6 @@ public class DAO_DB {
 				tmp.setName(rs.getString("name"));
 				temp_str = rs.getString("name");
 				dataVec.add(temp_str);
-				// System.out.println(temp_str);
 				tmp.setAuthor(rs.getString("tel"));
 				temp_str = rs.getString("tel");
 				dataVec.add(temp_str);
