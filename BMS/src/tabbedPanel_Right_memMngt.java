@@ -115,7 +115,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 
 		tf_memNum = new JTextField();
 		tf_memNum.setColumns(10);
-//		tf_memNum.setEditable(false);
+		// tf_memNum.setEditable(false);
 		tf_memNum.setBounds(346, 24, 108, 21);
 		mem_Info.add(tf_memNum);
 
@@ -221,9 +221,9 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 				data_Member = db_Tmp.mem_selectAll();
 				tbpl.setTable(data_Member, title_Member);
 			}
-			
+
 		});
-		
+
 		button_Search = new JButton("°Ë»ö");
 		button_Search.setBounds(339, 509, 97, 23);
 		mem_Info.add(button_Search);

@@ -48,6 +48,7 @@ public class Member {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
+
 	public String getEmail() {
 		return email;
 	}

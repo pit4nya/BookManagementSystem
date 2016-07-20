@@ -36,7 +36,7 @@ public class DAO_DB {
 			pstmt.setString(3, member.getTel());
 			pstmt.setString(4, member.getAddr());
 			pstmt.setString(5, member.getEmail());
-			
+
 			int n = pstmt.executeUpdate();
 			System.out.println(n + "개의 행이 수정되었습니다.");
 
@@ -50,7 +50,7 @@ public class DAO_DB {
 
 	public void modify(Book book) {
 		try {
-			
+
 			pro = new Properties();
 			pro.load(new FileInputStream("src/properties/book.properties"));
 			System.out.println("수정할 도서의 번호를 입력하세요");
@@ -130,19 +130,20 @@ public class DAO_DB {
 	public static void printStudent(Vector<Book> List) {
 		for (int i = 0; i < List.size(); i++) {
 			Book tmp = List.get(i);
-//			System.out.println("책 번호: " + tmp.getNum() + "\n" + "이름: " + tmp.getName() + "\n" + "저자: " + tmp.getAuthor() + " \n" + "출판사: " + tmp.getPub());
-//			System.out.println("/////////////");
+			// System.out.println("책 번호: " + tmp.getNum() + "\n" + "이름: " +
+			// tmp.getName() + "\n" + "저자: " + tmp.getAuthor() + " \n" + "출판사: "
+			// + tmp.getPub());
+			// System.out.println("/////////////");
 		}
 	}
 
 	public Vector book_selectAll() {
 		Vector bookList = new Vector();
 		Vector retVec = new Vector();
-		
 
 		int temp_int;
 		String temp_str;
-		
+
 		try {
 			pro = new Properties();
 			pro.load(new FileInputStream("src/properties/book.properties"));
@@ -176,12 +177,13 @@ public class DAO_DB {
 		this.discardConnection();
 		return retVec;
 	}
+
 	public Vector mem_selectAll() {
 		Vector memList = new Vector();
 		Vector retVec = new Vector();
 		int temp_int;
 		String temp_str;
-		
+
 		try {
 			pro = new Properties();
 			pro.load(new FileInputStream("src/properties/member.properties"));
@@ -197,7 +199,7 @@ public class DAO_DB {
 				tmp.setName(rs.getString("name"));
 				temp_str = rs.getString("name");
 				dataVec.add(temp_str);
-//				System.out.println(temp_str);
+				// System.out.println(temp_str);
 				tmp.setAuthor(rs.getString("tel"));
 				temp_str = rs.getString("tel");
 				dataVec.add(temp_str);

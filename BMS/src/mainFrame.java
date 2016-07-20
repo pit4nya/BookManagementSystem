@@ -20,7 +20,7 @@ public class mainFrame extends JFrame {
 
 	private JPanel contentPane;
 	Toolkit tk = Toolkit.getDefaultToolkit();
-	
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -51,7 +51,7 @@ public class mainFrame extends JFrame {
 		exit_Menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
-				}
+			}
 		});
 		//////////////////////////////////////////////////////////////////////// menuBar
 		contentPane = new JPanel();

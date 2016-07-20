@@ -114,8 +114,8 @@ public class tabbedPanel_Left extends JTabbedPane {
 			}
 		});
 	}
-	
-	public void setTable(Vector data_Member, Vector title_Member){
+
+	public void setTable(Vector data_Member, Vector title_Member) {
 		DefaultTableModel model_Temp = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
 				if (column >= 0) {
