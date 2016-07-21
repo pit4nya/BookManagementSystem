@@ -125,7 +125,6 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 				if (e.getSource() == newButton){
 					DAO_DB dao = new DAO_DB();
 					use_numCalc = dao.mem_selectAll();
-					System.out.println(use_numCalc.size());
 					for(int i=0; i<use_numCalc.size(); i++){
 						if((i+1) != (int)((Vector)use_numCalc.elementAt(i)).elementAt(0)){
 							num = i+1;
@@ -133,7 +132,6 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 						}
 						num = i+1;
 					}
-					System.err.println(num);
 					if(num == use_numCalc.size()){
 						num = use_numCalc.size() + 1;
 					}
