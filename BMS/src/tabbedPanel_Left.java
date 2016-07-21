@@ -70,6 +70,8 @@ public class tabbedPanel_Left extends JTabbedPane {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getButton() == 1) {
+//					DAO_DB dao_Book = new DAO_DB();
+//					data_Book = dao_Book.book_selectAll();
 					Vector inner_Book = new Vector();
 					inner_Book = (Vector) data_Book.elementAt(book_table.getSelectedRow());
 					tbprb.setBookTextField((int) inner_Book.elementAt(0), (String) inner_Book.elementAt(1),
@@ -107,6 +109,8 @@ public class tabbedPanel_Left extends JTabbedPane {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getButton() == 1) {
+					DAO_DB dao_Member = new DAO_DB();
+					data_Member = dao_Member.mem_selectAll();
 					Vector inner_Member = new Vector();
 					inner_Member = (Vector) data_Member.elementAt(member_table.getSelectedRow());
 					tbprb.setMemTextField((int) inner_Member.elementAt(0), (String) inner_Member.elementAt(1),
