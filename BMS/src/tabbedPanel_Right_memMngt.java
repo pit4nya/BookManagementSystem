@@ -234,6 +234,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 				DAO_DB db_Refresh_Insert = new DAO_DB();
 				data_Member = db_Refresh_Insert.mem_selectAll();
 				tbpl.setTable(data_Member, title_Member);
+				setClear();
 			}
 
 		});
@@ -260,6 +261,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 				DAO_DB db_Refresh_Delete = new DAO_DB();
 				data_Member = db_Refresh_Delete.mem_selectAll();
 				tbpl.setTable(data_Member, title_Member);
+				setClear();
 			}
 
 		});
@@ -290,6 +292,13 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 
 	}
 
+	public void setClear(){
+		tf_memNum.setText("");
+		tf_memName.setText("");
+		tf_memTel.setText("");
+		tf_Addr.setText("");
+		tf_Email.setText("");
+	}
 	public JPanel getPanel() {
 		return mem_Mngt;
 	}
