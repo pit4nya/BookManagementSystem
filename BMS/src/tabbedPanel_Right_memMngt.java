@@ -119,20 +119,20 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		//////////////////////////////////////////////////////////////////////////////////////////////
 		newButton = new JButton("신규");
 		newButton.setBounds(466, 24, 70, 23);
-		//new Button Listener
+		// new Button Listener
 		newButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == newButton){
+				if (e.getSource() == newButton) {
 					DAO_DB dao = new DAO_DB();
 					use_numCalc = dao.mem_selectAll();
-					for(int i=0; i<use_numCalc.size(); i++){
-						if((i+1) != (int)((Vector)use_numCalc.elementAt(i)).elementAt(0)){
-							num = i+1;
+					for (int i = 0; i < use_numCalc.size(); i++) {
+						if ((i + 1) != (int) ((Vector) use_numCalc.elementAt(i)).elementAt(0)) {
+							num = i + 1;
 							break;
 						}
-						num = i+1;
+						num = i + 1;
 					}
-					if(num == use_numCalc.size()){
+					if (num == use_numCalc.size()) {
 						num = use_numCalc.size() + 1;
 					}
 					tf_memNum.setText(num + "");
@@ -202,10 +202,6 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		button_Save = new JButton("저장");
 		button_Save.setBounds(121, 509, 97, 23);
 		mem_Info.add(button_Save);
-
-		button_Delete = new JButton("삭제");
-		button_Delete.setBounds(230, 509, 97, 23);
-		mem_Info.add(button_Delete);
 		///////////////////////////////////////////////////////////////////// Save
 		///////////////////////////////////////////////////////////////////// Button
 		///////////////////////////////////////////////////////////////////// Listener
@@ -235,16 +231,63 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 					} catch (NumberFormatException e1) {
 						System.out.println("입력 형식이 잘못되었습니다.");
 					}
-				DAO_DB db_Tmp = new DAO_DB();
-				data_Member = db_Tmp.mem_selectAll();
+				DAO_DB db_Refresh_Insert = new DAO_DB();
+				data_Member = db_Refresh_Insert.mem_selectAll();
+				tbpl.setTable(data_Member, title_Member);
+			}
+
+		});
+		/////////////////////////////////////////////////////////////////////////////////
+
+		button_Delete = new JButton("삭제");
+		button_Delete.setBounds(230, 509, 97, 23);
+		mem_Info.add(button_Delete);
+		///////////////////////////////////////////////////////////////////// Delete
+		///////////////////////////////////////////////////////////////////// Button
+		///////////////////////////////////////////////////////////////////// Listener
+		///////////////////////////////////////////////////////////////////// 정보
+		button_Delete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == button_Delete)
+					try {
+						DAO_DB db_Access = new DAO_DB();
+						member.setNum(Integer.parseInt(tf_memNum.getText()));
+						member.setName(tf_memName.getText());
+						db_Access.delete(member);
+					} catch (NumberFormatException e1) {
+						System.out.println("입력 형식이 잘못되었습니다.");
+					}
+				DAO_DB db_Refresh_Delete = new DAO_DB();
+				data_Member = db_Refresh_Delete.mem_selectAll();
+				tbpl.setTable(data_Member, title_Member);
+			}
+
+		});
+		/////////////////////////////////////////////////////////////////////
+		button_Search = new JButton("검색");
+		button_Search.setBounds(339, 509, 97, 23);
+		mem_Info.add(button_Search);
+		///////////////////////////////////////////////////////////////////// Search
+		///////////////////////////////////////////////////////////////////// Button
+		///////////////////////////////////////////////////////////////////// Listener
+		///////////////////////////////////////////////////////////////////// 정보
+		button_Search.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == button_Search)
+					try {
+						DAO_DB db_Access = new DAO_DB();
+						member.setNum(Integer.parseInt(tf_memNum.getText()));
+						// db_Access.delete(member);
+					} catch (NumberFormatException e1) {
+						System.out.println("입력 형식이 잘못되었습니다.");
+					}
+				DAO_DB db_Refresh_Delete = new DAO_DB();
+				data_Member = db_Refresh_Delete.mem_selectAll();
 				tbpl.setTable(data_Member, title_Member);
 			}
 
 		});
 
-		button_Search = new JButton("검색");
-		button_Search.setBounds(339, 509, 97, 23);
-		mem_Info.add(button_Search);
 	}
 
 	public JPanel getPanel() {

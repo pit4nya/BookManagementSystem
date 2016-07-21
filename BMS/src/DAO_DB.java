@@ -38,19 +38,21 @@ public class DAO_DB {
 			pstmt.setString(5, member.getEmail());
 
 			int n = pstmt.executeUpdate();
-			System.out.println(n + "개의 행이 수정되었습니다.");
+			if (n == 1)
+				System.out.println("입력 성공.");
+			else
+				System.out.println("입력 실패.");
 
 			con.commit();
 			discardConnection();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("회원번호 이름 전화번호는 필수 입력!");
 		}
 	}
 
 	public void modify(Book book) {
 		try {
-
 			pro = new Properties();
 			pro.load(new FileInputStream("src/properties/book.properties"));
 			System.out.println("수정할 도서의 번호를 입력하세요");
@@ -68,15 +70,17 @@ public class DAO_DB {
 			str = in.nextLine();
 			book.setPub(str);
 
-			pstmt = con.prepareStatement(pro.getProperty("book_update"));
+			pstmt = con.prepareStatement(pro.getProperty("member_update"));
 			pstmt.setString(1, book.getName());
 			pstmt.setString(2, book.getAuthor());
 			pstmt.setString(3, book.getPub());
 			pstmt.setInt(4, book.getNum());
 
 			int n = pstmt.executeUpdate();
-			System.out.println(n + "개의 행이 수정되었습니다.");
-
+			if (n == 1)
+				System.out.println("수정 성공.");
+			else
+				System.out.println("수정 실패.");
 			con.commit();
 			discardConnection();
 
@@ -89,18 +93,19 @@ public class DAO_DB {
 		}
 	}
 
-	public void delete(Book book) {
+	public void delete(Member member) {
 		try {
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/book.properties"));
-			System.out.println("삭제할 학생의 학번을 입력하세요");
-			int num = in.nextInt();
-			in.nextLine();
-			pstmt = con.prepareStatement(pro.getProperty("book_delete"));
-			pstmt.setInt(1, num);
+			pro.load(new FileInputStream("src/properties/member.properties"));
+			pstmt = con.prepareStatement(pro.getProperty("member_delete"));
+			pstmt.setInt(1, member.getNum());
+			pstmt.setString(2, member.getName());
 
 			int n = pstmt.executeUpdate();
-			System.out.println(n + "개의 행이 삭제되었습니다.");
+			if (n == 1)
+				System.out.println("삭제 성공.");
+			else
+				System.out.println("삭제 실패.");
 			con.commit();
 			discardConnection();
 
@@ -130,7 +135,6 @@ public class DAO_DB {
 	public static void printStudent(Vector<Book> List) {
 		for (int i = 0; i < List.size(); i++) {
 			Book tmp = List.get(i);
-
 		}
 	}
 

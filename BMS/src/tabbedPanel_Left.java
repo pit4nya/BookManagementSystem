@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -15,6 +17,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 	static JTable member_table;
 	private JTabbedPane tabbedPane;
 	JScrollPane scrollPane_Mem;
+	JScrollPane scrollPane_Book;
 	Vector data_Book = new Vector();
 	Vector data_Member = new Vector();
 	Vector title_Book = new Vector();
@@ -33,8 +36,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 		tabbedPanel_Right_bookMngt tbprb = new tabbedPanel_Right_bookMngt();
 		////////////////////////////////////////////////////////////////////
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-
-		JScrollPane scrollPane_Book = new JScrollPane();
+		scrollPane_Book = new JScrollPane();
 		tabbedPane.addTab("도서현황", null, scrollPane_Book, null);
 		////////////////////////////////////////////////////////////////////////
 		DefaultTableModel model_Book = new DefaultTableModel() {
@@ -126,6 +128,14 @@ public class tabbedPanel_Left extends JTabbedPane {
 		};
 		member_table.setModel(model_Temp);
 		model_Temp.setDataVector(data_Member, title_Member);
+	}
+
+	public void FocusOnBook() {
+		scrollPane_Book.requestFocus();
+	}
+
+	public void FocusOnMember() {
+		scrollPane_Mem.requestFocus();
 	}
 
 	public JTabbedPane getPanel() {

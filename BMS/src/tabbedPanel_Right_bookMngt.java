@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.TextField;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -209,7 +210,9 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 		/////////////////////////////////// 档辑包府 场
 
 		tabbedPanel_Right_memMngt tabpR_mM = new tabbedPanel_Right_memMngt();
+		tabbedPanel_Left tabpL = new tabbedPanel_Left();
 		tabbedPane.add(tabpR_mM.getPanel(), "雀盔包府");
+
 	}
 
 	public void setBookTextField(int num, String name, String author, String pub) {
