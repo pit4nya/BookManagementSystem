@@ -22,7 +22,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 	Vector data_Member = new Vector();
 	Vector title_Book = new Vector();
 	Vector title_Member = new Vector();
-	readExcel readEx = new readExcel();
+	
 
 	public tabbedPanel_Left() {
 
@@ -33,6 +33,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 	}
 
 	public void init() {
+		readExcel readEx = new readExcel();
 		////////////////////////////////////////////////////////////////////
 		tabbedPanel_Right_bookMngt tbprb = new tabbedPanel_Right_bookMngt();
 		////////////////////////////////////////////////////////////////////
@@ -71,10 +72,14 @@ public class tabbedPanel_Left extends JTabbedPane {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getButton() == 1) {
+					DAO_DB dao_Book = new DAO_DB();
+					data_Book = dao_Book.mem_selectAll();
+
 					Vector inner_Book = new Vector();
 					inner_Book = (Vector) data_Book.elementAt(book_table.getSelectedRow());
-					tbprb.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()), (String) inner_Book.elementAt(1),
-							(String) inner_Book.elementAt(2), (String) inner_Book.elementAt(3));
+					tbprb.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
+							(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
+							(String) inner_Book.elementAt(3));
 				} // Å¬¸¯
 			}
 		});
@@ -111,6 +116,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 				if (e.getButton() == 1) {
 					DAO_DB dao_Member = new DAO_DB();
 					data_Member = dao_Member.mem_selectAll();
+
 					Vector inner_Member = new Vector();
 					inner_Member = (Vector) data_Member.elementAt(member_table.getSelectedRow());
 					tbprb.setMemTextField((int) inner_Member.elementAt(0), (String) inner_Member.elementAt(1),

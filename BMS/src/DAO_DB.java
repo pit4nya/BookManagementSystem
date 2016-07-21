@@ -50,6 +50,31 @@ public class DAO_DB {
 			System.out.println("회원번호 이름 전화번호는 필수 입력!");
 		}
 	}
+	public void insert_Book(Book book) throws FileNotFoundException, IOException {
+		try {
+			pro = new Properties();
+			pro.load(new FileInputStream("src/properties/book.properties"));
+
+			pstmt = con.prepareStatement(pro.getProperty("book_insert"));
+			pstmt.setInt(1, book.getNum());
+			pstmt.setString(2, book.getName());
+			pstmt.setString(3, book.getAuthor());
+			pstmt.setString(4, book.getPub());
+
+			int n = pstmt.executeUpdate();
+			if (n == 1)
+				System.out.println("입력 성공.");
+			else
+				System.out.println("입력 실패.");
+
+			con.commit();
+			discardConnection();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.err.println("SQLException");
+		}
+	}
 
 	public void modify(Book book) {
 		try {
@@ -106,6 +131,24 @@ public class DAO_DB {
 				System.out.println("삭제 성공.");
 			else
 				System.out.println("삭제 실패.");
+			con.commit();
+			discardConnection();
+
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void deleteAll_Book() {
+		try {
+			pro = new Properties();
+			pro.load(new FileInputStream("src/properties/book.properties"));
+			pstmt = con.prepareStatement(pro.getProperty("book_deleteAll"));
+
+			int n = pstmt.executeUpdate();
+			if (n == 1)
+				System.out.println("BOOK TABLE 모두 삭제 성공.");
+			else
+				System.out.println("BOOK TABLE 모두 삭제 실패.");
 			con.commit();
 			discardConnection();
 

@@ -13,6 +13,7 @@ public class readExcel {
 	FileInputStream fis;
 	XSSFSheet sheet;
 	XSSFWorkbook workbook;
+	Book book = new Book();
 	public XSSFSheet getCell(){
 		return sheet;
 	}
@@ -20,6 +21,8 @@ public class readExcel {
 		return retVec;
 	}
 	public readExcel(){
+		DAO_DB dao_deleteAll = new DAO_DB();
+		dao_deleteAll.deleteAll_Book();
 		fis = null;
 		try {
 			fis = new FileInputStream("XlsxRead.xlsx");
@@ -74,9 +77,22 @@ public class readExcel {
 						}
 					}
 					dataVec.add(value);
+					
+				}
+				book.setNum(Integer.parseInt(dataVec.elementAt(0).toString()));
+				book.setName(dataVec.elementAt(1).toString());
+				book.setAuthor(dataVec.elementAt(2).toString());
+				book.setPub(dataVec.elementAt(3).toString());
+				DAO_DB dao = new DAO_DB();
+				try {
+					System.out.println(book.getNum());
+					dao.insert_Book(book);
+				} catch (FileNotFoundException e) {
+					System.err.println("파일을 찾을 수 없습니다.");
+				} catch (IOException e) {
+					System.err.println("IOException!");
 				}
 				retVec.add(dataVec);
-				System.out.println();
 			}
 		}
 	}

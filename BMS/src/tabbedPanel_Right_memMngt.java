@@ -223,10 +223,8 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 						member.setEmail(tf_Email.getText());
 						db_Access.insert(member);
 					} catch (FileNotFoundException e1) {
-						e1.printStackTrace();
-						System.out.println("FileNotFoundException");
+						System.out.println("파일을 찾을 수 없습니다.");
 					} catch (IOException e1) {
-						e1.printStackTrace();
 						System.out.println("IOException");
 					} catch (NumberFormatException e1) {
 						System.out.println("입력 형식이 잘못되었습니다.");
@@ -275,30 +273,23 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		///////////////////////////////////////////////////////////////////// 정보
 		button_Search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == button_Search)
-					try {
-						DAO_DB db_Access = new DAO_DB();
-						member.setNum(Integer.parseInt(tf_memNum.getText()));
-						// db_Access.delete(member);
-					} catch (NumberFormatException e1) {
-						System.out.println("입력 형식이 잘못되었습니다.");
-					}
-				DAO_DB db_Refresh_Delete = new DAO_DB();
-				data_Member = db_Refresh_Delete.mem_selectAll();
-				tbpl.setTable(data_Member, title_Member);
+				if (e.getSource() == button_Search) {
+					
+				}
 			}
 
 		});
 
 	}
 
-	public void setClear(){
+	public void setClear() {
 		tf_memNum.setText("");
 		tf_memName.setText("");
 		tf_memTel.setText("");
 		tf_Addr.setText("");
 		tf_Email.setText("");
 	}
+
 	public JPanel getPanel() {
 		return mem_Mngt;
 	}

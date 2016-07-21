@@ -25,7 +25,7 @@ public class mainFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					mainFrame frame = new mainFrame("Version 1.0");
+					mainFrame frame = new mainFrame("BookManagementSystem Version 1.0");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
