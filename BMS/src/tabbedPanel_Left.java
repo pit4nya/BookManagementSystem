@@ -22,6 +22,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 	Vector data_Member = new Vector();
 	Vector title_Book = new Vector();
 	Vector title_Member = new Vector();
+	readExcel readEx = new readExcel();
 
 	public tabbedPanel_Left() {
 
@@ -57,8 +58,8 @@ public class tabbedPanel_Left extends JTabbedPane {
 		title_Book.add("저자");
 		title_Book.add("출판사");
 
-		DAO_DB dao_Book = new DAO_DB();
-		data_Book = dao_Book.book_selectAll();
+		data_Book = readEx.getVector();
+
 		model_Book.setDataVector(data_Book, title_Book);
 
 		scrollPane_Book.setViewportView(book_table);
@@ -70,16 +71,15 @@ public class tabbedPanel_Left extends JTabbedPane {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getButton() == 1) {
-//					DAO_DB dao_Book = new DAO_DB();
-//					data_Book = dao_Book.book_selectAll();
 					Vector inner_Book = new Vector();
 					inner_Book = (Vector) data_Book.elementAt(book_table.getSelectedRow());
-					tbprb.setBookTextField((int) inner_Book.elementAt(0), (String) inner_Book.elementAt(1),
+					tbprb.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()), (String) inner_Book.elementAt(1),
 							(String) inner_Book.elementAt(2), (String) inner_Book.elementAt(3));
 				} // 클릭
 			}
 		});
-		//////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////// 여기까지
+		////////////////////////////////////////////////////////////////////// book_table
 		scrollPane_Mem = new JScrollPane();
 		tabbedPane.addTab("회원현황", null, scrollPane_Mem, null);
 
