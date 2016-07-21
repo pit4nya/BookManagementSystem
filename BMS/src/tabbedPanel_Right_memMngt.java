@@ -52,11 +52,12 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 	JButton button_Delete;
 	JButton button_Save;
 	JButton button_Search;
-
 	Member member = new Member();
 	tabbedPanel_Left tbpl = new tabbedPanel_Left();
 	Vector data_Member = new Vector();
 	Vector title_Member = new Vector();
+	Vector use_numCalc = new Vector();
+	int num;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -115,11 +116,33 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		// tf_memNum.setEditable(false);
 		tf_memNum.setBounds(346, 24, 108, 21);
 		mem_Info.add(tf_memNum);
-
+		//////////////////////////////////////////////////////////////////////////////////////////////
 		newButton = new JButton("신규");
 		newButton.setBounds(466, 24, 70, 23);
+		//new Button Listener
+		newButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == newButton){
+					DAO_DB dao = new DAO_DB();
+					use_numCalc = dao.mem_selectAll();
+					System.out.println(use_numCalc.size());
+					for(int i=0; i<use_numCalc.size(); i++){
+						if((i+1) != (int)((Vector)use_numCalc.elementAt(i)).elementAt(0)){
+							num = i+1;
+							break;
+						}
+						num = i+1;
+					}
+					System.err.println(num);
+					if(num == use_numCalc.size()){
+						num = use_numCalc.size() + 1;
+					}
+					tf_memNum.setText(num + "");
+				}
+			}
+		});
 		mem_Info.add(newButton);
-
+		//////////////////////////////////////////////////////////////////////////////////////////////
 		tp_memName = new JTextPane();
 		tp_memName.setText("회  원  명");
 		tp_memName.setBounds(12, 55, 54, 21);
