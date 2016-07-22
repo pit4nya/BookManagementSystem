@@ -156,6 +156,8 @@ public class DAO_DB {
 
 			// Query문 실행
 			int n = pstmt.executeUpdate();
+
+			// Query문 성공 여부
 			if (n != 0)
 				System.out.println("삭제 성공.");
 			else
