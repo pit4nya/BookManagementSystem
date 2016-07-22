@@ -13,7 +13,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class tabbedPanel_Left extends JTabbedPane {
-	JTable book_table;
+	static JTable book_table;
 	static JTable member_table;
 	private JTabbedPane tabbedPane;
 	JScrollPane scrollPane_Mem;
@@ -37,55 +37,6 @@ public class tabbedPanel_Left extends JTabbedPane {
 		tabbedPanel_Right_bookMngt tbprb = new tabbedPanel_Right_bookMngt();
 		////////////////////////////////////////////////////////////////////
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		scrollPane_Book = new JScrollPane();
-		tabbedPane.addTab("도서현황", null, scrollPane_Book, null);
-
-		///////////////////////////////////////////////////// 테이블 수정 안되게 막는 코드
-		DefaultTableModel model_Book = new DefaultTableModel() {
-			public boolean isCellEditable(int row, int column) {
-				if (column >= 0) {
-					return false;
-				} else {
-					return true;
-				}
-			}
-		};
-		////////////////////////////////////////////// 여긴 도서현황
-		book_table = new JTable(model_Book);
-
-		Book book = new Book();
-		title_Book.add("도서번호");
-		title_Book.add("도서명");
-		title_Book.add("저자");
-		title_Book.add("출판사");
-
-		// readEx를 통해 Excel에 있는 파일에서 정보 다 받아옴
-		data_Book = readEx.getVector();
-
-		// JTable에 붙임
-		model_Book.setDataVector(data_Book, title_Book);
-		scrollPane_Book.setViewportView(book_table);
-
-		//////////////////////////////////////////////////////////////////// 마우스
-		//////////////////////////////////////////////////////////////////// 클릭
-		//////////////////////////////////////////////////////////////////// 이벤트
-		book_table.addMouseListener(new MyMouseListener_Book() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (e.getButton() == 1) {
-					DAO_DB dao_Book = new DAO_DB();
-					data_Book = dao_Book.mem_selectAll();
-
-					Vector inner_Book = new Vector();
-					inner_Book = (Vector) data_Book.elementAt(book_table.getSelectedRow());
-					tbprb.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
-							(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
-							(String) inner_Book.elementAt(3));
-				} // 클릭
-			}
-		});
-		////////////////////////////////////////////////////////////////////// 여기까지
-		////////////////////////////////////////////////////////////////////// book_table
 
 		// 여기서 부터는 member_table
 		scrollPane_Mem = new JScrollPane();
@@ -124,11 +75,61 @@ public class tabbedPanel_Left extends JTabbedPane {
 
 					Vector inner_Member = new Vector();
 					inner_Member = (Vector) data_Member.elementAt(member_table.getSelectedRow());
-					tbprb.setMemTextField((int) inner_Member.elementAt(0), (String) inner_Member.elementAt(1),
-							(String) inner_Member.elementAt(2));
+					tbprb.setMemTextField(Integer.parseInt(inner_Member.elementAt(0).toString()),inner_Member.elementAt(1).toString(),
+						 inner_Member.elementAt(2).toString());
 				}
 			}
 		});
+
+		scrollPane_Book = new JScrollPane();
+		tabbedPane.addTab("도서현황", null, scrollPane_Book, null);
+
+		///////////////////////////////////////////////////// 테이블 수정 안되게 막는 코드
+		DefaultTableModel model_Book = new DefaultTableModel() {
+			public boolean isCellEditable(int row, int column) {
+				if (column >= 0) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+		};
+		////////////////////////////////////////////// 여긴 도서현황
+		book_table = new JTable(model_Book);
+
+		Book book = new Book();
+		title_Book.add("도서번호");
+		title_Book.add("도서명");
+		title_Book.add("저자");
+		title_Book.add("출판사");
+
+		// readEx를 통해 Excel에 있는 파일에서 정보 다 받아옴
+		data_Book = readEx.getVector();
+
+		// JTable에 붙임
+		model_Book.setDataVector(data_Book, title_Book);
+		scrollPane_Book.setViewportView(book_table);
+
+		//////////////////////////////////////////////////////////////////// 마우스
+		//////////////////////////////////////////////////////////////////// 클릭
+		//////////////////////////////////////////////////////////////////// 이벤트
+		book_table.addMouseListener(new MyMouseListener_Book() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (e.getButton() == 1) {
+					DAO_DB dao_Book = new DAO_DB();
+					data_Book = dao_Book.book_selectAll();
+					Vector inner_Book = new Vector();
+					inner_Book = (Vector) data_Book.elementAt(book_table.getSelectedRow());
+					System.out.println(inner_Book.size());
+					tbprb.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
+							inner_Book.elementAt(1).toString(), inner_Book.elementAt(2).toString(),
+							inner_Book.elementAt(3).toString());
+				} // 클릭
+			}
+		});
+		////////////////////////////////////////////////////////////////////// 여기까지
+		////////////////////////////////////////////////////////////////////// book_table
 	}
 
 	// 이건 JTable -> 즉 회원형황을 수정 했을 때 바로 새로고침 하기 위해 만든 함수
