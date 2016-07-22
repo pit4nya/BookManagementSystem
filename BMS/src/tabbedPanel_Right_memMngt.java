@@ -1,11 +1,7 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Vector;
@@ -14,16 +10,13 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -31,33 +24,33 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 
 	private JPanel mem_Mngt;
 	private JPanel inner_bookMngt;
-	JTextPane tp_memInfo;
+	private JLabel tp_memInfo;
 	private JPanel mem_Info;
-	private JTextPane tp_Email;
-	private JTextField tf_Email;
-	private JTextPane tp_Addr;
-	private JTextField tf_Addr;
-	private JTextPane tp_Memo;
-	private JScrollPane sp_Memo;
-	private JTextPane tp_memGrade;
+	private JLabel tp_memGrade;
 	private JComboBox cb_memGrade;
-	private JTextPane tp_memNum;
+	private JLabel tp_memNum;
 	private JTextField tf_memNum;
-	private JButton newButton;
-	private JTextPane tp_memName;
+	private JLabel tp_memName;
 	private JTextField tf_memName;
 	private JTextField tf_memTel;
-	private JTextPane tp_memTel;
+	private JLabel tp_memTel;
+	private JLabel tp_Addr;
+	private JTextField tf_Addr;
+	private JLabel tp_Email;
+	private JTextField tf_Email;
+	private JLabel tp_Memo;
+	private JScrollPane sp_Memo;
 	private JTextArea ta_Memo;
-	JButton button_Delete;
-	JButton button_Save;
-	JButton button_Search;
+
+	private JButton newButton;
+	private JButton button_Delete;
+	private JButton button_Save;
+	private JButton button_Search;
 	Member member = new Member();
 	tabbedPanel_Left tbpl = new tabbedPanel_Left();
 	Vector data_Member = new Vector();
 	Vector title_Member = new Vector();
 	Vector use_numCalc = new Vector();
-	int num;
 
 	public tabbedPanel_Right_memMngt() {
 		mem_Mngt = new JPanel();
@@ -67,11 +60,10 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		inner_bookMngt.setLayout(null);
 		mem_Mngt.add(inner_bookMngt, "cell 0 0,grow");
 
-		tp_memInfo = new JTextPane();
+		tp_memInfo = new JLabel();
 		tp_memInfo.setText("회원정보");
 		tp_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
 		tp_memInfo.setBounds(24, 10, 62, 23);
-		tp_memInfo.setEditable(false);
 		inner_bookMngt.add(tp_memInfo);
 
 		mem_Info = new JPanel();
@@ -81,10 +73,9 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		mem_Info.setBounds(12, 22, 548, 544);
 		inner_bookMngt.add(mem_Info);
 		///////////////////////////////////////////////////////////////////////////
-		tp_memGrade = new JTextPane();
+		tp_memGrade = new JLabel();
 		tp_memGrade.setText("회원등급");
 		tp_memGrade.setBounds(12, 24, 54, 21);
-		tp_memGrade.setEditable(false);
 		mem_Info.add(tp_memGrade);
 
 		cb_memGrade = new JComboBox();
@@ -93,15 +84,13 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		cb_memGrade.setEnabled(false);
 		mem_Info.add(cb_memGrade);
 
-		tp_memNum = new JTextPane();
+		tp_memNum = new JLabel();
 		tp_memNum.setText("회원번호");
 		tp_memNum.setBounds(280, 24, 54, 21);
-		tp_memNum.setEditable(false);
 		mem_Info.add(tp_memNum);
 
 		tf_memNum = new JTextField();
 		tf_memNum.setColumns(10);
-		// tf_memNum.setEditable(false);
 		tf_memNum.setBounds(346, 24, 108, 21);
 		mem_Info.add(tf_memNum);
 		//////////////////////////////////////////////////////////////////////////////////////////////
@@ -112,15 +101,18 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		// 신규 버튼 클릭하면 자동으로 현재 없는 회원 번호를 만들어 주는 함수
 		newButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int num = 0;
 				if (e.getSource() == newButton) {
 					DAO_DB dao = new DAO_DB();
 					use_numCalc = dao.mem_selectAll();
 					for (int i = 0; i < use_numCalc.size(); i++) {
-						if ((i + 1) != (int) ((Vector) use_numCalc.elementAt(i)).elementAt(0)) {
+						System.out.println((int) ((Vector) use_numCalc.elementAt(i)).elementAt(0));
+						if ((i + 1) != ((int) ((Vector) use_numCalc.elementAt(i)).elementAt(0))) {
 							num = i + 1;
-							break;
+							tf_memNum.setText(num + "");
+							return;
 						}
-						num = i + 1;
+						num++;
 					}
 					if (num == use_numCalc.size()) {
 						num = use_numCalc.size() + 1;
@@ -131,10 +123,9 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		});
 		mem_Info.add(newButton);
 		//////////////////////////////////////////////////////////////////////////////////////////////
-		tp_memName = new JTextPane();
+		tp_memName = new JLabel();
 		tp_memName.setText("회  원  명");
 		tp_memName.setBounds(12, 55, 54, 21);
-		tp_memName.setEditable(false);
 		mem_Info.add(tp_memName);
 
 		tf_memName = new JTextField();
@@ -142,10 +133,9 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		tf_memName.setBounds(79, 55, 149, 21);
 		mem_Info.add(tf_memName);
 
-		tp_memTel = new JTextPane();
+		tp_memTel = new JLabel();
 		tp_memTel.setText("전화번호");
 		tp_memTel.setBounds(240, 55, 54, 21);
-		tp_memTel.setEditable(false);
 		mem_Info.add(tp_memTel);
 
 		tf_memTel = new JTextField();
@@ -153,7 +143,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		tf_memTel.setBounds(306, 55, 230, 21);
 		mem_Info.add(tf_memTel);
 
-		tp_Email = new JTextPane();
+		tp_Email = new JLabel();
 		tp_Email.setText("이  메  일");
 		tp_Email.setBounds(12, 86, 54, 21);
 		mem_Info.add(tp_Email);
@@ -161,13 +151,12 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		tf_Email = new JTextField();
 		tf_Email.setColumns(10);
 		tf_Email.setBounds(79, 86, 187, 21);
-		tp_Email.setEditable(false);
+
 		mem_Info.add(tf_Email);
 
-		tp_Addr = new JTextPane();
+		tp_Addr = new JLabel();
 		tp_Addr.setText("주        소");
 		tp_Addr.setBounds(11, 117, 54, 21);
-		tp_Addr.setEditable(false);
 		mem_Info.add(tp_Addr);
 
 		tf_Addr = new JTextField();
@@ -175,10 +164,9 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		tf_Addr.setBounds(78, 117, 458, 21);
 		mem_Info.add(tf_Addr);
 
-		tp_Memo = new JTextPane();
+		tp_Memo = new JLabel();
 		tp_Memo.setText("메        모");
 		tp_Memo.setBounds(12, 214, 54, 21);
-		tp_Memo.setEditable(false);
 		mem_Info.add(tp_Memo);
 
 		sp_Memo = new JScrollPane();
