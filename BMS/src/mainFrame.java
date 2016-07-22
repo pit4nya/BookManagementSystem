@@ -35,11 +35,12 @@ public class mainFrame extends JFrame {
 	}
 
 	public mainFrame(String title) {
+		// 제일 처음 실행 되는 Frame의 GUI
 		super(title);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1700, 1000);
 		setLocation((tk.getScreenSize().width - getWidth()) / 2, (tk.getScreenSize().height - getHeight()) / 2);
-		//////////////////////////////////////////////////////////////////////
+
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
@@ -53,7 +54,7 @@ public class mainFrame extends JFrame {
 				System.exit(0);
 			}
 		});
-		//////////////////////////////////////////////////////////////////////// menuBar
+
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -73,11 +74,14 @@ public class mainFrame extends JFrame {
 		ad_Panel.setLayout(null);
 		contentPane.add(ad_Panel, "cell 1 0,grow");
 
+		// 여기서 부터는 만든 tab들을 생성해서 붙임
+		// 이건 왼쪽 도서현황 회원현황 패널 생성
 		tabbedPanel_Left tabpL = new tabbedPanel_Left("z");
+		// 이건 오른쪽에 정보열람 tab 생성
 		tabbedPanel_Right_bookMngt tabpR_bM = new tabbedPanel_Right_bookMngt("정보열람");
 
+		// 최상위 Panel에 생성 한거 가져다 붙임
 		contentPane.add(tabpL.getPanel(), "cell 0 1,grow");
-
 		contentPane.add(tabpR_bM.getPanel(), "cell 1 1,grow");
 	}
 }

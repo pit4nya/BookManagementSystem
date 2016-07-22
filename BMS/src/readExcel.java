@@ -14,13 +14,16 @@ public class readExcel {
 	XSSFSheet sheet;
 	XSSFWorkbook workbook;
 	Book book = new Book();
-	public XSSFSheet getCell(){
+
+	public XSSFSheet getCell() {
 		return sheet;
 	}
-	public Vector getVector(){
+
+	public Vector getVector() {
 		return retVec;
 	}
-	public readExcel(){
+
+	public readExcel() {
 		DAO_DB dao_deleteAll = new DAO_DB();
 		dao_deleteAll.deleteAll_Book();
 		fis = null;
@@ -48,7 +51,6 @@ public class readExcel {
 				int cells = row.getPhysicalNumberOfCells();
 				for (int columnindex = 0; columnindex <= cells; columnindex++) {
 					// 셀값을 읽는다
-					
 					XSSFCell cell = row.getCell(columnindex);
 					String value = "";
 					int intValue = 0;
@@ -62,7 +64,7 @@ public class readExcel {
 							value = cell.getCellFormula();
 							break;
 						case XSSFCell.CELL_TYPE_NUMERIC:
-							intValue = (int)cell.getNumericCellValue();
+							intValue = (int) cell.getNumericCellValue();
 							value = intValue + "";
 							break;
 						case XSSFCell.CELL_TYPE_STRING:
@@ -76,8 +78,9 @@ public class readExcel {
 							break;
 						}
 					}
+					System.out.println(value);
 					dataVec.add(value);
-					
+
 				}
 				book.setNum(Integer.parseInt(dataVec.elementAt(0).toString()));
 				book.setName(dataVec.elementAt(1).toString());
@@ -85,7 +88,7 @@ public class readExcel {
 				book.setPub(dataVec.elementAt(3).toString());
 				DAO_DB dao = new DAO_DB();
 				try {
-					System.out.println(book.getNum());
+					// System.out.println(book.getNum());
 					dao.insert_Book(book);
 				} catch (FileNotFoundException e) {
 					System.err.println("파일을 찾을 수 없습니다.");

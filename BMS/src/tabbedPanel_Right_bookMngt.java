@@ -13,6 +13,7 @@ import javax.swing.border.EtchedBorder;
 
 import net.miginfocom.swing.MigLayout;
 
+//오른쪽 탭들 중에 도서관리 탭을 생성하는 Class
 public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 	private JTabbedPane tabbedPane;
 	private static JTextField tf_memNum;
@@ -51,6 +52,7 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 
 	}
 
+	// 화면 초기화
 	public void init(String title) {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		book_Mngt = new JPanel();
@@ -82,6 +84,7 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 		mem_Info.setBounds(12, 24, 548, 249);
 		mem_Info.setLayout(null);
 		inner_bookMngt.add(mem_Info);
+
 		///////////////////////////////////// 회원번호
 		tp_memNum = new JTextPane();
 		tp_memNum.setEditable(false);
@@ -94,6 +97,7 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 		tf_memNum.setBounds(79, 32, 187, 21);
 		tf_memNum.setColumns(10);
 		mem_Info.add(tf_memNum);
+
 		/////////////////////////////////////// 회원이름
 		tp_memName = new JTextPane();
 		tp_memName.setEditable(false);
@@ -106,7 +110,8 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 		tf_memName.setColumns(10);
 		tf_memName.setBounds(334, 32, 187, 21);
 		mem_Info.add(tf_memName);
-		/////////////////////////////////////// 회원명
+
+		/////////////////////////////////////// 전화번호
 		tp_telNum = new JTextPane();
 		tp_telNum.setEditable(false);
 		tp_telNum.setText("전화번호");
@@ -118,7 +123,8 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 		tf_telNum.setColumns(10);
 		tf_telNum.setBounds(79, 63, 187, 21);
 		mem_Info.add(tf_telNum);
-		/////////////////////////////////////// 전화번호
+
+		//////////////////////////////////// 메모
 		tp_Memo_Up = new JTextPane();
 		tp_Memo_Up.setEditable(false);
 		tp_Memo_Up.setText("메      모");
@@ -132,7 +138,8 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 		ta_Memo_Up = new JTextArea();
 		ta_Memo_Up.setEditable(false);
 		scrollPane_Up.setViewportView(ta_Memo_Up);
-		//////////////////////////////////// 메모
+		////////////////////////////////////
+
 		book_Info = new JPanel();
 		book_Info.setBackground(Color.WHITE);
 		book_Info.setLayout(null);
@@ -164,6 +171,7 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 		tf_bookName.setColumns(10);
 		tf_bookName.setBounds(334, 24, 187, 21);
 		book_Info.add(tf_bookName);
+
 		///////////////////////////////////////////
 		tp_Author = new JTextPane();
 		tp_Author.setEditable(false);
@@ -176,6 +184,7 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 		tf_Author.setColumns(10);
 		tf_Author.setBounds(79, 55, 187, 21);
 		book_Info.add(tf_Author);
+
 		/////////////////////////////////////////
 		tp_Pub = new JTextPane();
 		tp_Pub.setEditable(false);
@@ -188,6 +197,7 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 		tf_Pub.setColumns(10);
 		tf_Pub.setBounds(334, 55, 187, 21);
 		book_Info.add(tf_Pub);
+
 		/////////////////////////////////////////////////////
 		tp_Memo_Down = new JTextPane();
 		tp_Memo_Down.setEditable(false);
@@ -215,6 +225,8 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 
 	}
 
+	// 밑에 두개의 set함수는 회원현황 도서현황에 있는 column 클릭 시 정보를
+	// textField에 추가하기 위해 만든 함수
 	public void setBookTextField(int num, String name, String author, String pub) {
 		tf_bookNum.setText(Integer.toString(num));
 		tf_bookName.setText(name);

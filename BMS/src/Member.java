@@ -1,3 +1,4 @@
+//Member Class
 public class Member {
 
 	int num;

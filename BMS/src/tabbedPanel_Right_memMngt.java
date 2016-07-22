@@ -59,19 +59,6 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 	Vector use_numCalc = new Vector();
 	int num;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					tabbedPanel_Right_memMngt frame = new tabbedPanel_Right_memMngt();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	public tabbedPanel_Right_memMngt() {
 		mem_Mngt = new JPanel();
 		mem_Mngt.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));
@@ -101,8 +88,9 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		mem_Info.add(tp_memGrade);
 
 		cb_memGrade = new JComboBox();
-		cb_memGrade.setModel(new DefaultComboBoxModel(new String[] { "일반", "VIP" }));
+		cb_memGrade.setModel(new DefaultComboBoxModel(new String[] { "추후 구현" }));
 		cb_memGrade.setBounds(79, 24, 187, 21);
+		cb_memGrade.setEnabled(false);
 		mem_Info.add(cb_memGrade);
 
 		tp_memNum = new JTextPane();
@@ -119,7 +107,9 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		//////////////////////////////////////////////////////////////////////////////////////////////
 		newButton = new JButton("신규");
 		newButton.setBounds(466, 24, 70, 23);
+
 		// new Button Listener
+		// 신규 버튼 클릭하면 자동으로 현재 없는 회원 번호를 만들어 주는 함수
 		newButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == newButton) {
@@ -202,15 +192,15 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		button_Save = new JButton("저장");
 		button_Save.setBounds(121, 509, 97, 23);
 		mem_Info.add(button_Save);
-		///////////////////////////////////////////////////////////////////// Save
-		///////////////////////////////////////////////////////////////////// Button
-		///////////////////////////////////////////////////////////////////// Listener
-		///////////////////////////////////////////////////////////////////// 정보
+
 		title_Member.add("회원번호");
 		title_Member.add("회원명");
 		title_Member.add("전화번호");
 		title_Member.add("주소");
 		title_Member.add("이메일");
+
+		///////////////////////////////////////////////////////////////////// SaveButtonListener
+		// 저장 버튼을 클릭 했을 시 Event
 		button_Save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == button_Save)
@@ -227,7 +217,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 					} catch (IOException e1) {
 						System.out.println("IOException");
 					} catch (NumberFormatException e1) {
-						System.out.println("입력 형식이 잘못되었습니다.");
+						System.out.println("회원번호 중복!");
 					}
 				DAO_DB db_Refresh_Insert = new DAO_DB();
 				data_Member = db_Refresh_Insert.mem_selectAll();
@@ -237,14 +227,12 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 
 		});
 		/////////////////////////////////////////////////////////////////////////////////
-
 		button_Delete = new JButton("삭제");
 		button_Delete.setBounds(230, 509, 97, 23);
 		mem_Info.add(button_Delete);
-		///////////////////////////////////////////////////////////////////// Delete
-		///////////////////////////////////////////////////////////////////// Button
-		///////////////////////////////////////////////////////////////////// Listener
-		///////////////////////////////////////////////////////////////////// 정보
+		
+		///////////////////////////////////////////////////////////////////// DeleteButtonListener
+		// 삭제 버튼을 클릭 했을 시 Event
 		button_Delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == button_Delete)
@@ -263,18 +251,17 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 			}
 
 		});
-		/////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////// 검색 버튼
 		button_Search = new JButton("검색");
 		button_Search.setBounds(339, 509, 97, 23);
 		mem_Info.add(button_Search);
-		///////////////////////////////////////////////////////////////////// Search
-		///////////////////////////////////////////////////////////////////// Button
-		///////////////////////////////////////////////////////////////////// Listener
-		///////////////////////////////////////////////////////////////////// 정보
+		
+		///////////////////////////////////////////////////////////////////// SearchButtonListener
+		// 검색 버튼을 클릭 했을 시 Event
 		button_Search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == button_Search) {
-					
+
 				}
 			}
 
@@ -282,6 +269,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 
 	}
 
+	// 저장 삭제 검색 버튼 클릭 후 Text들 Reset 시켜주기 위해 만든 함수
 	public void setClear() {
 		tf_memNum.setText("");
 		tf_memName.setText("");
