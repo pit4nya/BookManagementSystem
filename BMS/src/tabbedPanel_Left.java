@@ -13,7 +13,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class tabbedPanel_Left extends JTabbedPane {
-	static JTable book_table;
+	JTable book_table;
 	static JTable member_table;
 	private JTabbedPane tabbedPane;
 	JScrollPane scrollPane_Mem;
@@ -75,11 +75,13 @@ public class tabbedPanel_Left extends JTabbedPane {
 
 					Vector inner_Member = new Vector();
 					inner_Member = (Vector) data_Member.elementAt(member_table.getSelectedRow());
-					tbprb.setMemTextField(Integer.parseInt(inner_Member.elementAt(0).toString()),
-							inner_Member.elementAt(1).toString(), inner_Member.elementAt(2).toString());
+					tbprb.setMemTextField((int) inner_Member.elementAt(0), (String) inner_Member.elementAt(1),
+							(String) inner_Member.elementAt(2));
 				}
 			}
 		});
+		////////////////////////////////////////////////////////////////// 여기까지
+		////////////////////////////////////////////////////////////////// member_table
 
 		scrollPane_Book = new JScrollPane();
 		tabbedPane.addTab("도서현황", null, scrollPane_Book, null);
@@ -119,17 +121,18 @@ public class tabbedPanel_Left extends JTabbedPane {
 				if (e.getButton() == 1) {
 					DAO_DB dao_Book = new DAO_DB();
 					data_Book = dao_Book.book_selectAll();
+
 					Vector inner_Book = new Vector();
 					inner_Book = (Vector) data_Book.elementAt(book_table.getSelectedRow());
-					System.out.println(inner_Book.size());
 					tbprb.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
-							inner_Book.elementAt(1).toString(), inner_Book.elementAt(2).toString(),
-							inner_Book.elementAt(3).toString());
+							(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
+							(String) inner_Book.elementAt(3));
 				} // 클릭
 			}
 		});
 		////////////////////////////////////////////////////////////////////// 여기까지
 		////////////////////////////////////////////////////////////////////// book_table
+
 	}
 
 	// 이건 JTable -> 즉 회원형황을 수정 했을 때 바로 새로고침 하기 위해 만든 함수

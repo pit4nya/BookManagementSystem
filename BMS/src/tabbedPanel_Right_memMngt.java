@@ -26,23 +26,22 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 	private JPanel inner_bookMngt;
 	private JLabel tp_memInfo;
 	private JPanel mem_Info;
+	private JLabel tp_Email;
+	private JTextField tf_Email;
+	private JLabel tp_Addr;
+	private JTextField tf_Addr;
+	private JLabel tp_Memo;
+	private JScrollPane sp_Memo;
 	private JLabel tp_memGrade;
 	private JComboBox cb_memGrade;
 	private JLabel tp_memNum;
 	private JTextField tf_memNum;
+	private JButton newButton;
 	private JLabel tp_memName;
 	private JTextField tf_memName;
 	private JTextField tf_memTel;
 	private JLabel tp_memTel;
-	private JLabel tp_Addr;
-	private JTextField tf_Addr;
-	private JLabel tp_Email;
-	private JTextField tf_Email;
-	private JLabel tp_Memo;
-	private JScrollPane sp_Memo;
 	private JTextArea ta_Memo;
-
-	private JButton newButton;
 	private JButton button_Delete;
 	private JButton button_Save;
 	private JButton button_Search;
@@ -91,6 +90,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 
 		tf_memNum = new JTextField();
 		tf_memNum.setColumns(10);
+		// tf_memNum.setEditable(false);
 		tf_memNum.setBounds(346, 24, 108, 21);
 		mem_Info.add(tf_memNum);
 		//////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,13 +101,12 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		// 신규 버튼 클릭하면 자동으로 현재 없는 회원 번호를 만들어 주는 함수
 		newButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int num = 0;
 				if (e.getSource() == newButton) {
+					int num = 0;
 					DAO_DB dao = new DAO_DB();
 					use_numCalc = dao.mem_selectAll();
 					for (int i = 0; i < use_numCalc.size(); i++) {
-						System.out.println((int) ((Vector) use_numCalc.elementAt(i)).elementAt(0));
-						if ((i + 1) != ((int) ((Vector) use_numCalc.elementAt(i)).elementAt(0))) {
+						if ((i + 1) != (int) ((Vector) use_numCalc.elementAt(i)).elementAt(0)) {
 							num = i + 1;
 							tf_memNum.setText(num + "");
 							return;
@@ -151,7 +150,6 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		tf_Email = new JTextField();
 		tf_Email.setColumns(10);
 		tf_Email.setBounds(79, 86, 187, 21);
-
 		mem_Info.add(tf_Email);
 
 		tp_Addr = new JLabel();
