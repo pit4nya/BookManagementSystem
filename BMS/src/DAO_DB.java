@@ -4,10 +4,13 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLClientInfoException;
 import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Scanner;
 import java.util.Vector;
+
+import javax.swing.JOptionPane;
 
 //DB에 입출력하는 Class !
 public class DAO_DB {
@@ -17,6 +20,7 @@ public class DAO_DB {
 	static PreparedStatement pstmt = null;
 	static Properties pro = null;
 	static ResultSet rs = null;
+	String errMsg;
 
 	DAO_DB() {
 		try {
@@ -54,7 +58,13 @@ public class DAO_DB {
 			discardConnection();
 
 		} catch (SQLException e) {
-			System.out.println("회원번호 이름 전화번호는 필수 입력!");
+			errMsg = e.getMessage();
+			System.out.println(errMsg);
+			if (errMsg.contains("unique")) {
+				System.out.println("회원번호 중복 불가!");
+			} else {
+				System.out.println("회원번호 이름 전화번호는 필수 입력!");
+			}
 		}
 	}
 

@@ -217,7 +217,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 					} catch (IOException e1) {
 						System.out.println("IOException");
 					} catch (NumberFormatException e1) {
-						System.out.println("회원번호 중복!");
+						System.out.println("회원 형식을 확인해 주세요.");
 					}
 				DAO_DB db_Refresh_Insert = new DAO_DB();
 				data_Member = db_Refresh_Insert.mem_selectAll();
