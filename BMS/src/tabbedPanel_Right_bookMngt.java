@@ -15,9 +15,7 @@ import net.miginfocom.swing.MigLayout;
 //오른쪽 탭들 중에 도서관리 탭을 생성하는 Class
 public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 	private JTabbedPane tabbedPane;
-	private static JTextField tf_memNum;
-	private static JTextField tf_telNum;
-	private static JTextField tf_memName;
+
 	private JPanel mem_Info;
 	private JPanel book_Info;
 	private JPanel book_Mngt;
@@ -25,11 +23,11 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 	private JLabel tp_bookInfo;
 	private JLabel tp_memInfo;
 	private JLabel tp_memNum;
+	private static JTextField tf_memNum;
 	private JLabel tp_memName;
+	private static JTextField tf_memName;
 	private JLabel tp_telNum;
-	private JLabel tp_Memo_Up;
-	private JScrollPane scrollPane_Up;
-	private JTextArea ta_Memo_Up;
+	private static JTextField tf_telNum;
 	private JLabel tp_bookNum;
 	private static JTextField tf_bookNum;
 	private JLabel tp_bookName;
@@ -38,8 +36,11 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 	private static JTextField tf_Author;
 	private JLabel tp_Pub;
 	private static JTextField tf_Pub;
+	private JLabel tp_Memo_Up;
 	private JLabel tp_Memo_Down;
+	private JScrollPane scrollPane_Up;
 	private JScrollPane scrollPane_Down;
+	private static JTextArea ta_Memo_Up;
 	private static JTextArea ta_Memo_Down;
 	private JPanel blank;
 

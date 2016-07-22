@@ -26,22 +26,23 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 	private JPanel inner_bookMngt;
 	private JLabel tp_memInfo;
 	private JPanel mem_Info;
-	private JLabel tp_Email;
-	private JTextField tf_Email;
-	private JLabel tp_Addr;
-	private JTextField tf_Addr;
-	private JLabel tp_Memo;
-	private JScrollPane sp_Memo;
 	private JLabel tp_memGrade;
 	private JComboBox cb_memGrade;
 	private JLabel tp_memNum;
 	private JTextField tf_memNum;
-	private JButton newButton;
 	private JLabel tp_memName;
 	private JTextField tf_memName;
 	private JTextField tf_memTel;
 	private JLabel tp_memTel;
+	private JLabel tp_Addr;
+	private JTextField tf_Addr;
+	private JLabel tp_Email;
+	private JTextField tf_Email;
+	private JLabel tp_Memo;
+	private JScrollPane sp_Memo;
 	private JTextArea ta_Memo;
+
+	private JButton newButton;
 	private JButton button_Delete;
 	private JButton button_Save;
 	private JButton button_Search;
@@ -197,7 +198,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 						member.setTel(tf_memTel.getText());
 						member.setAddr(tf_Addr.getText());
 						member.setEmail(tf_Email.getText());
-						db_Access.insert(member);
+						db_Access.insert_Member(member);
 					} catch (FileNotFoundException e1) {
 						System.out.println("파일을 찾을 수 없습니다.");
 					} catch (IOException e1) {

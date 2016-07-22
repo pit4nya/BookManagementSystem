@@ -31,7 +31,7 @@ public class DAO_DB {
 	}
 
 	///////////////////////////////////////////////////// insert 이거는 회원 넣을 때 사용
-	public void insert(Member member) throws FileNotFoundException, IOException {
+	public void insert_Member(Member member) throws FileNotFoundException, IOException {
 		try {
 			// member.properties에 있는 member_insert의 ? 값에 1 2 3 4 5의 값 넣어서
 			pro = new Properties();
