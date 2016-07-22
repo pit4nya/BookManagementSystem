@@ -75,8 +75,8 @@ public class tabbedPanel_Left extends JTabbedPane {
 
 					Vector inner_Member = new Vector();
 					inner_Member = (Vector) data_Member.elementAt(member_table.getSelectedRow());
-					tbprb.setMemTextField(Integer.parseInt(inner_Member.elementAt(0).toString()),inner_Member.elementAt(1).toString(),
-						 inner_Member.elementAt(2).toString());
+					tbprb.setMemTextField(Integer.parseInt(inner_Member.elementAt(0).toString()),
+							inner_Member.elementAt(1).toString(), inner_Member.elementAt(2).toString());
 				}
 			}
 		});

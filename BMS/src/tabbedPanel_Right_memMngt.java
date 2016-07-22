@@ -230,7 +230,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		button_Delete = new JButton("삭제");
 		button_Delete.setBounds(230, 509, 97, 23);
 		mem_Info.add(button_Delete);
-		
+
 		///////////////////////////////////////////////////////////////////// DeleteButtonListener
 		// 삭제 버튼을 클릭 했을 시 Event
 		button_Delete.addActionListener(new ActionListener() {
@@ -255,7 +255,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		button_Search = new JButton("검색");
 		button_Search.setBounds(339, 509, 97, 23);
 		mem_Info.add(button_Search);
-		
+
 		///////////////////////////////////////////////////////////////////// SearchButtonListener
 		// 검색 버튼을 클릭 했을 시 Event
 		button_Search.addActionListener(new ActionListener() {
