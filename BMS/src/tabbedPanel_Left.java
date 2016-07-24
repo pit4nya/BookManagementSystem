@@ -51,7 +51,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 				}
 			}
 		};
-
+//
 		member_table = new JTable(model_Member);
 		scrollPane_Mem.setViewportView(member_table);
 		title_Member.add("회원번호");
