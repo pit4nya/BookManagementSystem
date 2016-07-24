@@ -7,7 +7,7 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-//Excel ÆÄÀÏ¿¡¼­ Data¸¦ ÀÐ¾î¿Í Vector¿¡ ÀúÀåÇØÁÖ´Â Class
+//Excel ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ Dataï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½ Vectorï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ Class
 public class readExcel {
 	Vector retVec = new Vector();
 	FileInputStream fis;
@@ -18,7 +18,7 @@ public class readExcel {
 	public XSSFSheet getCell() {
 		return sheet;
 	}
-
+//
 	public Vector getVector() {
 		return retVec;
 	}
@@ -30,7 +30,7 @@ public class readExcel {
 		try {
 			fis = new FileInputStream("XlsxRead.xlsx");
 		} catch (FileNotFoundException e) {
-			System.err.println("ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+			System.err.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 		}
 		workbook = null;
 		try {
@@ -40,25 +40,25 @@ public class readExcel {
 		}
 
 		sheet = workbook.getSheetAt(0);
-		// ÇàÀÇ ¼ö
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		int rows = sheet.getPhysicalNumberOfRows();
 		for (int rowindex = 1; rowindex < rows; rowindex++) {
-			// ÇàÀ»ÀÐ´Â´Ù
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ð´Â´ï¿½
 			XSSFRow row = sheet.getRow(rowindex);
 			if (row != null) {
-				// ¼¿ÀÇ ¼ö
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 				Vector dataVec = new Vector();
 				int cells = row.getPhysicalNumberOfCells();
 				for (int columnindex = 0; columnindex <= cells; columnindex++) {
-					// ¼¿°ªÀ» ÀÐ´Â´Ù
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð´Â´ï¿½
 					XSSFCell cell = row.getCell(columnindex);
 					String value = "";
 					int intValue = 0;
-					// ¼¿ÀÌ ºó°ªÀÏ°æ¿ì¸¦ À§ÇÑ ³ÎÃ¼Å©
+					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ì¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼Å©
 					if (cell == null) {
 						continue;
 					} else {
-						// Å¸ÀÔº°·Î ³»¿ë ÀÐ±â
+						// Å¸ï¿½Ôºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½
 						switch (cell.getCellType()) {
 						case XSSFCell.CELL_TYPE_FORMULA:
 							value = cell.getCellFormula();
@@ -91,7 +91,7 @@ public class readExcel {
 					// System.out.println(book.getNum());
 					dao.insert_Book(book);
 				} catch (FileNotFoundException e) {
-					System.err.println("ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+					System.err.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 				} catch (IOException e) {
 					System.err.println("IOException!");
 				}

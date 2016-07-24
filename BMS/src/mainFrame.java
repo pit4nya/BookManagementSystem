@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -35,7 +34,7 @@ public class mainFrame extends JFrame {
 	}
 
 	public mainFrame(String title) {
-		// Á¦ÀÏ Ã³À½ ½ÇÇà µÇ´Â FrameÀÇ GUI
+		// ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ Frameï¿½ï¿½ GUI
 		super(title);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1700, 1000);
@@ -65,8 +64,8 @@ public class mainFrame extends JFrame {
 		name_Panel.setBounds(100, 100, 200, 200);
 		contentPane.add(name_Panel, "cell 0 0,grow");
 
-		JLabel label = new JLabel("µµ¼­°ü¸®ÇÁ·Î±×·¥");
-		label.setFont(new Font("ÈÞ¸ÕµÕ±ÙÇìµå¶óÀÎ", Font.PLAIN, 28));
+		JLabel label = new JLabel("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î±×·ï¿½");
+		label.setFont(new Font("ï¿½Þ¸ÕµÕ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", Font.PLAIN, 28));
 		label.setBounds(0, 0, 611, 47);
 		name_Panel.add(label);
 
@@ -74,13 +73,13 @@ public class mainFrame extends JFrame {
 		ad_Panel.setLayout(null);
 		contentPane.add(ad_Panel, "cell 1 0,grow");
 
-		// ¿©±â¼­ ºÎÅÍ´Â ¸¸µç tabµéÀ» »ý¼ºÇØ¼­ ºÙÀÓ
-		// ÀÌ°Ç ¿ÞÂÊ µµ¼­ÇöÈ² È¸¿øÇöÈ² ÆÐ³Î »ý¼º
+		// ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ï¿½ï¿½ tabï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È² È¸ï¿½ï¿½ï¿½ï¿½È² ï¿½Ð³ï¿½ ï¿½ï¿½ï¿½ï¿½
 		tabbedPanel_Left tabpL = new tabbedPanel_Left("z");
-		// ÀÌ°Ç ¿À¸¥ÂÊ¿¡ Á¤º¸¿­¶÷ tab »ý¼º
-		tabbedPanel_Right_infoView tabpR_bM = new tabbedPanel_Right_infoView("Á¤º¸¿­¶÷");
+		// ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ tab ï¿½ï¿½ï¿½ï¿½
+		tabbedPanel_Right_infoView tabpR_bM = new tabbedPanel_Right_infoView("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
-		// ÃÖ»óÀ§ Panel¿¡ »ý¼º ÇÑ°Å °¡Á®´Ù ºÙÀÓ
+		// ï¿½Ö»ï¿½ï¿½ï¿½ Panelï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		contentPane.add(tabpL.getPanel(), "cell 0 1,grow");
 		contentPane.add(tabpR_bM.getPanel(), "cell 1 1,grow");
 	}
