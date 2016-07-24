@@ -7,7 +7,7 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
+//Excel 파일에서 Data를 읽어와 Vector에 저장해주는 Class
 public class readExcel {
 	Vector retVec = new Vector();
 	FileInputStream fis;

@@ -78,7 +78,7 @@ public class mainFrame extends JFrame {
 		// 이건 왼쪽 도서현황 회원현황 패널 생성
 		tabbedPanel_Left tabpL = new tabbedPanel_Left("z");
 		// 이건 오른쪽에 정보열람 tab 생성
-		tabbedPanel_Right_bookMngt tabpR_bM = new tabbedPanel_Right_bookMngt("정보열람");
+		tabbedPanel_Right_infoView tabpR_bM = new tabbedPanel_Right_infoView("정보열람");
 
 		// 최상위 Panel에 생성 한거 가져다 붙임
 		contentPane.add(tabpL.getPanel(), "cell 0 1,grow");

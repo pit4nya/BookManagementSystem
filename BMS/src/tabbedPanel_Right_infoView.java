@@ -13,7 +13,7 @@ import javax.swing.border.EtchedBorder;
 import net.miginfocom.swing.MigLayout;
 
 //오른쪽 탭들 중에 도서관리 탭을 생성하는 Class
-public class tabbedPanel_Right_bookMngt extends JTabbedPane {
+public class tabbedPanel_Right_infoView extends JTabbedPane {
 	private JTabbedPane tabbedPane;
 
 	private JPanel mem_Info;
@@ -43,12 +43,12 @@ public class tabbedPanel_Right_bookMngt extends JTabbedPane {
 	private static JTextArea ta_Memo_Up;
 	private static JTextArea ta_Memo_Down;
 	private JPanel blank;
-
-	public tabbedPanel_Right_bookMngt(String title) {
+	//오른쪽 탭의 정보 열람 탭
+	public tabbedPanel_Right_infoView(String title) {
 		init(title);
 	}
 
-	public tabbedPanel_Right_bookMngt() {
+	public tabbedPanel_Right_infoView() {
 
 	}
 

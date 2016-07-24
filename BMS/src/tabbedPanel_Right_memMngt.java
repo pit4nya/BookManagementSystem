@@ -51,7 +51,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 	Vector data_Member = new Vector();
 	Vector title_Member = new Vector();
 	Vector use_numCalc = new Vector();
-
+	// 오른쪽 탭의 회원관리
 	public tabbedPanel_Right_memMngt() {
 		mem_Mngt = new JPanel();
 		mem_Mngt.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));

@@ -34,7 +34,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 	public void init() {
 		readExcel readEx = new readExcel();
 		////////////////////////////////////////////////////////////////////
-		tabbedPanel_Right_bookMngt tbprb = new tabbedPanel_Right_bookMngt();
+		tabbedPanel_Right_infoView tbprb = new tabbedPanel_Right_infoView();
 		////////////////////////////////////////////////////////////////////
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
