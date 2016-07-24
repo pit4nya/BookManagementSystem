@@ -43,7 +43,8 @@ public class tabbedPanel_Right_infoView extends JTabbedPane {
 	private static JTextArea ta_Memo_Up;
 	private static JTextArea ta_Memo_Down;
 	private JPanel blank;
-	//오른쪽 탭의 정보 열람 탭
+
+	// 오른쪽 탭의 정보 열람 탭
 	public tabbedPanel_Right_infoView(String title) {
 		init(title);
 	}

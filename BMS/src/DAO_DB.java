@@ -4,13 +4,10 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLClientInfoException;
 import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Scanner;
 import java.util.Vector;
-
-import javax.swing.JOptionPane;
 
 //DB에 입출력하는 Class !
 public class DAO_DB {
