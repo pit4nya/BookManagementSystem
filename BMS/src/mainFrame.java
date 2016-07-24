@@ -33,7 +33,7 @@ public class mainFrame extends JFrame {
 			}
 		});
 	}
-
+//
 	public mainFrame(String title) {
 		// 제일 처음 실행 되는 Frame의 GUI
 		super(title);
