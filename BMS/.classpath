@@ -12,6 +12,6 @@
 	<classpathentry kind="lib" path="poi-scratchpad-3.14-20160307.jar"/>
 	<classpathentry kind="lib" path="XlsxRead.xlsx"/>
 	<classpathentry kind="lib" path="xmlbeans-2.6.0.jar"/>
-	<classpathentry kind="lib" path="C:/JAVA/git/BookManagementSystem/BMS/ojdbc6_2.0.4.jar"/>
+	<classpathentry kind="lib" path="ojdbc6_2.0.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
