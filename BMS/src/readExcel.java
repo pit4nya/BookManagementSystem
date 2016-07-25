@@ -15,7 +15,7 @@ public class readExcel {
 	XSSFSheet sheet;
 	XSSFWorkbook workbook;
 	Book book = new Book();
-//
+
 	public XSSFSheet getCell() {
 		return sheet;
 	}
@@ -23,7 +23,7 @@ public class readExcel {
 	public Vector getVector() {
 		return retVec;
 	}
-//
+
 	public readExcel() {
 		DAO_DB dao_deleteAll = new DAO_DB();
 		dao_deleteAll.deleteAll_Book();
