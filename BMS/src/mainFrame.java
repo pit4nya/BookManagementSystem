@@ -32,7 +32,7 @@ public class mainFrame extends JFrame {
 			}
 		});
 	}
-
+//
 	public mainFrame(String title) {
 		// ���� ó�� ���� �Ǵ� Frame�� GUI
 		super(title);
