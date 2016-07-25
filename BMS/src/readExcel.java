@@ -7,6 +7,7 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 //Excel 파일에서 Data를 읽어와 Vector에 저장해주는 Class
 public class readExcel {
 	Vector retVec = new Vector();
@@ -49,7 +50,9 @@ public class readExcel {
 				// 셀의 수
 				Vector dataVec = new Vector();
 				int cells = row.getPhysicalNumberOfCells();
-				for (int columnindex = 0; columnindex <= cells; columnindex++) {
+				if (cells == 0)
+					return;
+				for (int columnindex = 0; columnindex < cells; columnindex++) {
 					// 셀값을 읽는다
 					XSSFCell cell = row.getCell(columnindex);
 					String value = "";
@@ -76,11 +79,12 @@ public class readExcel {
 						case XSSFCell.CELL_TYPE_ERROR:
 							value = cell.getErrorCellValue() + "";
 							break;
+						default:
+							break;
 						}
 					}
 					System.out.println(value);
 					dataVec.add(value);
-
 				}
 				book.setNum(Integer.parseInt(dataVec.elementAt(0).toString()));
 				book.setName(dataVec.elementAt(1).toString());
