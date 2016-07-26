@@ -29,7 +29,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 	private JLabel tp_memGrade;
 	private JComboBox cb_memGrade;
 	private JLabel tp_memNum;
-	private JTextField tf_memNum;
+	JTextField tf_memNum;
 	private JLabel tp_memName;
 	private JTextField tf_memName;
 	private JTextField tf_memTel;
@@ -44,7 +44,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 
 	private JButton newButton;
 	private JButton button_Delete;
-	private JButton button_Save;
+	JButton button_Save;
 	private JButton button_Search;
 	Member member = new Member();
 	tabbedPanel_Left tbpl = new tabbedPanel_Left();
@@ -53,7 +53,11 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 	Vector use_numCalc = new Vector();
 
 	// 오른쪽 탭의 회원관리
-	public tabbedPanel_Right_memMngt() {
+	public tabbedPanel_Right_memMngt() {}
+	public tabbedPanel_Right_memMngt(String title) {
+		init();
+	}
+	public void init(){
 		mem_Mngt = new JPanel();
 		mem_Mngt.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));
 

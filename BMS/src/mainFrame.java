@@ -3,9 +3,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
+import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -13,6 +11,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -47,6 +46,9 @@ public class mainFrame extends JFrame {
 		JMenu file_Menu = new JMenu("File");
 		menuBar.add(file_Menu);
 
+		JMenuItem refresh_Menu = new JMenuItem("Refresh");
+		file_Menu.add(refresh_Menu);
+
 		JMenuItem exit_Menu = new JMenuItem("Exit");
 		file_Menu.add(exit_Menu);
 		exit_Menu.addActionListener(new ActionListener() {
@@ -54,7 +56,6 @@ public class mainFrame extends JFrame {
 				System.exit(0);
 			}
 		});
-
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -78,10 +79,46 @@ public class mainFrame extends JFrame {
 		// 이건 왼쪽 도서현황 회원현황 패널 생성
 		tabbedPanel_Left tabpL = new tabbedPanel_Left("z");
 		// 이건 오른쪽에 정보열람 tab 생성
-		tabbedPanel_Right_infoView tabpR_bM = new tabbedPanel_Right_infoView("정보열람");
+		tabbedPanel_Right_infoView tabpR_iV = new tabbedPanel_Right_infoView("정보열람");
+
+		refresh_Menu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == refresh_Menu) {
+					Vector title_Book = new Vector();
+					Vector data_Book = new Vector();
+					title_Book.add("도서번호");
+					title_Book.add("도서명");
+					title_Book.add("저자");
+					title_Book.add("출판사");
+
+					DefaultTableModel model_Book = new DefaultTableModel() {
+						public boolean isCellEditable(int row, int column) {
+							if (column >= 0) {
+								return false;
+							} else {
+								return true;
+							}
+						}
+					};
+
+					tabpL.book_table.setModel(model_Book);
+
+					readExcel readEx = new readExcel();
+
+					data_Book = readEx.getVector();
+
+					// JTable에 붙임
+					model_Book.setDataVector(data_Book, title_Book);
+					tabpL.scrollPane_Book.setViewportView(tabpL.book_table);
+
+				}
+
+			}
+
+		});
 
 		// 최상위 Panel에 생성 한거 가져다 붙임
 		contentPane.add(tabpL.getPanel(), "cell 0 1,grow");
-		contentPane.add(tabpR_bM.getPanel(), "cell 1 1,grow");
+		contentPane.add(tabpR_iV.getPanel(), "cell 1 1,grow");
 	}
 }
