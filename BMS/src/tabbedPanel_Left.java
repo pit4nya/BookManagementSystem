@@ -51,7 +51,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 				}
 			}
 		};
-//
+		//
 		member_table = new JTable(model_Member);
 		scrollPane_Mem.setViewportView(member_table);
 		title_Member.add("회원번호");
@@ -134,8 +134,8 @@ public class tabbedPanel_Left extends JTabbedPane {
 		////////////////////////////////////////////////////////////////////// book_table
 
 	}
-
 	// 이건 JTable -> 즉 회원형황을 수정 했을 때 바로 새로고침 하기 위해 만든 함수
+
 	public void setTable(Vector data_Member, Vector title_Member) {
 		DefaultTableModel model_Temp = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {

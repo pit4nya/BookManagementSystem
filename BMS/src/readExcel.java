@@ -92,7 +92,6 @@ public class readExcel {
 				book.setPub(dataVec.elementAt(3).toString());
 				DAO_DB dao = new DAO_DB();
 				try {
-					// System.out.println(book.getNum());
 					dao.insert_Book(book);
 				} catch (FileNotFoundException e) {
 					System.err.println("파일을 찾을 수 없습니다.");
