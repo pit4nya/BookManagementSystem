@@ -66,6 +66,9 @@ public class mainFrame extends JFrame {
 			}
 		});
 
+		JMenuItem refresh_Menu = new JMenuItem("Refresh");
+		file_Menu.add(refresh_Menu);
+		
 		JMenuItem exit_Menu = new JMenuItem("Exit");
 		file_Menu.add(exit_Menu);
 		exit_Menu.addActionListener(new ActionListener() {
@@ -99,40 +102,40 @@ public class mainFrame extends JFrame {
 		tabbedPanel_Right_infoView tabpR_iV = new tabbedPanel_Right_infoView("정보열람");
 
 		// 나중에 아래 버튼에 리스너 추가
-//		refresh_Menu.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				if (e.getSource() == refresh_Menu) {
-//					refresh_Menu.setSelected(false);
-//					Vector title_Book = new Vector();
-//					Vector data_Book = new Vector();
-//					title_Book.add("도서번호");
-//					title_Book.add("도서명");
-//					title_Book.add("저자");
-//					title_Book.add("출판사");
-//					
-//					DefaultTableModel model_Book = new DefaultTableModel() {
-//						public boolean isCellEditable(int row, int column) {
-//							if (column >= 0) {
-//								return false;
-//							} else {
-//								return true;
-//							}
-//						}
-//					};
-//					tabpL.book_table.setModel(model_Book);
-//					
-//					readExcel readEx = new readExcel();
-//					data_Book = readEx.getVector();
-//
-//					// JTable에 붙임
-//					model_Book.setDataVector(data_Book, title_Book);
-//					tabpL.scrollPane_Book.setViewportView(tabpL.book_table);
-//
-//				}
-//
-//			}
-//
-//		});
+		refresh_Menu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == refresh_Menu) {
+					refresh_Menu.setSelected(false);
+					Vector title_Book = new Vector();
+					Vector data_Book = new Vector();
+					title_Book.add("도서번호");
+					title_Book.add("도서명");
+					title_Book.add("저자");
+					title_Book.add("출판사");
+					
+					DefaultTableModel model_Book = new DefaultTableModel() {
+						public boolean isCellEditable(int row, int column) {
+							if (column >= 0) {
+								return false;
+							} else {
+								return true;
+							}
+						}
+					};
+					tabpL.book_table.setModel(model_Book);
+					
+					readExcel readEx = new readExcel();
+					data_Book = readEx.getVector();
+
+					// JTable에 붙임
+					model_Book.setDataVector(data_Book, title_Book);
+					tabpL.scrollPane_Book.setViewportView(tabpL.book_table);
+
+				}
+
+			}
+
+		});
 
 		// 최상위 Panel에 생성 한거 가져다 붙임
 		contentPane.add(tabpL.getPanel(), "cell 0 1,grow");

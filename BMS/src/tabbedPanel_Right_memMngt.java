@@ -41,16 +41,16 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 	private JLabel tp_Memo;
 	private JScrollPane sp_Memo;
 	private JTextArea ta_Memo;
-
 	private JButton newButton;
 	private JButton button_Delete;
-	JButton button_Save;
+	private JButton button_Save;
 	private JButton button_Search;
 	Member member = new Member();
 	tabbedPanel_Left tbpl = new tabbedPanel_Left();
 	Vector data_Member = new Vector();
 	Vector title_Member = new Vector();
 	Vector use_numCalc = new Vector();
+	private String errMsg;
 
 	// 오른쪽 탭의 회원관리
 	public tabbedPanel_Right_memMngt() {}
@@ -205,11 +205,17 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 						member.setEmail(tf_Email.getText());
 						db_Access.insert_Member(member);
 					} catch (FileNotFoundException e1) {
+						errMsg = e1.getMessage();
+						System.out.println(errMsg);
 						System.out.println("파일을 찾을 수 없습니다.");
 					} catch (IOException e1) {
+						errMsg = e1.getMessage();
+						System.out.println(errMsg);
 						System.out.println("IOException");
 					} catch (NumberFormatException e1) {
-						System.out.println("회원 형식을 확인해 주세요.");
+						errMsg = e1.getMessage();
+						System.out.println(errMsg);
+						System.out.println("회원번호 형식을 확인해 주세요.");
 					}
 				DAO_DB db_Refresh_Insert = new DAO_DB();
 				data_Member = db_Refresh_Insert.mem_selectAll();

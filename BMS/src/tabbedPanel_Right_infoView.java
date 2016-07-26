@@ -209,7 +209,7 @@ public class tabbedPanel_Right_infoView extends JTabbedPane {
 		book_Mngt.add(blank, "cell 0 1,grow");
 		/////////////////////////////////// 档辑包府 场
 
-		tabbedPanel_Right_memMngt tabpR_mM = new tabbedPanel_Right_memMngt();
+		tabbedPanel_Right_memMngt tabpR_mM = new tabbedPanel_Right_memMngt("z");
 		tabbedPanel_Left tabpL = new tabbedPanel_Left();
 		tabbedPane.add(tabpR_mM.getPanel(), "雀盔包府");
 

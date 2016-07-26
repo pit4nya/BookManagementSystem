@@ -56,7 +56,7 @@ public class DAO_DB {
 
 		} catch (SQLException e) {
 			errMsg = e.getMessage();
-			System.out.println(errMsg);
+			System.out.print(errMsg);
 			if (errMsg.contains("unique")) {
 				System.out.println("회원번호 중복 불가!");
 			} else {
