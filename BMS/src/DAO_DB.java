@@ -56,7 +56,7 @@ public class DAO_DB {
 
 		} catch (SQLException e) {
 			errMsg = e.getMessage();
-			System.out.print(errMsg);
+			System.out.println(errMsg);
 			if (errMsg.contains("unique")) {
 				System.out.println("회원번호 중복 불가!");
 			} else {
@@ -212,12 +212,6 @@ public class DAO_DB {
 		}
 	}
 
-	// public static void printStudent(Vector<Book> List) {
-	// for (int i = 0; i < List.size(); i++) {
-	// Book tmp = List.get(i);
-	// }
-	// }
-
 	// book_selectAll은 BOOK TABLE에 있는 모든 정보 받아와서 Vector에 담아서 반환해줌
 	// JTable에 추가하기 위해 필요한 Vector생성
 	public Vector book_selectAll() {
@@ -236,24 +230,12 @@ public class DAO_DB {
 			while (rs.next()) {
 				// rs에 모든 결과 다 받아옴
 				Vector dataVec = new Vector();
-				Book tmp = new Book();
-
 				// rs에 있는 결과들을 Book Class와 dataVec에 각각 담음
-				tmp.setNum(Integer.parseInt(rs.getString("num")));
-				temp_int = Integer.parseInt(rs.getString("num"));
-				dataVec.add(temp_int);
-				tmp.setName(rs.getString("name"));
-				temp_str = rs.getString("name");
-				dataVec.add(temp_str);
-				tmp.setAuthor(rs.getString("author"));
-				temp_str = rs.getString("author");
-				dataVec.add(temp_str);
-				tmp.setPub(rs.getString("pub"));
-				temp_str = rs.getString("pub");
-				dataVec.add(temp_str);
-
+				dataVec.add(Integer.parseInt(rs.getString("num")));
+				dataVec.add(rs.getString("name"));
+				dataVec.add(rs.getString("author"));
+				dataVec.add(rs.getString("pub"));
 				// 모든 Book Class를 bookList에 저장 그리고 dataVec을 retVec에 저장 후 return
-				bookList.add(tmp);
 				retVec.add(dataVec);
 			}
 			// printStudent(bookList);
@@ -281,23 +263,11 @@ public class DAO_DB {
 
 			while (rs.next()) {
 				Vector dataVec = new Vector();
-				Book tmp = new Book();
-				tmp.setNum(Integer.parseInt(rs.getString("num")));
-				temp_int = Integer.parseInt(rs.getString("num"));
-				dataVec.add(temp_int);
-				tmp.setName(rs.getString("name"));
-				temp_str = rs.getString("name");
-				dataVec.add(temp_str);
-				tmp.setAuthor(rs.getString("tel"));
-				temp_str = rs.getString("tel");
-				dataVec.add(temp_str);
-				tmp.setPub(rs.getString("addr"));
-				temp_str = rs.getString("addr");
-				dataVec.add(temp_str);
-				tmp.setPub(rs.getString("email"));
-				temp_str = rs.getString("email");
-				dataVec.add(temp_str);
-				memList.add(tmp);
+				dataVec.add(Integer.parseInt(rs.getString("num")));
+				dataVec.add(rs.getString("name"));
+				dataVec.add(rs.getString("tel"));
+				dataVec.add(rs.getString("addr"));
+				dataVec.add(rs.getString("email"));
 				retVec.add(dataVec);
 			}
 			// printStudent(memList);
