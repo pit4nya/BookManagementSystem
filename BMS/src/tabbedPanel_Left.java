@@ -34,7 +34,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 	public void init() {
 		readExcel readEx = new readExcel();
 		////////////////////////////////////////////////////////////////////
-		tabbedPanel_Right_infoView tbprb = new tabbedPanel_Right_infoView();
+		tabbedPanel_Right_infoView tbpr_iV = new tabbedPanel_Right_infoView();
 		////////////////////////////////////////////////////////////////////
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
@@ -59,6 +59,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 		title_Member.add("전화번호");
 		title_Member.add("주소");
 		title_Member.add("이메일");
+		title_Member.add("ID");
 
 		// DB에 있는 모든 Member 불러와서 JTable에 붙임
 		DAO_DB dao_Member = new DAO_DB();
@@ -75,7 +76,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 
 					Vector inner_Member = new Vector();
 					inner_Member = (Vector) data_Member.elementAt(member_table.getSelectedRow());
-					tbprb.setMemTextField((int) inner_Member.elementAt(0), (String) inner_Member.elementAt(1),
+					tbpr_iV.setMemTextField((int) inner_Member.elementAt(0), (String) inner_Member.elementAt(1),
 							(String) inner_Member.elementAt(2));
 				}
 			}
@@ -124,7 +125,7 @@ public class tabbedPanel_Left extends JTabbedPane {
 
 					Vector inner_Book = new Vector();
 					inner_Book = (Vector) data_Book.elementAt(book_table.getSelectedRow());
-					tbprb.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
+					tbpr_iV.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
 							(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
 							(String) inner_Book.elementAt(3));
 				} // 클릭

@@ -40,7 +40,8 @@ public class DAO_DB {
 			pstmt.setString(3, member.getTel());
 			pstmt.setString(4, member.getAddr());
 			pstmt.setString(5, member.getEmail());
-
+			pstmt.setString(6, member.getId());
+			pstmt.setString(7, member.getPass());
 			// 여기서 excuteUpdate해서 Query문 실행 시킴.
 			int n = pstmt.executeUpdate();
 
@@ -268,9 +269,10 @@ public class DAO_DB {
 				dataVec.add(rs.getString("tel"));
 				dataVec.add(rs.getString("addr"));
 				dataVec.add(rs.getString("email"));
+				dataVec.add(rs.getString("id"));
+//				dataVec.add(rs.getString("pass"));
 				retVec.add(dataVec);
 			}
-			// printStudent(memList);
 		} catch (IOException e) {
 
 		} catch (SQLException e) {
