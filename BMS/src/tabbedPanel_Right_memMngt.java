@@ -190,6 +190,7 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 		title_Member.add("전화번호");
 		title_Member.add("주소");
 		title_Member.add("이메일");
+		title_Member.add("ID");
 
 		///////////////////////////////////////////////////////////////////// SaveButtonListener
 		// 저장 버튼을 클릭 했을 시 Event
@@ -203,6 +204,9 @@ public class tabbedPanel_Right_memMngt extends JFrame {
 						member.setTel(tf_memTel.getText());
 						member.setAddr(tf_Addr.getText());
 						member.setEmail(tf_Email.getText());
+						member.setId("pit4nya");
+						member.setPass("hi");
+						////////////////////////////////////ID, Password 부분 수정 해야함
 						db_Access.insert_Member(member);
 					} catch (FileNotFoundException e1) {
 						errMsg = e1.getMessage();

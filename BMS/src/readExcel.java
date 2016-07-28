@@ -51,7 +51,7 @@ public class readExcel {
 				Vector dataVec = new Vector();
 				int cells = row.getPhysicalNumberOfCells();
 				if (cells == 0)
-					return;
+					break;
 				for (int columnindex = 0; columnindex < cells; columnindex++) {
 					// 셀값을 읽는다
 					XSSFCell cell = row.getCell(columnindex);

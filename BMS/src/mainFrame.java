@@ -58,7 +58,7 @@ public class mainFrame extends JFrame {
 		JMenuItem open_Menu = new JMenuItem("Open DataBase");
 		file_Menu.add(open_Menu);
 		
-		// 여기 더 구현해야 함
+		// 여기 더 구현해야 함 메뉴 부분
 		open_Menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fileChooser.setCurrentDirectory(new File("D:\\"));

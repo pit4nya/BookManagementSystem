@@ -6,16 +6,20 @@ public class Member {
 	String tel;
 	String addr;
 	String email;
+	String id;
+	String password;
 
 	public Member() {
 	}
 
-	public Member(int _num, String _name, String _tel, String _addr, String _email) {
+	public Member(int _num, String _name, String _tel, String _addr, String _email, String _id, String _password) {
 		this.num = _num;
 		this.name = _name;
 		this.tel = _tel;
 		this.addr = _addr;
 		this.email = _email;
+		this.id = _id;
+		this.password = _password;
 	}
 
 	public int getNum() {
@@ -56,5 +60,21 @@ public class Member {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public String getPass() {
+		return password;
+	}
+
+	public void setPass(String password) {
+		this.password = password;
 	}
 }
