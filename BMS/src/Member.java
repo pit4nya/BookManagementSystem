@@ -61,7 +61,7 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -69,7 +69,7 @@ public class Member {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getPass() {
 		return password;
 	}
