@@ -12,7 +12,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class tabbedPanel_Left extends JTabbedPane {
+public class tabPanel_Left extends JTabbedPane {
 	JTable book_table;
 	static JTable member_table;
 	private JTabbedPane tabbedPane;
@@ -23,18 +23,18 @@ public class tabbedPanel_Left extends JTabbedPane {
 	Vector title_Book = new Vector();
 	Vector title_Member = new Vector();
 
-	public tabbedPanel_Left() {
+	public tabPanel_Left() {
 
 	}
 
-	public tabbedPanel_Left(String title) {
+	public tabPanel_Left(String title) {
 		init();
 	}
 
 	public void init() {
 		readExcel readEx = new readExcel();
 		////////////////////////////////////////////////////////////////////
-		tabbedPanel_Right_infoView tbpr_iV = new tabbedPanel_Right_infoView();
+		tabR_infoView tbpr_iV = new tabR_infoView();
 		////////////////////////////////////////////////////////////////////
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 

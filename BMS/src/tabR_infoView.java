@@ -13,13 +13,13 @@ import javax.swing.border.EtchedBorder;
 import net.miginfocom.swing.MigLayout;
 
 //오른쪽 탭들 중에 도서관리 탭을 생성하는 Class
-public class tabbedPanel_Right_infoView extends JTabbedPane {
-	private JTabbedPane tabbedPane;
+public class tabR_infoView extends JTabbedPane {
 
 	private JPanel mem_Info;
 	private JPanel book_Info;
 	private JPanel book_Mngt;
 	private JPanel inner_bookMngt;
+
 	private JLabel tp_bookInfo;
 	private JLabel tp_memInfo;
 	private JLabel tp_memNum;
@@ -45,19 +45,19 @@ public class tabbedPanel_Right_infoView extends JTabbedPane {
 	private JPanel blank;
 
 	// 오른쪽 탭의 정보 열람 탭
-	public tabbedPanel_Right_infoView(String title) {
-		init(title);
+
+	public tabR_infoView() {
+
 	}
 
-	public tabbedPanel_Right_infoView() {
-
+	public tabR_infoView(String title) {
+		init();
 	}
 
 	// 화면 초기화
-	public void init(String title) {
-		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+	public void init() {
+
 		book_Mngt = new JPanel();
-		tabbedPane.addTab(title, null, book_Mngt, null);
 		book_Mngt.setLayout(new MigLayout("", "[grow]", "[571.00,grow][232.00,grow]"));
 
 		inner_bookMngt = new JPanel();
@@ -209,14 +209,6 @@ public class tabbedPanel_Right_infoView extends JTabbedPane {
 		book_Mngt.add(blank, "cell 0 1,grow");
 		/////////////////////////////////// 도서관리 끝
 
-		tabbedPanel_Right_memMngt tabpR_mM = new tabbedPanel_Right_memMngt("");
-		tabbedPanel_Right_rentBook tabpR_rB = new tabbedPanel_Right_rentBook("");
-		tabbedPanel_Right_returnBook tabpR_rtB = new tabbedPanel_Right_returnBook("");
-		tabbedPanel_Left tabpL = new tabbedPanel_Left();
-		
-		tabbedPane.add(tabpR_mM.getPanel(), "회원관리");
-		tabbedPane.add(tabpR_rB.getPanel(), "대    여");
-		tabbedPane.add(tabpR_rtB.getPanel(), "반    납");
 	}
 
 	// 밑에 두개의 set함수는 회원현황 도서현황에 있는 column 클릭 시 정보를
@@ -234,7 +226,8 @@ public class tabbedPanel_Right_infoView extends JTabbedPane {
 		tf_telNum.setText(tel);
 	}
 
-	public JTabbedPane getPanel() {
-		return tabbedPane;
+	public JPanel getPanel() {
+		return book_Mngt;
 	}
+
 }

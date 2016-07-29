@@ -270,7 +270,7 @@ public class DAO_DB {
 				dataVec.add(rs.getString("addr"));
 				dataVec.add(rs.getString("email"));
 				dataVec.add(rs.getString("id"));
-//				dataVec.add(rs.getString("pass"));
+				// dataVec.add(rs.getString("pass"));
 				retVec.add(dataVec);
 			}
 		} catch (IOException e) {

@@ -20,41 +20,44 @@ import javax.swing.border.EtchedBorder;
 
 import net.miginfocom.swing.MigLayout;
 
-public class tabbedPanel_Right_memMngt{
+public class tabR_memMngt{
 
 	private JPanel mem_Mngt;
 	private JPanel inner_bookMngt;
-	private JLabel tp_memInfo;
 	private JPanel mem_Info;
-	private JLabel tp_memGrade;
-	private JComboBox cb_memGrade;
-	private JLabel tp_memNum;
-	JTextField tf_memNum;
-	private JLabel tp_memName;
+	
+	private JLabel lb_memInfo;
+	private JLabel lb_memGrade;
+	private JLabel lb_memNum;
+	private JLabel lb_memName;
+	private JLabel lb_memTel;
+	private JLabel lb_Addr;
+	private JLabel lb_Email;
+	private JLabel lb_Memo;
+	private JTextField tf_memNum;
 	private JTextField tf_memName;
 	private JTextField tf_memTel;
-	private JLabel tp_memTel;
-	private JLabel tp_Addr;
 	private JTextField tf_Addr;
-	private JLabel tp_Email;
 	private JTextField tf_Email;
-	private JLabel tp_Memo;
-	private JScrollPane sp_Memo;
 	private JTextArea ta_Memo;
+	
+	private JScrollPane sp_Memo;
+	private JComboBox cb_memGrade;
+	
 	private JButton newButton;
 	private JButton button_Delete;
 	private JButton button_Save;
 	private JButton button_Search;
 	Member member = new Member();
-	tabbedPanel_Left tbpl = new tabbedPanel_Left();
+	tabPanel_Left tbpl = new tabPanel_Left();
 	Vector data_Member = new Vector();
 	Vector title_Member = new Vector();
 	Vector use_numCalc = new Vector();
 	private String errMsg;
 
 	// 오른쪽 탭의 회원관리
-	public tabbedPanel_Right_memMngt() {}
-	public tabbedPanel_Right_memMngt(String title) {
+	public tabR_memMngt() {}
+	public tabR_memMngt(String title) {
 		init();
 	}
 	public void init(){
@@ -65,11 +68,11 @@ public class tabbedPanel_Right_memMngt{
 		inner_bookMngt.setLayout(null);
 		mem_Mngt.add(inner_bookMngt, "cell 0 0,grow");
 
-		tp_memInfo = new JLabel();
-		tp_memInfo.setText("회원정보");
-		tp_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
-		tp_memInfo.setBounds(24, 10, 62, 23);
-		inner_bookMngt.add(tp_memInfo);
+		lb_memInfo = new JLabel();
+		lb_memInfo.setText("회원정보");
+		lb_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
+		lb_memInfo.setBounds(24, 10, 62, 23);
+		inner_bookMngt.add(lb_memInfo);
 
 		mem_Info = new JPanel();
 		mem_Info.setLayout(null);
@@ -78,10 +81,10 @@ public class tabbedPanel_Right_memMngt{
 		mem_Info.setBounds(12, 22, 548, 544);
 		inner_bookMngt.add(mem_Info);
 		///////////////////////////////////////////////////////////////////////////
-		tp_memGrade = new JLabel();
-		tp_memGrade.setText("회원등급");
-		tp_memGrade.setBounds(12, 24, 54, 21);
-		mem_Info.add(tp_memGrade);
+		lb_memGrade = new JLabel();
+		lb_memGrade.setText("회원등급");
+		lb_memGrade.setBounds(12, 24, 54, 21);
+		mem_Info.add(lb_memGrade);
 
 		cb_memGrade = new JComboBox();
 		cb_memGrade.setModel(new DefaultComboBoxModel(new String[] { "추후 구현" }));
@@ -89,10 +92,10 @@ public class tabbedPanel_Right_memMngt{
 		cb_memGrade.setEnabled(false);
 		mem_Info.add(cb_memGrade);
 
-		tp_memNum = new JLabel();
-		tp_memNum.setText("회원번호");
-		tp_memNum.setBounds(280, 24, 54, 21);
-		mem_Info.add(tp_memNum);
+		lb_memNum = new JLabel();
+		lb_memNum.setText("회원번호");
+		lb_memNum.setBounds(280, 24, 54, 21);
+		mem_Info.add(lb_memNum);
 
 		tf_memNum = new JTextField();
 		tf_memNum.setColumns(10);
@@ -128,50 +131,50 @@ public class tabbedPanel_Right_memMngt{
 		});
 		mem_Info.add(newButton);
 		//////////////////////////////////////////////////////////////////////////////////////////////
-		tp_memName = new JLabel();
-		tp_memName.setText("회  원  명");
-		tp_memName.setBounds(12, 55, 54, 21);
-		mem_Info.add(tp_memName);
+		lb_memName = new JLabel();
+		lb_memName.setText("회  원  명");
+		lb_memName.setBounds(12, 55, 54, 21);
+		mem_Info.add(lb_memName);
 
 		tf_memName = new JTextField();
 		tf_memName.setColumns(10);
 		tf_memName.setBounds(79, 55, 149, 21);
 		mem_Info.add(tf_memName);
 
-		tp_memTel = new JLabel();
-		tp_memTel.setText("전화번호");
-		tp_memTel.setBounds(240, 55, 54, 21);
-		mem_Info.add(tp_memTel);
+		lb_memTel = new JLabel();
+		lb_memTel.setText("전화번호");
+		lb_memTel.setBounds(240, 55, 54, 21);
+		mem_Info.add(lb_memTel);
 
 		tf_memTel = new JTextField();
 		tf_memTel.setColumns(10);
 		tf_memTel.setBounds(306, 55, 230, 21);
 		mem_Info.add(tf_memTel);
 
-		tp_Email = new JLabel();
-		tp_Email.setText("이  메  일");
-		tp_Email.setBounds(12, 86, 54, 21);
-		mem_Info.add(tp_Email);
+		lb_Email = new JLabel();
+		lb_Email.setText("이  메  일");
+		lb_Email.setBounds(12, 86, 54, 21);
+		mem_Info.add(lb_Email);
 
 		tf_Email = new JTextField();
 		tf_Email.setColumns(10);
 		tf_Email.setBounds(79, 86, 187, 21);
 		mem_Info.add(tf_Email);
 
-		tp_Addr = new JLabel();
-		tp_Addr.setText("주        소");
-		tp_Addr.setBounds(11, 117, 54, 21);
-		mem_Info.add(tp_Addr);
+		lb_Addr = new JLabel();
+		lb_Addr.setText("주        소");
+		lb_Addr.setBounds(11, 117, 54, 21);
+		mem_Info.add(lb_Addr);
 
 		tf_Addr = new JTextField();
 		tf_Addr.setColumns(10);
 		tf_Addr.setBounds(78, 117, 458, 21);
 		mem_Info.add(tf_Addr);
 
-		tp_Memo = new JLabel();
-		tp_Memo.setText("메        모");
-		tp_Memo.setBounds(12, 214, 54, 21);
-		mem_Info.add(tp_Memo);
+		lb_Memo = new JLabel();
+		lb_Memo.setText("메        모");
+		lb_Memo.setBounds(12, 214, 54, 21);
+		mem_Info.add(lb_Memo);
 
 		sp_Memo = new JScrollPane();
 		sp_Memo.setBounds(79, 159, 457, 137);
