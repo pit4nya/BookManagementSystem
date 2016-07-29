@@ -20,7 +20,7 @@ import javax.swing.border.EtchedBorder;
 
 import net.miginfocom.swing.MigLayout;
 
-public class tabbedPanel_Right_memMngt extends JFrame {
+public class tabbedPanel_Right_memMngt{
 
 	private JPanel mem_Mngt;
 	private JPanel inner_bookMngt;

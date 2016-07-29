@@ -57,14 +57,14 @@ public class tabbedPanel_Right_rentBook {
 		inner_rentBook.setLayout(null);
 
 		tp_memInfo = new JTextPane();
-		tp_memInfo.setText("íšŒì›ì •ë³´");
-		tp_memInfo.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 14));
+		tp_memInfo.setText("È¸¿øÁ¤º¸");
+		tp_memInfo.setFont(new Font("±¼¸²", Font.PLAIN, 14));
 		tp_memInfo.setBounds(22, 10, 62, 23);
 		inner_rentBook.add(tp_memInfo);
 
 		tp_bookInfo = new JTextPane();
-		tp_bookInfo.setText("ë„ì„œì •ë³´");
-		tp_bookInfo.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 14));
+		tp_bookInfo.setText("µµ¼­Á¤º¸");
+		tp_bookInfo.setFont(new Font("±¼¸²", Font.PLAIN, 14));
 		tp_bookInfo.setBounds(22, 280, 62, 23);
 		inner_rentBook.add(tp_bookInfo);
 
@@ -76,7 +76,7 @@ public class tabbedPanel_Right_rentBook {
 		inner_rentBook.add(mem_Info);
 
 		tp_memNum = new JTextPane();
-		tp_memNum.setText("íšŒì›ë²ˆí˜¸");
+		tp_memNum.setText("È¸¿ø¹øÈ£");
 		tp_memNum.setBounds(12, 32, 54, 21);
 		mem_Info.add(tp_memNum);
 
@@ -86,12 +86,12 @@ public class tabbedPanel_Right_rentBook {
 		mem_Info.add(tf_memNum);
 
 		tp_memName = new JTextPane();
-		tp_memName.setText("íšŒì›ëª…");
+		tp_memName.setText("È¸¿ø¸í");
 		tp_memName.setBounds(280, 32, 42, 21);
 		mem_Info.add(tp_memName);
 
 		tp_memTel = new JTextPane();
-		tp_memTel.setText("ì „í™”ë²ˆí˜¸");
+		tp_memTel.setText("ÀüÈ­¹øÈ£");
 		tp_memTel.setBounds(12, 63, 54, 21);
 		mem_Info.add(tp_memTel);
 
@@ -101,7 +101,7 @@ public class tabbedPanel_Right_rentBook {
 		mem_Info.add(tf_memTel);
 
 		tp_Memo_Up = new JTextPane();
-		tp_Memo_Up.setText("ë©”      ëª¨");
+		tp_Memo_Up.setText("¸Ş      ¸ğ");
 		tp_Memo_Up.setBounds(12, 96, 54, 21);
 		mem_Info.add(tp_Memo_Up);
 
@@ -114,7 +114,7 @@ public class tabbedPanel_Right_rentBook {
 		sp_Memo_Up.setBounds(79, 98, 443, 137);
 		mem_Info.add(sp_Memo_Up);
 
-		bt_memSearch = new JButton("ê²€ìƒ‰");
+		bt_memSearch = new JButton("°Ë»ö");
 		bt_memSearch.setBounds(334, 61, 187, 23);
 		mem_Info.add(bt_memSearch);
 
@@ -130,7 +130,7 @@ public class tabbedPanel_Right_rentBook {
 		book_Info.add(sp_Memo_Down);
 
 		tp_Memo_Down = new JTextPane();
-		tp_Memo_Down.setText("ë©”      ëª¨");
+		tp_Memo_Down.setText("¸Ş      ¸ğ");
 		tp_Memo_Down.setBounds(12, 86, 54, 21);
 		book_Info.add(tp_Memo_Down);
 
@@ -140,12 +140,12 @@ public class tabbedPanel_Right_rentBook {
 		book_Info.add(tf_Author);
 
 		tp_Author = new JTextPane();
-		tp_Author.setText("ì €ì");
+		tp_Author.setText("ÀúÀÚ");
 		tp_Author.setBounds(12, 55, 54, 21);
 		book_Info.add(tp_Author);
 
 		tp_bookNum = new JTextPane();
-		tp_bookNum.setText("ë„ì„œë²ˆí˜¸");
+		tp_bookNum.setText("µµ¼­¹øÈ£");
 		tp_bookNum.setBounds(12, 24, 54, 21);
 		book_Info.add(tp_bookNum);
 
@@ -165,20 +165,20 @@ public class tabbedPanel_Right_rentBook {
 		book_Info.add(tf_Pub);
 
 		tp_Pub = new JTextPane();
-		tp_Pub.setText("ì¶œíŒì‚¬");
+		tp_Pub.setText("ÃâÆÇ»ç");
 		tp_Pub.setBounds(280, 55, 42, 21);
 		book_Info.add(tp_Pub);
 
 		textPane_31 = new JTextPane();
-		textPane_31.setText("ë„ì„œëª…");
+		textPane_31.setText("µµ¼­¸í");
 		textPane_31.setBounds(280, 24, 42, 21);
 		book_Info.add(textPane_31);
 
-		bt_rentSave = new JButton("ì €ì¥");
+		bt_rentSave = new JButton("ÀúÀå");
 		bt_rentSave.setBounds(425, 249, 97, 23);
 		book_Info.add(bt_rentSave);
 
-		bt_bookSearch = new JButton("ê²€ìƒ‰");
+		bt_bookSearch = new JButton("°Ë»ö");
 		bt_bookSearch.setBounds(316, 249, 97, 23);
 		book_Info.add(bt_bookSearch);
 

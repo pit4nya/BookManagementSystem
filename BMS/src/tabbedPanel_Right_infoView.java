@@ -209,10 +209,14 @@ public class tabbedPanel_Right_infoView extends JTabbedPane {
 		book_Mngt.add(blank, "cell 0 1,grow");
 		/////////////////////////////////// 도서관리 끝
 
-		tabbedPanel_Right_memMngt tabpR_mM = new tabbedPanel_Right_memMngt("z");
+		tabbedPanel_Right_memMngt tabpR_mM = new tabbedPanel_Right_memMngt("");
+		tabbedPanel_Right_rentBook tabpR_rB = new tabbedPanel_Right_rentBook("");
+		tabbedPanel_Right_returnBook tabpR_rtB = new tabbedPanel_Right_returnBook("");
 		tabbedPanel_Left tabpL = new tabbedPanel_Left();
+		
 		tabbedPane.add(tabpR_mM.getPanel(), "회원관리");
-
+		tabbedPane.add(tabpR_rB.getPanel(), "대    여");
+		tabbedPane.add(tabpR_rtB.getPanel(), "반    납");
 	}
 
 	// 밑에 두개의 set함수는 회원현황 도서현황에 있는 column 클릭 시 정보를
