@@ -20,12 +20,12 @@ import javax.swing.border.EtchedBorder;
 
 import net.miginfocom.swing.MigLayout;
 
-public class tabR_memMngt{
+public class tabR_memMngt {
 
 	private JPanel mem_Mngt;
 	private JPanel inner_bookMngt;
 	private JPanel mem_Info;
-	
+
 	private JLabel lb_memInfo;
 	private JLabel lb_memGrade;
 	private JLabel lb_memNum;
@@ -40,10 +40,10 @@ public class tabR_memMngt{
 	private JTextField tf_Addr;
 	private JTextField tf_Email;
 	private JTextArea ta_Memo;
-	
+
 	private JScrollPane sp_Memo;
 	private JComboBox cb_memGrade;
-	
+
 	private JButton newButton;
 	private JButton button_Delete;
 	private JButton button_Save;
@@ -55,12 +55,14 @@ public class tabR_memMngt{
 	Vector use_numCalc = new Vector();
 	private String errMsg;
 
-	// 오른쪽 탭의 회원관리
-	public tabR_memMngt() {}
+	public tabR_memMngt() {
+	}
+
 	public tabR_memMngt(String title) {
 		init();
 	}
-	public void init(){
+
+	public void init() {
 		mem_Mngt = new JPanel();
 		mem_Mngt.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));
 
@@ -80,7 +82,7 @@ public class tabR_memMngt{
 		mem_Info.setBackground(Color.WHITE);
 		mem_Info.setBounds(12, 22, 548, 544);
 		inner_bookMngt.add(mem_Info);
-		///////////////////////////////////////////////////////////////////////////
+
 		lb_memGrade = new JLabel();
 		lb_memGrade.setText("회원등급");
 		lb_memGrade.setBounds(12, 24, 54, 21);
@@ -99,15 +101,12 @@ public class tabR_memMngt{
 
 		tf_memNum = new JTextField();
 		tf_memNum.setColumns(10);
-		// tf_memNum.setEditable(false);
 		tf_memNum.setBounds(346, 24, 108, 21);
 		mem_Info.add(tf_memNum);
-		//////////////////////////////////////////////////////////////////////////////////////////////
+
 		newButton = new JButton("신규");
 		newButton.setBounds(466, 24, 70, 23);
 
-		// new Button Listener
-		// 신규 버튼 클릭하면 자동으로 현재 없는 회원 번호를 만들어 주는 함수
 		newButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == newButton) {
@@ -130,7 +129,7 @@ public class tabR_memMngt{
 			}
 		});
 		mem_Info.add(newButton);
-		//////////////////////////////////////////////////////////////////////////////////////////////
+
 		lb_memName = new JLabel();
 		lb_memName.setText("회  원  명");
 		lb_memName.setBounds(12, 55, 54, 21);
@@ -195,8 +194,6 @@ public class tabR_memMngt{
 		title_Member.add("이메일");
 		title_Member.add("ID");
 
-		///////////////////////////////////////////////////////////////////// SaveButtonListener
-		// 저장 버튼을 클릭 했을 시 Event
 		button_Save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == button_Save)
@@ -209,7 +206,6 @@ public class tabR_memMngt{
 						member.setEmail(tf_Email.getText());
 						member.setId("pit4nya");
 						member.setPass("hi");
-						////////////////////////////////////ID, Password 부분 수정 해야함
 						db_Access.insert_Member(member);
 					} catch (FileNotFoundException e1) {
 						errMsg = e1.getMessage();
@@ -231,13 +227,10 @@ public class tabR_memMngt{
 			}
 
 		});
-		/////////////////////////////////////////////////////////////////////////////////
 		button_Delete = new JButton("삭제");
 		button_Delete.setBounds(230, 509, 97, 23);
 		mem_Info.add(button_Delete);
 
-		///////////////////////////////////////////////////////////////////// DeleteButtonListener
-		// 삭제 버튼을 클릭 했을 시 Event
 		button_Delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == button_Delete)
@@ -256,13 +249,11 @@ public class tabR_memMngt{
 			}
 
 		});
-		////////////////////////////////////////////// 검색 버튼
+
 		button_Search = new JButton("검색");
 		button_Search.setBounds(339, 509, 97, 23);
 		mem_Info.add(button_Search);
 
-		///////////////////////////////////////////////////////////////////// SearchButtonListener
-		// 검색 버튼을 클릭 했을 시 Event
 		button_Search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == button_Search) {
@@ -274,7 +265,6 @@ public class tabR_memMngt{
 
 	}
 
-	// 저장 삭제 검색 버튼 클릭 후 Text들 Reset 시켜주기 위해 만든 함수
 	public void setClear() {
 		tf_memNum.setText("");
 		tf_memName.setText("");

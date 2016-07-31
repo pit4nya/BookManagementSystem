@@ -30,7 +30,6 @@ public class searchFrame extends JFrame {
 			pn_Info.add(tf_Info[i]);
 			setVisible(true);
 		}
-		///////////////////////
 		bt_Add.setText("Ãß°¡");
 		bt_Add.setSize(100, 40);
 		bt_Add.setLocation(200, 290);

@@ -12,7 +12,6 @@ import javax.swing.border.EtchedBorder;
 
 import net.miginfocom.swing.MigLayout;
 
-//오른쪽 탭들 중에 도서관리 탭을 생성하는 Class
 public class tabR_infoView extends JTabbedPane {
 
 	private JPanel mem_Info;
@@ -44,8 +43,6 @@ public class tabR_infoView extends JTabbedPane {
 	private static JTextArea ta_Memo_Down;
 	private JPanel blank;
 
-	// 오른쪽 탭의 정보 열람 탭
-
 	public tabR_infoView() {
 
 	}
@@ -54,9 +51,7 @@ public class tabR_infoView extends JTabbedPane {
 		init();
 	}
 
-	// 화면 초기화
 	public void init() {
-
 		book_Mngt = new JPanel();
 		book_Mngt.setLayout(new MigLayout("", "[grow]", "[571.00,grow][232.00,grow]"));
 
@@ -84,7 +79,6 @@ public class tabR_infoView extends JTabbedPane {
 		mem_Info.setLayout(null);
 		inner_bookMngt.add(mem_Info);
 
-		///////////////////////////////////// 회원번호
 		tp_memNum = new JLabel();
 		tp_memNum.setText("회원번호");
 		tp_memNum.setBounds(12, 32, 54, 21);
@@ -96,7 +90,6 @@ public class tabR_infoView extends JTabbedPane {
 		tf_memNum.setColumns(10);
 		mem_Info.add(tf_memNum);
 
-		/////////////////////////////////////// 회원이름
 		tp_memName = new JLabel();
 		tp_memName.setText("회원명");
 		tp_memName.setBounds(280, 32, 42, 21);
@@ -108,7 +101,6 @@ public class tabR_infoView extends JTabbedPane {
 		tf_memName.setBounds(334, 32, 187, 21);
 		mem_Info.add(tf_memName);
 
-		/////////////////////////////////////// 전화번호
 		tp_telNum = new JLabel();
 		tp_telNum.setText("전화번호");
 		tp_telNum.setBounds(12, 63, 54, 21);
@@ -120,7 +112,6 @@ public class tabR_infoView extends JTabbedPane {
 		tf_telNum.setBounds(79, 63, 187, 21);
 		mem_Info.add(tf_telNum);
 
-		//////////////////////////////////// 메모
 		tp_Memo_Up = new JLabel();
 		tp_Memo_Up.setText("메      모");
 		tp_Memo_Up.setBounds(12, 96, 54, 21);
@@ -133,7 +124,6 @@ public class tabR_infoView extends JTabbedPane {
 		ta_Memo_Up = new JTextArea();
 		ta_Memo_Up.setEditable(false);
 		scrollPane_Up.setViewportView(ta_Memo_Up);
-		////////////////////////////////////
 
 		book_Info = new JPanel();
 		book_Info.setBackground(Color.WHITE);
@@ -141,7 +131,6 @@ public class tabR_infoView extends JTabbedPane {
 		book_Info.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		book_Info.setBounds(12, 292, 548, 237);
 		inner_bookMngt.add(book_Info);
-		//////////////////////////////////// 회원정보 끝
 
 		tp_bookNum = new JLabel();
 		tp_bookNum.setText("도서번호");
@@ -153,7 +142,7 @@ public class tabR_infoView extends JTabbedPane {
 		tf_bookNum.setColumns(10);
 		tf_bookNum.setBounds(79, 24, 187, 21);
 		book_Info.add(tf_bookNum);
-		////////////////////////////////////////
+
 		tp_bookName = new JLabel();
 		tp_bookName.setText("도서명");
 		tp_bookName.setBounds(280, 24, 42, 21);
@@ -165,7 +154,6 @@ public class tabR_infoView extends JTabbedPane {
 		tf_bookName.setBounds(334, 24, 187, 21);
 		book_Info.add(tf_bookName);
 
-		///////////////////////////////////////////
 		tp_Author = new JLabel();
 		tp_Author.setText("저자");
 		tp_Author.setBounds(12, 55, 54, 21);
@@ -177,7 +165,6 @@ public class tabR_infoView extends JTabbedPane {
 		tf_Author.setBounds(79, 55, 187, 21);
 		book_Info.add(tf_Author);
 
-		/////////////////////////////////////////
 		tp_Pub = new JLabel();
 		tp_Pub.setText("출판사");
 		tp_Pub.setBounds(280, 55, 42, 21);
@@ -189,7 +176,6 @@ public class tabR_infoView extends JTabbedPane {
 		tf_Pub.setBounds(334, 55, 187, 21);
 		book_Info.add(tf_Pub);
 
-		/////////////////////////////////////////////////////
 		tp_Memo_Down = new JLabel();
 		tp_Memo_Down.setText("메      모");
 		tp_Memo_Down.setBounds(12, 86, 54, 21);
@@ -203,16 +189,12 @@ public class tabR_infoView extends JTabbedPane {
 		ta_Memo_Down.setEditable(false);
 		scrollPane_Down.setViewportView(ta_Memo_Down);
 
-		///////////////////////////////// 도서정보 끝
 		blank = new JPanel();
 		blank.setLayout(null);
 		book_Mngt.add(blank, "cell 0 1,grow");
-		/////////////////////////////////// 도서관리 끝
 
 	}
 
-	// 밑에 두개의 set함수는 회원현황 도서현황에 있는 column 클릭 시 정보를
-	// textField에 추가하기 위해 만든 함수
 	public void setBookTextField(int num, String name, String author, String pub) {
 		tf_bookNum.setText(Integer.toString(num));
 		tf_bookName.setText(name);
@@ -229,5 +211,4 @@ public class tabR_infoView extends JTabbedPane {
 	public JPanel getPanel() {
 		return book_Mngt;
 	}
-
 }

@@ -38,7 +38,6 @@ public class mainFrame extends JFrame {
 	}
 
 	public mainFrame(String title) {
-		// 제일 처음 실행 되는 Frame의 GUI
 		super(title);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1700, 1000);
@@ -58,7 +57,6 @@ public class mainFrame extends JFrame {
 		JMenuItem open_Menu = new JMenuItem("Open DataBase");
 		file_Menu.add(open_Menu);
 
-		// 여기 더 구현해야 함 메뉴 부분
 		open_Menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fileChooser.setCurrentDirectory(new File("D:\\"));
@@ -77,8 +75,6 @@ public class mainFrame extends JFrame {
 			}
 		});
 
-		/////////////////////// filechooser button 만들어서 listener 안에 넣으면 됨
-
 		JPanel name_Panel = new JPanel();
 		name_Panel.setLayout(null);
 		name_Panel.setBounds(100, 100, 200, 200);
@@ -93,13 +89,9 @@ public class mainFrame extends JFrame {
 		ad_Panel.setLayout(null);
 		contentPane.add(ad_Panel, "cell 1 0,grow");
 
-		// 여기서 부터는 만든 tab들을 생성해서 붙임
-		// 이건 왼쪽 도서현황 회원현황 패널 생성
 		tabPanel_Left tabpL = new tabPanel_Left("");
-		// 이건 오른쪽에 정보열람 tab 생성
 		tabPanel_Right tabpR = new tabPanel_Right("");
 
-		// 나중에 아래 버튼에 리스너 추가
 		refresh_Menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == refresh_Menu) {
@@ -125,17 +117,13 @@ public class mainFrame extends JFrame {
 					readExcel readEx = new readExcel();
 					data_Book = readEx.getVector();
 
-					// JTable에 붙임
 					model_Book.setDataVector(data_Book, title_Book);
 					tabpL.scrollPane_Book.setViewportView(tabpL.book_table);
 
 				}
 
 			}
-
 		});
-
-		// 최상위 Panel에 생성 한거 가져다 붙임
 		contentPane.add(tabpL.getPanel(), "cell 0 1,grow");
 		contentPane.add(tabpR.getPanel(), "cell 1 1,grow");
 	}

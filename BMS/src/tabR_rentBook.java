@@ -66,7 +66,7 @@ public class tabR_rentBook {
 		lb_memInfo.setFont(new Font("±¼¸²", Font.PLAIN, 14));
 		lb_memInfo.setBounds(22, 10, 62, 23);
 		inner_rentBook.add(lb_memInfo);
-		
+
 		mem_Info = new JPanel();
 		mem_Info.setLayout(null);
 		mem_Info.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -122,7 +122,7 @@ public class tabR_rentBook {
 		bt_memSearch = new JButton("°Ë»ö");
 		bt_memSearch.setBounds(334, 61, 187, 23);
 		mem_Info.add(bt_memSearch);
-		////////////////////////////////////////////// member information
+
 		book_Info = new JPanel();
 		book_Info.setLayout(null);
 		book_Info.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
