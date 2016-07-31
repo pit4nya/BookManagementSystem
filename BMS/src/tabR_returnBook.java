@@ -45,7 +45,6 @@ public class tabR_returnBook {
 	JButton bt_bookSearch;
 
 	public tabR_returnBook() {
-
 	}
 
 	public tabR_returnBook(String title) {

@@ -44,7 +44,6 @@ public class tabR_infoView extends JTabbedPane {
 	private JPanel blank;
 
 	public tabR_infoView() {
-
 	}
 
 	public tabR_infoView(String title) {

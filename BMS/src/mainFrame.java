@@ -19,7 +19,6 @@ import javax.swing.table.DefaultTableModel;
 import net.miginfocom.swing.MigLayout;
 
 public class mainFrame extends JFrame {
-
 	private JPanel contentPane;
 	Toolkit tk = Toolkit.getDefaultToolkit();
 	JFileChooser fileChooser = new JFileChooser();

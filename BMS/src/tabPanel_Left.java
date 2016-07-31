@@ -24,7 +24,6 @@ public class tabPanel_Left extends JTabbedPane {
 	Vector title_Member = new Vector();
 
 	public tabPanel_Left() {
-
 	}
 
 	public tabPanel_Left(String title) {

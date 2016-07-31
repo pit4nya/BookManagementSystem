@@ -46,7 +46,6 @@ public class tabR_rentBook {
 	JButton bt_bookSearch;
 
 	public tabR_rentBook() {
-
 	}
 
 	public tabR_rentBook(String title) {
