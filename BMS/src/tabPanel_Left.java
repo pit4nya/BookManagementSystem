@@ -19,8 +19,8 @@ public class tabPanel_Left extends JTabbedPane {
 	JScrollPane scrollPane_Mem;
 	JScrollPane scrollPane_Book;
 	Vector data_Book = new Vector();
-	Vector data_Member = new Vector();
 	Vector title_Book = new Vector();
+	Vector data_Member = new Vector();
 	Vector title_Member = new Vector();
 
 	public tabPanel_Left() {

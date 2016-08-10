@@ -1,12 +1,14 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.JLabel;
 import javax.swing.border.EtchedBorder;
 
 import net.miginfocom.swing.MigLayout;
@@ -29,13 +31,14 @@ public class tabR_rentBook {
 	JLabel lb_bookName;
 	JLabel lb_Author;
 	JLabel lb_Pub;
-
+	
 	JScrollPane sp_Memo_Up;
 	JScrollPane sp_Memo_Down;
 
-	JTextField tf_memNum;
-	JTextField tf_memName;
-	JTextField tf_memTel;
+	static JTextField tf_memNum;
+	static JTextField tf_memName;
+	static JTextField tf_memTel;
+	
 	JTextField tf_Author;
 	JTextField tf_bookNum;
 	JTextField tf_bookName;
@@ -121,6 +124,15 @@ public class tabR_rentBook {
 		bt_memSearch = new JButton("°Ë»ö");
 		bt_memSearch.setBounds(334, 61, 187, 23);
 		mem_Info.add(bt_memSearch);
+		bt_memSearch.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == bt_memSearch){
+					searchFrame sf = new searchFrame(tf_memName.getText());
+					sf.setVisible(true);
+				}
+			}
+		});
 
 		book_Info = new JPanel();
 		book_Info.setLayout(null);
@@ -193,5 +205,11 @@ public class tabR_rentBook {
 
 	public JPanel getPanel() {
 		return rentBook;
+	}
+	
+	public void setTextField(int num, String name, String tel){
+		tf_memNum.setText(Integer.toString(num));
+		tf_memName.setText(name);
+		tf_memTel.setText(tel);
 	}
 }

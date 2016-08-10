@@ -251,5 +251,36 @@ public class DAO_DB {
 		this.discardConnection();
 		return retVec;
 	}
+	public Vector mem_selectName(Member member) {
+		Vector memList = new Vector();
+		Vector retVec = new Vector();
+		int temp_int;
+		String temp_str;
+
+		try {
+			pro = new Properties();
+			pro.load(new FileInputStream("src/properties/member.properties"));
+			pstmt = con.prepareStatement(pro.getProperty("member_selectName"));
+			pstmt.setString(1, member.getName());
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Vector dataVec = new Vector();
+				dataVec.add(Integer.parseInt(rs.getString("num")));
+				dataVec.add(rs.getString("name"));
+				dataVec.add(rs.getString("tel"));
+				dataVec.add(rs.getString("addr"));
+				dataVec.add(rs.getString("email"));
+				dataVec.add(rs.getString("id"));
+				retVec.add(dataVec);
+			}
+		} catch (IOException e) {
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		this.discardConnection();
+		return retVec;
+	}
 
 }

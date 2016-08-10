@@ -111,6 +111,7 @@ public class mainFrame extends JFrame {
 							}
 						}
 					};
+					
 					tabpL.book_table.setModel(model_Book);
 
 					readExcel readEx = new readExcel();

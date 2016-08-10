@@ -1,39 +1,88 @@
 import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Vector;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class searchFrame extends JFrame {
-	private JButton bt_Add = new JButton();
-	private JTextField[] tf_Info = new JTextField[5];
-	private JPanel pn_Info = new JPanel();
 	Toolkit tk = Toolkit.getDefaultToolkit();
-
-	DAO_DB dao = new DAO_DB();
+	
+	private JPanel pn_Info;
+	private JTable member_table;
+	private JScrollPane scrollPane_Mem;
+	private tabR_rentBook tr;
+	private Vector data_Member = new Vector();
+	private Vector title_Member = new Vector();
+	private Member member = new Member();
 
 	public searchFrame() {
-		super("bookManagementSystem");
+	}
+
+	public searchFrame(String name) {
+		super("회원 검색");
 		setSize(500, 800);
 		setLocation((tk.getScreenSize().width - getWidth()) / 2, (tk.getScreenSize().height - getHeight()) / 2);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setVisible(true);
+		init(name);
+		this.setContentPane(pn_Info);
 	}
 
-	public JPanel init() {
-		pn_Info.setLayout(null);
-		for (int i = 0; i < tf_Info.length; i++) {
-			tf_Info[i] = new JTextField();
-			tf_Info[i].setSize(100, 20);
-			tf_Info[i].setLocation(200, 140 + i * 30);
-			pn_Info.add(tf_Info[i]);
-			setVisible(true);
-		}
-		bt_Add.setText("추가");
-		bt_Add.setSize(100, 40);
-		bt_Add.setLocation(200, 290);
-		pn_Info.add(bt_Add);
-		return pn_Info;
+	public void init(String name) {
+		pn_Info = new JPanel();
+		tr = new tabR_rentBook();
+		scrollPane_Mem = new JScrollPane();
+
+		DefaultTableModel model_Member = new DefaultTableModel() {
+			public boolean isCellEditable(int row, int column) {
+				if (column >= 0) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+		};
+		member_table = new JTable(model_Member);
+		scrollPane_Mem.setViewportView(member_table);
+
+		title_Member.add("회원번호");
+		title_Member.add("회원명");
+		title_Member.add("전화번호");
+		title_Member.add("주소");
+		title_Member.add("이메일");
+		title_Member.add("ID");
+		// TextField 에서 text 받아와서 Member에 setName 해주고 member넘김\
+		member.setName(name);
+		DAO_DB dao_Member = new DAO_DB();
+		data_Member = dao_Member.mem_selectName(member);
+		model_Member.setDataVector(data_Member, title_Member);
+		
+
+		member_table.addMouseListener(new MyMouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (e.getButton() == 1) {
+					DAO_DB dao_Member = new DAO_DB();
+					data_Member = dao_Member.mem_selectName(member);
+					
+					Vector inner_Book = new Vector();
+					inner_Book = (Vector) data_Member.elementAt(member_table.getSelectedRow());
+
+					tr.setTextField(Integer.parseInt(inner_Book.elementAt(0).toString()), inner_Book.elementAt(1).toString(), inner_Book.elementAt(2).toString());
+					setVisible(false);
+				} // 더블클릭
+			}
+		});
+		
+		pn_Info.add(scrollPane_Mem);
 	}
+
+}
+
+abstract class MyMouseListener extends MouseAdapter {
+	abstract public void mouseClicked(MouseEvent e);
 }
