@@ -203,7 +203,7 @@ public class tabR_rentBook {
 			}
 		});
 
-		bt_rentSave = new JButton("저장");
+		bt_rentSave = new JButton("대여");
 		bt_rentSave.setBounds(425, 249, 97, 23);
 		book_Info.add(bt_rentSave);
 
