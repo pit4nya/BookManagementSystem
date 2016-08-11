@@ -31,18 +31,18 @@ public class tabR_rentBook {
 	JLabel lb_bookName;
 	JLabel lb_Author;
 	JLabel lb_Pub;
-	
+
 	JScrollPane sp_Memo_Up;
 	JScrollPane sp_Memo_Down;
 
 	static JTextField tf_memNum;
 	static JTextField tf_memName;
 	static JTextField tf_memTel;
-	
-	JTextField tf_Author;
-	JTextField tf_bookNum;
-	JTextField tf_bookName;
-	JTextField tf_Pub;
+
+	static JTextField tf_Author;
+	static JTextField tf_bookNum;
+	static JTextField tf_bookName;
+	static JTextField tf_Pub;
 
 	JButton bt_rentSave;
 	JButton bt_memSearch;
@@ -127,9 +127,9 @@ public class tabR_rentBook {
 		bt_memSearch.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(e.getSource() == bt_memSearch){
-					searchFrame sf = new searchFrame(tf_memName.getText());
-					sf.setVisible(true);
+				if (e.getSource() == bt_memSearch) {
+					searchFrame_Member sfm = new searchFrame_Member(tf_memName.getText());
+					sfm.setVisible(true);
 				}
 			}
 		});
@@ -193,6 +193,15 @@ public class tabR_rentBook {
 		bt_bookSearch = new JButton("검색");
 		bt_bookSearch.setBounds(316, 249, 97, 23);
 		book_Info.add(bt_bookSearch);
+		bt_bookSearch.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == bt_bookSearch) {
+					searchFrame_Book sfb = new searchFrame_Book(tf_bookName.getText());
+					sfb.setVisible(true);
+				}
+			}
+		});
 
 		bt_rentSave = new JButton("저장");
 		bt_rentSave.setBounds(425, 249, 97, 23);
@@ -206,10 +215,17 @@ public class tabR_rentBook {
 	public JPanel getPanel() {
 		return rentBook;
 	}
-	
-	public void setTextField(int num, String name, String tel){
+
+	public void setTextField_Member(int num, String name, String tel) {
 		tf_memNum.setText(Integer.toString(num));
 		tf_memName.setText(name);
 		tf_memTel.setText(tel);
+	}
+
+	public void setTextField_Book(int num, String name, String tel, String pub) {
+		tf_bookNum.setText(Integer.toString(num));
+		tf_bookName.setText(name);
+		tf_Author.setText(tel);
+		tf_Pub.setText(pub);
 	}
 }

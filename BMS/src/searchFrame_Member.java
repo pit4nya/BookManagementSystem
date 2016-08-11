@@ -9,7 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class searchFrame extends JFrame {
+public class searchFrame_Member extends JFrame {
 	Toolkit tk = Toolkit.getDefaultToolkit();
 	
 	private JPanel pn_Info;
@@ -20,10 +20,10 @@ public class searchFrame extends JFrame {
 	private Vector title_Member = new Vector();
 	private Member member = new Member();
 
-	public searchFrame() {
+	public searchFrame_Member() {
 	}
 
-	public searchFrame(String name) {
+	public searchFrame_Member(String name) {
 		super("회원 검색");
 		setSize(500, 800);
 		setLocation((tk.getScreenSize().width - getWidth()) / 2, (tk.getScreenSize().height - getHeight()) / 2);
@@ -65,14 +65,14 @@ public class searchFrame extends JFrame {
 		member_table.addMouseListener(new MyMouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (e.getButton() == 1) {
+				if (e.getClickCount() == 2) {
 					DAO_DB dao_Member = new DAO_DB();
 					data_Member = dao_Member.mem_selectName(member);
 					
 					Vector inner_Book = new Vector();
 					inner_Book = (Vector) data_Member.elementAt(member_table.getSelectedRow());
 
-					tr.setTextField(Integer.parseInt(inner_Book.elementAt(0).toString()), inner_Book.elementAt(1).toString(), inner_Book.elementAt(2).toString());
+					tr.setTextField_Member(Integer.parseInt(inner_Book.elementAt(0).toString()), inner_Book.elementAt(1).toString(), inner_Book.elementAt(2).toString());
 					setVisible(false);
 				} // 더블클릭
 			}
