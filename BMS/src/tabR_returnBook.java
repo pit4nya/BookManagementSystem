@@ -128,7 +128,7 @@ public class tabR_returnBook {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == bt_memSearch) {
-					searchFrame_Member sfm = new searchFrame_Member(tf_memName.getText());
+					searchFrame_Member_return sfm = new searchFrame_Member_return(tf_memName.getText());
 					sfm.setVisible(true);
 				}
 			}
@@ -197,7 +197,7 @@ public class tabR_returnBook {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == bt_bookSearch) {
-					searchFrame_Book sfb = new searchFrame_Book(tf_bookName.getText());
+					searchFrame_Book_return sfb = new searchFrame_Book_return(tf_bookName.getText());
 					sfb.setVisible(true);
 				}
 			}
@@ -222,10 +222,10 @@ public class tabR_returnBook {
 		tf_memTel.setText(tel);
 	}
 
-	public void setTextField_Book(int num, String name, String tel, String pub) {
+	public void setTextField_Book(int num, String name, String author, String pub) {
 		tf_bookNum.setText(Integer.toString(num));
 		tf_bookName.setText(name);
-		tf_Author.setText(tel);
+		tf_Author.setText(author);
 		tf_Pub.setText(pub);
 	}
 }

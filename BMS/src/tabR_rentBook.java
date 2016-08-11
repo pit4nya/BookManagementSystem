@@ -128,7 +128,7 @@ public class tabR_rentBook {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == bt_memSearch) {
-					searchFrame_Member sfm = new searchFrame_Member(tf_memName.getText());
+					searchFrame_Member_rent sfm = new searchFrame_Member_rent(tf_memName.getText());
 					sfm.setVisible(true);
 				}
 			}
@@ -197,7 +197,7 @@ public class tabR_rentBook {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == bt_bookSearch) {
-					searchFrame_Book sfb = new searchFrame_Book(tf_bookName.getText());
+					searchFrame_Book_rent sfb = new searchFrame_Book_rent(tf_bookName.getText());
 					sfb.setVisible(true);
 				}
 			}
