@@ -5,12 +5,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Properties;
 import java.util.Scanner;
 import java.util.Vector;
 
 public class DAO_DB {
 
+	//pstmt.setDate(1, new java.sql.Timestamp(dat.getTime()); // DB에 시간 입력
 	static Scanner in = new Scanner(System.in);
 	static Connection con = null;
 	static PreparedStatement pstmt = null;
@@ -39,6 +41,7 @@ public class DAO_DB {
 			pstmt.setString(5, member.getEmail());
 			pstmt.setString(6, member.getId());
 			pstmt.setString(7, member.getPass());
+			
 			int n = pstmt.executeUpdate();
 
 			if (n != 0)
@@ -86,7 +89,35 @@ public class DAO_DB {
 			System.err.println("SQLException");
 		}
 	}
+	
+	public void rentBook(int num, Book book, Member member, String rentDate, String returnDate) throws FileNotFoundException, IOException {
+		try {
+			pro = new Properties();
+			pro.load(new FileInputStream("src/properties/rentedbook.properties"));
 
+			pstmt = con.prepareStatement(pro.getProperty("rentedbook_insert"));
+			pstmt.setInt(1, num);
+			pstmt.setInt(2, book.getNum());
+			pstmt.setInt(3, member.getNum());
+			pstmt.setString(4, rentDate);
+			pstmt.setString(5, returnDate);
+
+			int n = pstmt.executeUpdate();
+
+			if (n == 1)
+				System.out.println("입력 성공.");
+			else
+				System.out.println("입력 실패.");
+
+			con.commit();
+			discardConnection();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.err.println("SQLException");
+		}
+	}
+	
 	public void modify(Book book) {
 		try {
 			pro = new Properties();
@@ -220,6 +251,37 @@ public class DAO_DB {
 		this.discardConnection();
 		return retVec;
 	}
+	
+	public Vector rentedBook_selectAll() {
+		Vector bookList = new Vector();
+		Vector retVec = new Vector();
+
+		int temp_int;
+		String temp_str;
+
+		try {
+			pro = new Properties();
+			pro.load(new FileInputStream("src/properties/rentedbook.properties"));
+			pstmt = con.prepareStatement(pro.getProperty("rentedbook_selectAll"));
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Vector dataVec = new Vector();
+				dataVec.add(Integer.parseInt(rs.getString("num")));
+				dataVec.add(Integer.parseInt(rs.getString("booknum")));
+				dataVec.add(Integer.parseInt(rs.getString("memnum")));
+				dataVec.add(rs.getString("rentdate"));
+				dataVec.add(rs.getString("returndate"));
+				retVec.add(dataVec);
+			}
+		} catch (IOException e) {
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		this.discardConnection();
+		return retVec;
+	}	
 
 	public Vector mem_selectAll() {
 		Vector memList = new Vector();

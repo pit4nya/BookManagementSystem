@@ -31,7 +31,7 @@ public class tabPanel_Left extends JTabbedPane {
 	}
 
 	public void init() {
-		readExcel readEx = new readExcel();
+//		readExcel readEx = new readExcel();
 		tabR_infoView tbpr_iV = new tabR_infoView();
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
@@ -94,9 +94,12 @@ public class tabPanel_Left extends JTabbedPane {
 		title_Book.add("저자");
 		title_Book.add("출판사");
 
-		data_Book = readEx.getVector();
-
+		DAO_DB dao_Book = new DAO_DB();
+		data_Book = dao_Book.book_selectAll();
 		model_Book.setDataVector(data_Book, title_Book);
+//		data_Book = readEx.getVector();
+
+//		model_Book.setDataVector(data_Book, title_Book);
 		scrollPane_Book.setViewportView(book_table);
 
 		book_table.addMouseListener(new MyMouseListener_Book() {
@@ -114,7 +117,6 @@ public class tabPanel_Left extends JTabbedPane {
 				}
 			}
 		});
-
 	}
 
 	public void setTable(Vector data_Member, Vector title_Member) {

@@ -2,7 +2,12 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.Date;
 import java.util.Vector;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -47,6 +52,11 @@ public class tabR_rentBook {
 	JButton bt_rentSave;
 	JButton bt_memSearch;
 	JButton bt_bookSearch;
+	Book book;
+	Member member;
+	Date date;
+	
+	Vector use_numCalc = new Vector();
 
 	public tabR_rentBook() {
 	}
@@ -56,6 +66,9 @@ public class tabR_rentBook {
 	}
 
 	public void init() {
+		book = new Book();
+		member = new Member();
+		date = new Date(0);
 		rentBook = new JPanel();
 		rentBook.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));
 
@@ -206,6 +219,51 @@ public class tabR_rentBook {
 		bt_rentSave = new JButton("대여");
 		bt_rentSave.setBounds(425, 249, 97, 23);
 		book_Info.add(bt_rentSave);
+		
+		bt_rentSave.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == bt_rentSave) {
+					int num = 0;
+					
+					Calendar cal = Calendar.getInstance();
+				    cal.setTime(new Date());
+				    
+				    DAO_DB dao = new DAO_DB();
+					use_numCalc = dao.rentedBook_selectAll();
+					for (int i = 0; i < use_numCalc.size(); i++) {
+						if ((i + 1) != (int) ((Vector) use_numCalc.elementAt(i)).elementAt(0)) {
+							num = i + 1;
+							break;
+						}
+						num++;
+					}
+					if (num == use_numCalc.size()) {
+						num = use_numCalc.size() + 1;
+					}
+					System.out.println(num);
+					
+				    // 특정 형태의 날짜로 값을 뽑기 
+				    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+				    String rentDate = df.format(cal.getTime());
+				    
+				    cal.add(cal.DATE, 5);
+				    String returnDate = df.format(cal.getTime());
+				    
+				    book.setNum(Integer.parseInt(tf_bookNum.getText().toString()));
+				    member.setNum(Integer.parseInt(tf_memNum.getText().toString()));
+				    //DB TABLE에 BOOKNUM UNIQUE로 바꾸고 NUM 없는 값 찾아서 알아서 입력 하도록
+					DAO_DB insert_rentInfo = new DAO_DB();
+					try {
+						insert_rentInfo.rentBook(num, book, member, rentDate, returnDate);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+		});
+		
+		
 
 		blank = new JPanel();
 		rentBook.add(blank, "cell 0 1,grow");
