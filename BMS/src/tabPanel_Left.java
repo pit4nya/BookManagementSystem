@@ -14,14 +14,19 @@ import javax.swing.table.DefaultTableModel;
 
 public class tabPanel_Left extends JTabbedPane {
 	JTable book_table;
+	static JTable isRented_table;
 	static JTable member_table;
+	
 	private JTabbedPane tabbedPane;
 	JScrollPane scrollPane_Mem;
 	JScrollPane scrollPane_Book;
+	JScrollPane scrollPane_isRented;
 	Vector data_Book = new Vector();
 	Vector title_Book = new Vector();
 	Vector data_Member = new Vector();
 	Vector title_Member = new Vector();
+	Vector data_rentinfo = new Vector();
+	Vector title_rentinfo = new Vector();
 
 	public tabPanel_Left() {
 	}
@@ -117,9 +122,58 @@ public class tabPanel_Left extends JTabbedPane {
 				}
 			}
 		});
-	}
+	
+	
+	scrollPane_isRented = new JScrollPane();
+	tabbedPane.addTab("대여중", null, scrollPane_isRented, null);
 
-	public void setTable(Vector data_Member, Vector title_Member) {
+	DefaultTableModel model_isRented = new DefaultTableModel() {
+		public boolean isCellEditable(int row, int column) {
+			if (column >= 0) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+	};
+	isRented_table = new JTable(model_isRented);
+
+	rentInfo rentinfo = new rentInfo();
+	title_rentinfo.add("번호");
+	title_rentinfo.add("도서번호");
+	title_rentinfo.add("회원번호");
+	title_rentinfo.add("대여일");
+	title_rentinfo.add("반납일");
+
+	DAO_DB dao_rentInfo = new DAO_DB();
+	data_rentinfo = dao_rentInfo.rentedBook_selectAll();
+	model_isRented.setDataVector(data_rentinfo, title_rentinfo);
+	scrollPane_isRented.setViewportView(isRented_table);
+
+	isRented_table.addMouseListener(new MyMouseListener_Book() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if (e.getButton() == 1) {
+				DAO_DB dao_Book = new DAO_DB();
+				data_Book = dao_Book.book_selectAll();
+				
+				DAO_DB dao_Mem = new DAO_DB();
+				data_Member = dao_Mem.mem_selectAll();
+
+				Vector inner_Book = new Vector();
+				inner_Book = (Vector) data_Book.elementAt(((int)isRented_table.getValueAt(isRented_table.getSelectedRow(),1)) - 1);
+				tbpr_iV.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
+						(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
+						(String) inner_Book.elementAt(3));
+				Vector inner_Mem = new Vector();
+				inner_Mem = (Vector) data_Member.elementAt(((int)isRented_table.getValueAt(isRented_table.getSelectedRow(),2)) - 1);
+				tbpr_iV.setMemTextField(Integer.parseInt(inner_Mem.elementAt(0).toString()), (String) inner_Mem.elementAt(1), (String) inner_Mem.elementAt(2));
+			}
+		}
+	});
+}
+
+	public void setMemberTable(Vector data_Member, Vector title_Member) {
 		DefaultTableModel model_Temp = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
 				if (column >= 0) {
@@ -131,6 +185,20 @@ public class tabPanel_Left extends JTabbedPane {
 		};
 		member_table.setModel(model_Temp);
 		model_Temp.setDataVector(data_Member, title_Member);
+	}
+	
+	public void set_rentinfoTable(Vector data_rentinfo, Vector title_rentinfo) {
+		DefaultTableModel model_Temp = new DefaultTableModel() {
+			public boolean isCellEditable(int row, int column) {
+				if (column >= 0) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+		};
+		isRented_table.setModel(model_Temp);
+		model_Temp.setDataVector(data_rentinfo, title_rentinfo);
 	}
 
 	public JTabbedPane getPanel() {

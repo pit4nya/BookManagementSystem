@@ -57,6 +57,10 @@ public class tabR_rentBook {
 	Date date;
 	
 	Vector use_numCalc = new Vector();
+	Vector title_rentinfo = new Vector();
+	Vector data_rentinfo = new Vector();
+
+	tabPanel_Left tbpl = new tabPanel_Left();
 
 	public tabR_rentBook() {
 	}
@@ -253,12 +257,22 @@ public class tabR_rentBook {
 				    book.setNum(Integer.parseInt(tf_bookNum.getText().toString()));
 				    member.setNum(Integer.parseInt(tf_memNum.getText().toString()));
 				    //DB TABLE에 BOOKNUM UNIQUE로 바꾸고 NUM 없는 값 찾아서 알아서 입력 하도록
+				    
 					DAO_DB insert_rentInfo = new DAO_DB();
 					try {
 						insert_rentInfo.rentBook(num, book, member, rentDate, returnDate);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
+					title_rentinfo.add("번호");
+					title_rentinfo.add("도서번호");
+					title_rentinfo.add("회원번호");
+					title_rentinfo.add("대여일");
+					title_rentinfo.add("반납일");
+					
+					DAO_DB db_Refresh_Insert = new DAO_DB();
+					data_rentinfo = db_Refresh_Insert.rentedBook_selectAll();
+					tbpl.set_rentinfoTable(data_rentinfo, title_rentinfo);
 				}
 			}
 		});

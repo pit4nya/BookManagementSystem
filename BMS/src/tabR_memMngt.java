@@ -222,7 +222,7 @@ public class tabR_memMngt {
 					}
 				DAO_DB db_Refresh_Insert = new DAO_DB();
 				data_Member = db_Refresh_Insert.mem_selectAll();
-				tbpl.setTable(data_Member, title_Member);
+				tbpl.setMemberTable(data_Member, title_Member);
 				setClear();
 			}
 
@@ -244,7 +244,7 @@ public class tabR_memMngt {
 					}
 				DAO_DB db_Refresh_Delete = new DAO_DB();
 				data_Member = db_Refresh_Delete.mem_selectAll();
-				tbpl.setTable(data_Member, title_Member);
+				tbpl.setMemberTable(data_Member, title_Member);
 				setClear();
 			}
 
