@@ -72,7 +72,7 @@ public class searchFrame_Member_return extends JFrame {
 					Vector inner_Book = new Vector();
 					inner_Book = (Vector) data_Member.elementAt(member_table.getSelectedRow());
 
-					tr.setTextField_Member(Integer.parseInt(inner_Book.elementAt(0).toString()), inner_Book.elementAt(1).toString(), inner_Book.elementAt(2).toString());
+					tr.setMemTextField(Integer.parseInt(inner_Book.elementAt(0).toString()), inner_Book.elementAt(1).toString(), inner_Book.elementAt(2).toString());
 					setVisible(false);
 				} // 더블클릭
 			}

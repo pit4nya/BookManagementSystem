@@ -38,6 +38,8 @@ public class tabPanel_Left extends JTabbedPane {
 	public void init() {
 //		readExcel readEx = new readExcel();
 		tabR_infoView tbpr_iV = new tabR_infoView();
+		tabR_rentBook tbpr_rent = new tabR_rentBook();
+		tabR_returnBook tbpr_return = new tabR_returnBook();
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
 		scrollPane_Mem = new JScrollPane();
@@ -76,6 +78,8 @@ public class tabPanel_Left extends JTabbedPane {
 					inner_Member = (Vector) data_Member.elementAt(member_table.getSelectedRow());
 					tbpr_iV.setMemTextField((int) inner_Member.elementAt(0), (String) inner_Member.elementAt(1),
 							(String) inner_Member.elementAt(2));
+					tbpr_rent.setMemTextField(Integer.parseInt(inner_Member.elementAt(0).toString()), (String) inner_Member.elementAt(1), (String) inner_Member.elementAt(2));
+					tbpr_return.setMemTextField(Integer.parseInt(inner_Member.elementAt(0).toString()), (String) inner_Member.elementAt(1), (String) inner_Member.elementAt(2));
 				}
 			}
 		});
@@ -119,6 +123,14 @@ public class tabPanel_Left extends JTabbedPane {
 					tbpr_iV.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
 							(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
 							(String) inner_Book.elementAt(3));
+					
+					tbpr_rent.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
+							(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
+							(String) inner_Book.elementAt(3));
+					
+					tbpr_return.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
+							(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
+							(String) inner_Book.elementAt(3));					
 				}
 			}
 		});
@@ -168,6 +180,18 @@ public class tabPanel_Left extends JTabbedPane {
 				Vector inner_Mem = new Vector();
 				inner_Mem = (Vector) data_Member.elementAt(((int)isRented_table.getValueAt(isRented_table.getSelectedRow(),2)) - 1);
 				tbpr_iV.setMemTextField(Integer.parseInt(inner_Mem.elementAt(0).toString()), (String) inner_Mem.elementAt(1), (String) inner_Mem.elementAt(2));
+				
+				tbpr_rent.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
+						(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
+						(String) inner_Book.elementAt(3));
+				
+				tbpr_rent.setMemTextField(Integer.parseInt(inner_Mem.elementAt(0).toString()), (String) inner_Mem.elementAt(1), (String) inner_Mem.elementAt(2));
+				
+				tbpr_return.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
+						(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
+						(String) inner_Book.elementAt(3));
+				
+				tbpr_return.setMemTextField(Integer.parseInt(inner_Mem.elementAt(0).toString()), (String) inner_Mem.elementAt(1), (String) inner_Mem.elementAt(2));
 			}
 		}
 	});

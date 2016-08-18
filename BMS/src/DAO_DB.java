@@ -47,9 +47,9 @@ public class DAO_DB {
 			int n = pstmt.executeUpdate();
 
 			if (n != 0)
-				System.out.println("입력 성공.");
+				JOptionPane.showMessageDialog(null, "입력되었습니다.");
 			else
-				System.out.println("입력 실패.");
+				JOptionPane.showMessageDialog(null, "입력정보가 잘못되었습니다.");
 
 			con.commit();
 			discardConnection();
@@ -59,10 +59,8 @@ public class DAO_DB {
 			System.out.println(errMsg);
 			if (errMsg.contains("unique")) {
 				JOptionPane.showMessageDialog(null, "회원번호 중복 불가!");
-				System.out.println("회원번호 중복 불가!");
 			} else {
 				JOptionPane.showMessageDialog(null, "회원번호 이름 전화번호는 필수 입력!");
-				System.out.println("회원번호 이름 전화번호는 필수 입력!");
 			}
 		}
 	}
@@ -109,9 +107,9 @@ public class DAO_DB {
 			int n = pstmt.executeUpdate();
 
 			if (n == 1)
-				System.out.println("입력 성공.");
+				JOptionPane.showMessageDialog(null, "대여되었습니다.");
 			else
-				System.out.println("입력 실패.");
+				JOptionPane.showMessageDialog(null, "입력 정보가 잘못되었습니다.");
 
 			con.commit();
 			discardConnection();
@@ -174,9 +172,9 @@ public class DAO_DB {
 
 			int n = pstmt.executeUpdate();
 			if (n != 0)
-				System.out.println("삭제 성공.");
+				JOptionPane.showMessageDialog(null, "삭제되었습니다.");
 			else
-				System.out.println("삭제 실패.");
+				JOptionPane.showMessageDialog(null, "입력정보가 잘못되었습니다.");
 
 			con.commit();
 			discardConnection();
@@ -199,6 +197,29 @@ public class DAO_DB {
 				System.out.println("BOOK TABLE 모두 삭제 성공.");
 			else
 				System.out.println("BOOK TABLE 모두 삭제 실패.");
+
+			con.commit();
+			discardConnection();
+
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void delete_rentBook(Book book, Member member) {
+		try {
+			pro = new Properties();
+			pro.load(new FileInputStream("src/properties/rentedbook.properties"));
+			pstmt = con.prepareStatement(pro.getProperty("rentedbook_delete"));
+			pstmt.setInt(1, book.getNum());
+			pstmt.setInt(2, member.getNum());
+
+			int n = pstmt.executeUpdate();
+			if (n != 0){
+				JOptionPane.showMessageDialog(null, "반납되었습니다.");
+			}
+			else
+				JOptionPane.showMessageDialog(null, "입력정보가 잘못되었습니다.");
 
 			con.commit();
 			discardConnection();

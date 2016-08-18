@@ -208,7 +208,6 @@ public class tabR_memMngt {
 						member.setId("pit4nya");
 						member.setPass("hi");
 						db_Access.insert_Member(member);
-						JOptionPane.showMessageDialog(null, "입력되었습니다.");
 					} catch (FileNotFoundException e1) {
 						errMsg = e1.getMessage();
 						System.out.println(errMsg);

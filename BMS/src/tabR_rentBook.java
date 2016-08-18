@@ -50,7 +50,7 @@ public class tabR_rentBook {
 	static JTextField tf_bookName;
 	static JTextField tf_Pub;
 
-	JButton bt_rentSave;
+	JButton bt_rent;
 	JButton bt_memSearch;
 	JButton bt_bookSearch;
 	Book book;
@@ -221,9 +221,9 @@ public class tabR_rentBook {
 			}
 		});
 
-		bt_rentSave = new JButton("대여");
-		bt_rentSave.setBounds(425, 249, 97, 23);
-		book_Info.add(bt_rentSave);
+		bt_rent = new JButton("대여");
+		bt_rent.setBounds(425, 249, 97, 23);
+		book_Info.add(bt_rent);
 		
 		title_rentinfo.add("번호");
 		title_rentinfo.add("도서번호");
@@ -231,10 +231,10 @@ public class tabR_rentBook {
 		title_rentinfo.add("대여일");
 		title_rentinfo.add("반납일");
 		
-		bt_rentSave.addActionListener(new ActionListener() {
+		bt_rent.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == bt_rentSave) {
+				if (e.getSource() == bt_rent) {
 					int num = 0;
 					
 					Calendar cal = Calendar.getInstance();
@@ -269,7 +269,6 @@ public class tabR_rentBook {
 					DAO_DB insert_rentInfo = new DAO_DB();
 					try {
 						insert_rentInfo.insert_rentBook(num, book, member, rentDate, returnDate);
-						JOptionPane.showMessageDialog(null, "입력되었습니다.");
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -303,16 +302,16 @@ public class tabR_rentBook {
 		tf_Pub.setText("");
 	}
 
-	public void setTextField_Member(int num, String name, String tel) {
+	public void setBookTextField(int num, String name, String author, String pub) {
+		tf_bookNum.setText(Integer.toString(num));
+		tf_bookName.setText(name);
+		tf_Author.setText(author);
+		tf_Pub.setText(pub);
+	}
+
+	public void setMemTextField(int num, String name, String tel) {
 		tf_memNum.setText(Integer.toString(num));
 		tf_memName.setText(name);
 		tf_memTel.setText(tel);
-	}
-
-	public void setTextField_Book(int num, String name, String tel, String pub) {
-		tf_bookNum.setText(Integer.toString(num));
-		tf_bookName.setText(name);
-		tf_Author.setText(tel);
-		tf_Pub.setText(pub);
 	}
 }

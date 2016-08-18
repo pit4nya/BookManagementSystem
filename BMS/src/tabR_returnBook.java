@@ -2,10 +2,17 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.sql.RowId;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -44,9 +51,17 @@ public class tabR_returnBook {
 	static JTextField tf_bookName;
 	static JTextField tf_Pub;
 
-	JButton bt_rentSave;
+	JButton bt_return;
 	JButton bt_memSearch;
 	JButton bt_bookSearch;
+	
+	Book book;
+	Member member;
+	
+	Vector title_rentinfo = new Vector();
+	Vector data_rentinfo = new Vector();
+	
+	tabPanel_Left tbpl = new tabPanel_Left();
 
 	public tabR_returnBook() {
 	}
@@ -56,6 +71,9 @@ public class tabR_returnBook {
 	}
 
 	public void init() {
+		book = new Book();
+		member = new Member();
+		
 		rentBook = new JPanel();
 		rentBook.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));
 
@@ -203,9 +221,35 @@ public class tabR_returnBook {
 			}
 		});
 
-		bt_rentSave = new JButton("반납");
-		bt_rentSave.setBounds(425, 249, 97, 23);
-		book_Info.add(bt_rentSave);
+		bt_return = new JButton("반납");
+		bt_return.setBounds(425, 249, 97, 23);
+		book_Info.add(bt_return);
+		
+		title_rentinfo.add("번호");
+		title_rentinfo.add("도서번호");
+		title_rentinfo.add("회원번호");
+		title_rentinfo.add("대여일");
+		title_rentinfo.add("반납일");
+		
+		bt_return.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == bt_return) {
+					
+				    book.setNum(Integer.parseInt(tf_bookNum.getText().toString()));
+				    member.setNum(Integer.parseInt(tf_memNum.getText().toString()));
+				    //DB TABLE에 BOOKNUM UNIQUE로 바꾸고 NUM 없는 값 찾아서 알아서 입력 하도록
+				    
+					DAO_DB delete_rentInfo = new DAO_DB();
+					delete_rentInfo.delete_rentBook(book, member);
+					
+					DAO_DB db_Refresh_Insert = new DAO_DB();
+					data_rentinfo = db_Refresh_Insert.rentedBook_selectAll();
+					tbpl.set_rentinfoTable(data_rentinfo, title_rentinfo);
+					setrentinfoClear();
+				}
+			}
+		});
 
 		blank = new JPanel();
 		rentBook.add(blank, "cell 0 1,grow");
@@ -215,17 +259,29 @@ public class tabR_returnBook {
 	public JPanel getPanel() {
 		return rentBook;
 	}
-
-	public void setTextField_Member(int num, String name, String tel) {
-		tf_memNum.setText(Integer.toString(num));
-		tf_memName.setText(name);
-		tf_memTel.setText(tel);
+	
+	public void setrentinfoClear(){
+		tf_memNum.setText("");
+		tf_memName.setText("");
+		tf_memTel.setText("");
+		tf_bookNum.setText("");
+		tf_bookName.setText("");
+		tf_Author.setText("");
+		tf_Pub.setText("");
 	}
-
-	public void setTextField_Book(int num, String name, String author, String pub) {
+	
+	public void setBookTextField(int num, String name, String author, String pub) {
 		tf_bookNum.setText(Integer.toString(num));
 		tf_bookName.setText(name);
 		tf_Author.setText(author);
 		tf_Pub.setText(pub);
 	}
+
+	public void setMemTextField(int num, String name, String tel) {
+		tf_memNum.setText(Integer.toString(num));
+		tf_memName.setText(name);
+		tf_memTel.setText(tel);
+	}
+
+
 }

@@ -70,7 +70,7 @@ public class searchFrame_Book_rent extends JFrame {
 					Vector inner_Book = new Vector();
 					inner_Book = (Vector) data_Book.elementAt(book_table.getSelectedRow());
 
-					tr.setTextField_Book(Integer.parseInt(inner_Book.elementAt(0).toString()),
+					tr.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
 							inner_Book.elementAt(1).toString(), inner_Book.elementAt(2).toString(),
 							inner_Book.elementAt(3).toString());
 					setVisible(false);
