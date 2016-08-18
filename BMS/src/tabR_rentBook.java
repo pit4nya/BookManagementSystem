@@ -224,6 +224,12 @@ public class tabR_rentBook {
 		bt_rentSave.setBounds(425, 249, 97, 23);
 		book_Info.add(bt_rentSave);
 		
+		title_rentinfo.add("번호");
+		title_rentinfo.add("도서번호");
+		title_rentinfo.add("회원번호");
+		title_rentinfo.add("대여일");
+		title_rentinfo.add("반납일");
+		
 		bt_rentSave.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -256,23 +262,20 @@ public class tabR_rentBook {
 				    
 				    book.setNum(Integer.parseInt(tf_bookNum.getText().toString()));
 				    member.setNum(Integer.parseInt(tf_memNum.getText().toString()));
-				    //DB TABLE에 BOOKNUM UNIQUE로 바꾸고 NUM 없는 값 찾아서 알아서 입력 하도록
+				    //DB TABLE에 BOOKNUM UNIQUE로 바꾸고 NUM 없는 값 찾아서 알아서 입력 하도록\
+				    
 				    
 					DAO_DB insert_rentInfo = new DAO_DB();
 					try {
-						insert_rentInfo.rentBook(num, book, member, rentDate, returnDate);
+						insert_rentInfo.insert_rentBook(num, book, member, rentDate, returnDate);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-					title_rentinfo.add("번호");
-					title_rentinfo.add("도서번호");
-					title_rentinfo.add("회원번호");
-					title_rentinfo.add("대여일");
-					title_rentinfo.add("반납일");
 					
 					DAO_DB db_Refresh_Insert = new DAO_DB();
 					data_rentinfo = db_Refresh_Insert.rentedBook_selectAll();
 					tbpl.set_rentinfoTable(data_rentinfo, title_rentinfo);
+					setrentinfoClear();
 				}
 			}
 		});
@@ -286,6 +289,16 @@ public class tabR_rentBook {
 
 	public JPanel getPanel() {
 		return rentBook;
+	}
+	
+	public void setrentinfoClear(){
+		tf_memNum.setText("");
+		tf_memName.setText("");
+		tf_memTel.setText("");
+		tf_bookNum.setText("");
+		tf_bookName.setText("");
+		tf_Author.setText("");
+		tf_Pub.setText("");
 	}
 
 	public void setTextField_Member(int num, String name, String tel) {

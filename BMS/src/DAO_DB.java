@@ -10,6 +10,8 @@ import java.util.Properties;
 import java.util.Scanner;
 import java.util.Vector;
 
+import javax.swing.JOptionPane;
+
 public class DAO_DB {
 
 	//pstmt.setDate(1, new java.sql.Timestamp(dat.getTime()); // DB에 시간 입력
@@ -90,7 +92,7 @@ public class DAO_DB {
 		}
 	}
 	
-	public void rentBook(int num, Book book, Member member, String rentDate, String returnDate) throws FileNotFoundException, IOException {
+	public void insert_rentBook(int num, Book book, Member member, String rentDate, String returnDate) throws FileNotFoundException, IOException {
 		try {
 			pro = new Properties();
 			pro.load(new FileInputStream("src/properties/rentedbook.properties"));
@@ -113,8 +115,8 @@ public class DAO_DB {
 			discardConnection();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
-			System.err.println("SQLException");
+//			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "대여 중인 책입니다.");
 		}
 	}
 	
