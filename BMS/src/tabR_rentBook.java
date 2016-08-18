@@ -56,7 +56,7 @@ public class tabR_rentBook {
 	Book book;
 	Member member;
 	Date date;
-	
+
 	Vector use_numCalc = new Vector();
 	Vector title_rentinfo = new Vector();
 	Vector data_rentinfo = new Vector();
@@ -224,55 +224,57 @@ public class tabR_rentBook {
 		bt_rent = new JButton("대여");
 		bt_rent.setBounds(425, 249, 97, 23);
 		book_Info.add(bt_rent);
-		
+
 		title_rentinfo.add("번호");
 		title_rentinfo.add("도서번호");
 		title_rentinfo.add("회원번호");
 		title_rentinfo.add("대여일");
 		title_rentinfo.add("반납일");
-		
+
 		bt_rent.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == bt_rent) {
 					int num = 0;
-					
+
 					Calendar cal = Calendar.getInstance();
-				    cal.setTime(new Date());
-				    
-				    DAO_DB dao = new DAO_DB();
+					cal.setTime(new Date());
+
+					DAO_DB dao = new DAO_DB();
 					use_numCalc = dao.rentedBook_selectAll();
+					if(use_numCalc.size() == 0){
+						num = 1;
+					}
 					for (int i = 0; i < use_numCalc.size(); i++) {
 						if ((i + 1) != (int) ((Vector) use_numCalc.elementAt(i)).elementAt(0)) {
 							num = i + 1;
 							break;
 						}
 						num++;
+						if (num == use_numCalc.size()) {
+							num = use_numCalc.size() + 1;
+							break;
+						}
 					}
-					if (num == use_numCalc.size()) {
-						num = use_numCalc.size() + 1;
-					}
-					System.out.println(num);
-					
-				    // 특정 형태의 날짜로 값을 뽑기 
-				    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-				    String rentDate = df.format(cal.getTime());
-				    
-				    cal.add(cal.DATE, 5);
-				    String returnDate = df.format(cal.getTime());
-				    
-				    book.setNum(Integer.parseInt(tf_bookNum.getText().toString()));
-				    member.setNum(Integer.parseInt(tf_memNum.getText().toString()));
-				    //DB TABLE에 BOOKNUM UNIQUE로 바꾸고 NUM 없는 값 찾아서 알아서 입력 하도록\
-				    
-				    
+
+					// 특정 형태의 날짜로 값을 뽑기
+					DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+					String rentDate = df.format(cal.getTime());
+
+					cal.add(cal.DATE, 5);
+					String returnDate = df.format(cal.getTime());
+
+					book.setNum(Integer.parseInt(tf_bookNum.getText().toString()));
+					member.setNum(Integer.parseInt(tf_memNum.getText().toString()));
+					// DB TABLE에 BOOKNUM UNIQUE로 바꾸고 NUM 없는 값 찾아서 알아서 입력 하도록\
+
 					DAO_DB insert_rentInfo = new DAO_DB();
 					try {
 						insert_rentInfo.insert_rentBook(num, book, member, rentDate, returnDate);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-					
+
 					DAO_DB db_Refresh_Insert = new DAO_DB();
 					data_rentinfo = db_Refresh_Insert.rentedBook_selectAll();
 					tbpl.set_rentinfoTable(data_rentinfo, title_rentinfo);
@@ -280,8 +282,6 @@ public class tabR_rentBook {
 				}
 			}
 		});
-		
-		
 
 		blank = new JPanel();
 		rentBook.add(blank, "cell 0 1,grow");
@@ -291,8 +291,8 @@ public class tabR_rentBook {
 	public JPanel getPanel() {
 		return rentBook;
 	}
-	
-	public void setrentinfoClear(){
+
+	public void setrentinfoClear() {
 		tf_memNum.setText("");
 		tf_memName.setText("");
 		tf_memTel.setText("");
