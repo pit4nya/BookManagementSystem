@@ -58,8 +58,10 @@ public class DAO_DB {
 			errMsg = e.getMessage();
 			System.out.println(errMsg);
 			if (errMsg.contains("unique")) {
+				JOptionPane.showMessageDialog(null, "회원번호 중복 불가!");
 				System.out.println("회원번호 중복 불가!");
 			} else {
+				JOptionPane.showMessageDialog(null, "회원번호 이름 전화번호는 필수 입력!");
 				System.out.println("회원번호 이름 전화번호는 필수 입력!");
 			}
 		}

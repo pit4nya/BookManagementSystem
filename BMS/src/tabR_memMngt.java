@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -210,14 +211,17 @@ public class tabR_memMngt {
 					} catch (FileNotFoundException e1) {
 						errMsg = e1.getMessage();
 						System.out.println(errMsg);
+						JOptionPane.showMessageDialog(null, "파일을 찾을 수 없습니다.");
 						System.out.println("파일을 찾을 수 없습니다.");
 					} catch (IOException e1) {
 						errMsg = e1.getMessage();
 						System.out.println(errMsg);
+						JOptionPane.showMessageDialog(null, "IOException");
 						System.out.println("IOException");
 					} catch (NumberFormatException e1) {
 						errMsg = e1.getMessage();
 						System.out.println(errMsg);
+						JOptionPane.showMessageDialog(null, "회원번호 형식을 확인해 주세요.");
 						System.out.println("회원번호 형식을 확인해 주세요.");
 					}
 				DAO_DB db_Refresh_Insert = new DAO_DB();
