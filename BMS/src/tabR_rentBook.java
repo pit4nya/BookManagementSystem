@@ -3,14 +3,15 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.Date;
-import java.util.Vector;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -268,6 +269,7 @@ public class tabR_rentBook {
 					DAO_DB insert_rentInfo = new DAO_DB();
 					try {
 						insert_rentInfo.insert_rentBook(num, book, member, rentDate, returnDate);
+						JOptionPane.showMessageDialog(null, "입력되었습니다.");
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
