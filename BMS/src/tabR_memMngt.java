@@ -35,11 +35,11 @@ public class tabR_memMngt {
 	private JLabel lb_Addr;
 	private JLabel lb_Email;
 	private JLabel lb_Memo;
-	private JTextField tf_memNum;
-	private JTextField tf_memName;
-	private JTextField tf_memTel;
-	private JTextField tf_Addr;
-	private JTextField tf_Email;
+	static JTextField tf_memNum;
+	static JTextField tf_memName;
+	static JTextField tf_memTel;
+	static JTextField tf_Addr;
+	static JTextField tf_Email;
 	private JTextArea ta_Memo;
 
 	private JScrollPane sp_Memo;
@@ -260,16 +260,23 @@ public class tabR_memMngt {
 		mem_Info.add(button_Search);
 
 		button_Search.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == button_Search) {
-
+					searchFrame_Member sfm = new searchFrame_Member(tf_memName.getText());
+					sfm.setVisible(true);
 				}
 			}
-
 		});
 
 	}
-
+	public void setMemTextField(String num, String name, String tel, String email, String addr){
+		tf_memNum.setText(num);
+		tf_memName.setText(name);
+		tf_memTel.setText(tel);
+		tf_Email.setText(email);
+		tf_Addr.setText(addr);
+	}
 	public void setClear() {
 		tf_memNum.setText("");
 		tf_memName.setText("");

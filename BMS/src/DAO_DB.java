@@ -341,8 +341,6 @@ public class DAO_DB {
 	public Vector mem_selectName(Member member) {
 		Vector memList = new Vector();
 		Vector retVec = new Vector();
-		int temp_int;
-		String temp_str;
 
 		try {
 			pro = new Properties();
@@ -368,6 +366,35 @@ public class DAO_DB {
 		}
 		this.discardConnection();
 		return retVec;
+	}
+	
+	public Vector mem_selectNum(Member member) {
+		Vector memList = new Vector();
+		Vector dataVec = new Vector();
+
+		try {
+			pro = new Properties();
+			pro.load(new FileInputStream("src/properties/member.properties"));
+			pstmt = con.prepareStatement(pro.getProperty("member_selectNum"));
+			pstmt.setInt(1, member.getNum());
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				
+				dataVec.add(Integer.parseInt(rs.getString("num")));
+				dataVec.add(rs.getString("name"));
+				dataVec.add(rs.getString("tel"));
+				dataVec.add(rs.getString("addr"));
+				dataVec.add(rs.getString("email"));
+				dataVec.add(rs.getString("id"));
+			}
+		} catch (IOException e) {
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		this.discardConnection();
+		return dataVec;
 	}
 	public Vector book_selectName(Book book) {
 		Vector memList = new Vector();

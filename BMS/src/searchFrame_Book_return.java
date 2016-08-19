@@ -24,7 +24,7 @@ public class searchFrame_Book_return extends JFrame {
 	}
 
 	public searchFrame_Book_return(String name) {
-		super("회원 검색");
+		super("도서 검색");
 		setSize(500, 800);
 		setLocation((tk.getScreenSize().width - getWidth()) / 2, (tk.getScreenSize().height - getHeight()) / 2);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
