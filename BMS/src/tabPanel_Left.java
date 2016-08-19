@@ -166,19 +166,28 @@ public class tabPanel_Left extends JTabbedPane {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			if (e.getButton() == 1) {
+				int num =0;
+				num = ((int)isRented_table.getValueAt(isRented_table.getSelectedRow(),1));
+				System.out.println(num);
+				Book book = new Book();
+				book.setNum(num);
 				DAO_DB dao_Book = new DAO_DB();
-				data_Book = dao_Book.book_selectAll();
-				
-				DAO_DB dao_Mem = new DAO_DB();
-				data_Member = dao_Mem.mem_selectAll();
-
 				Vector inner_Book = new Vector();
-				inner_Book = (Vector) data_Book.elementAt(((int)isRented_table.getValueAt(isRented_table.getSelectedRow(),1)) - 1);
+				inner_Book = dao_Book.book_selectNum(book);
+				 
+				
+				num = ((int)isRented_table.getValueAt(isRented_table.getSelectedRow(),2));
+				System.out.println(num);
+				Member member = new Member();
+				member.setNum(num);
+				DAO_DB dao_Mem = new DAO_DB();
+				Vector inner_Mem = new Vector();
+				inner_Mem = dao_Mem.mem_selectNum(member);
+
+				
 				tbpr_iV.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
 						(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
 						(String) inner_Book.elementAt(3));
-				Vector inner_Mem = new Vector();
-				inner_Mem = (Vector) data_Member.elementAt(((int)isRented_table.getValueAt(isRented_table.getSelectedRow(),2)) - 1);
 				tbpr_iV.setMemTextField(Integer.parseInt(inner_Mem.elementAt(0).toString()), (String) inner_Mem.elementAt(1), (String) inner_Mem.elementAt(2));
 				
 				tbpr_rent.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),

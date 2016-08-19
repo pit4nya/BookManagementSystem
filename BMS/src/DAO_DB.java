@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 public class DAO_DB {
 
-	//pstmt.setDate(1, new java.sql.Timestamp(dat.getTime()); // DB에 시간 입력
+	// pstmt.setDate(1, new java.sql.Timestamp(dat.getTime()); // DB에 시간 입력
 	static Scanner in = new Scanner(System.in);
 	static Connection con = null;
 	static PreparedStatement pstmt = null;
@@ -43,7 +43,7 @@ public class DAO_DB {
 			pstmt.setString(5, member.getEmail());
 			pstmt.setString(6, member.getId());
 			pstmt.setString(7, member.getPass());
-			
+
 			int n = pstmt.executeUpdate();
 
 			if (n != 0)
@@ -91,8 +91,9 @@ public class DAO_DB {
 			System.err.println("SQLException");
 		}
 	}
-	
-	public void insert_rentBook(int num, Book book, Member member, String rentDate, String returnDate) throws FileNotFoundException, IOException {
+
+	public void insert_rentBook(int num, Book book, Member member, String rentDate, String returnDate)
+			throws FileNotFoundException, IOException {
 		try {
 			pro = new Properties();
 			pro.load(new FileInputStream("src/properties/rentedbook.properties"));
@@ -115,11 +116,11 @@ public class DAO_DB {
 			discardConnection();
 
 		} catch (SQLException e) {
-//			e.printStackTrace();
+			// e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "대여 중인 책입니다.");
 		}
 	}
-	
+
 	public void modify(Book book) {
 		try {
 			pro = new Properties();
@@ -205,7 +206,7 @@ public class DAO_DB {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void delete_rentBook(Book book, Member member) {
 		try {
 			pro = new Properties();
@@ -215,10 +216,9 @@ public class DAO_DB {
 			pstmt.setInt(2, member.getNum());
 
 			int n = pstmt.executeUpdate();
-			if (n != 0){
+			if (n != 0) {
 				JOptionPane.showMessageDialog(null, "반납되었습니다.");
-			}
-			else
+			} else
 				JOptionPane.showMessageDialog(null, "입력정보가 잘못되었습니다.");
 
 			con.commit();
@@ -276,7 +276,7 @@ public class DAO_DB {
 		this.discardConnection();
 		return retVec;
 	}
-	
+
 	public Vector rentedBook_selectAll() {
 		Vector bookList = new Vector();
 		Vector retVec = new Vector();
@@ -306,7 +306,7 @@ public class DAO_DB {
 		}
 		this.discardConnection();
 		return retVec;
-	}	
+	}
 
 	public Vector mem_selectAll() {
 		Vector memList = new Vector();
@@ -338,6 +338,7 @@ public class DAO_DB {
 		this.discardConnection();
 		return retVec;
 	}
+
 	public Vector mem_selectName(Member member) {
 		Vector memList = new Vector();
 		Vector retVec = new Vector();
@@ -367,7 +368,7 @@ public class DAO_DB {
 		this.discardConnection();
 		return retVec;
 	}
-	
+
 	public Vector mem_selectNum(Member member) {
 		Vector memList = new Vector();
 		Vector dataVec = new Vector();
@@ -380,7 +381,7 @@ public class DAO_DB {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				
+
 				dataVec.add(Integer.parseInt(rs.getString("num")));
 				dataVec.add(rs.getString("name"));
 				dataVec.add(rs.getString("tel"));
@@ -396,6 +397,7 @@ public class DAO_DB {
 		this.discardConnection();
 		return dataVec;
 	}
+
 	public Vector book_selectName(Book book) {
 		Vector memList = new Vector();
 		Vector retVec = new Vector();
@@ -424,6 +426,34 @@ public class DAO_DB {
 		}
 		this.discardConnection();
 		return retVec;
+	}
+
+	public Vector book_selectNum(Book book) {
+		Vector memList = new Vector();
+		Vector dataVec = new Vector();
+		int temp_int;
+		String temp_str;
+
+		try {
+			pro = new Properties();
+			pro.load(new FileInputStream("src/properties/book.properties"));
+			pstmt = con.prepareStatement(pro.getProperty("book_selectNum"));
+			pstmt.setInt(1, book.getNum());
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				dataVec.add(Integer.parseInt(rs.getString("num")));
+				dataVec.add(rs.getString("name"));
+				dataVec.add(rs.getString("author"));
+				dataVec.add(rs.getString("pub"));
+			}
+		} catch (IOException e) {
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		this.discardConnection();
+		return dataVec;
 	}
 
 }

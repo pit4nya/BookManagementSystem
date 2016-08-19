@@ -52,7 +52,7 @@ public class tabR_infoView extends JTabbedPane {
 
 	public void init() {
 		book_Mngt = new JPanel();
-		book_Mngt.setLayout(new MigLayout("", "[grow]", "[571.00,grow][232.00,grow]"));
+		book_Mngt.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));
 
 		inner_bookMngt = new JPanel();
 		inner_bookMngt.setBackground(Color.WHITE);
@@ -66,7 +66,7 @@ public class tabR_infoView extends JTabbedPane {
 		inner_bookMngt.add(tp_memInfo);
 
 		tp_bookInfo = new JLabel();
-		tp_bookInfo.setBounds(24, 280, 62, 23);
+		tp_bookInfo.setBounds(22, 280, 62, 23);
 		tp_bookInfo.setText("도서정보");
 		tp_bookInfo.setFont(new Font("굴림", Font.PLAIN, 14));
 		inner_bookMngt.add(tp_bookInfo);
@@ -128,7 +128,7 @@ public class tabR_infoView extends JTabbedPane {
 		book_Info.setBackground(Color.WHITE);
 		book_Info.setLayout(null);
 		book_Info.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		book_Info.setBounds(12, 292, 548, 237);
+		book_Info.setBounds(12, 294, 548, 298);
 		inner_bookMngt.add(book_Info);
 
 		tp_bookNum = new JLabel();
