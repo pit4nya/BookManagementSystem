@@ -21,8 +21,8 @@ import javax.swing.border.EtchedBorder;
 import net.miginfocom.swing.MigLayout;
 
 public class tabR_returnBook {
-	JPanel rentBook;
-	JPanel inner_rentBook;
+	JPanel returnBook;
+	JPanel inner_returnBook;
 	JPanel mem_Info;
 	JPanel book_Info;
 	JPanel blank;
@@ -74,31 +74,32 @@ public class tabR_returnBook {
 		book = new Book();
 		member = new Member();
 		
-		rentBook = new JPanel();
-		rentBook.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));
+		returnBook = new JPanel();
+		returnBook.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));
 
-		inner_rentBook = new JPanel();
-		inner_rentBook.setLayout(null);
-		rentBook.add(inner_rentBook, "cell 0 0,grow");
+		inner_returnBook = new JPanel();
+		inner_returnBook.setBackground(Color.WHITE);
+		inner_returnBook.setLayout(null);
+		returnBook.add(inner_returnBook, "cell 0 0,grow");
 
 		lb_memInfo = new JLabel();
 		lb_memInfo.setText("회원정보");
 		lb_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
 		lb_memInfo.setBounds(22, 10, 62, 23);
-		inner_rentBook.add(lb_memInfo);
+		inner_returnBook.add(lb_memInfo);
 
 		mem_Info = new JPanel();
 		mem_Info.setLayout(null);
 		mem_Info.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		mem_Info.setBackground(Color.WHITE);
 		mem_Info.setBounds(12, 21, 548, 249);
-		inner_rentBook.add(mem_Info);
+		inner_returnBook.add(mem_Info);
 
 		lb_bookInfo = new JLabel();
 		lb_bookInfo.setText("도서정보");
 		lb_bookInfo.setFont(new Font("굴림", Font.PLAIN, 14));
 		lb_bookInfo.setBounds(22, 280, 62, 23);
-		inner_rentBook.add(lb_bookInfo);
+		inner_returnBook.add(lb_bookInfo);
 
 		lb_memNum = new JLabel();
 		lb_memNum.setText("회원번호");
@@ -157,7 +158,7 @@ public class tabR_returnBook {
 		book_Info.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		book_Info.setBackground(Color.WHITE);
 		book_Info.setBounds(12, 294, 548, 298);
-		inner_rentBook.add(book_Info);
+		inner_returnBook.add(book_Info);
 
 		lb_bookNum = new JLabel();
 		lb_bookNum.setText("도서번호");
@@ -252,12 +253,12 @@ public class tabR_returnBook {
 		});
 
 		blank = new JPanel();
-		rentBook.add(blank, "cell 0 1,grow");
+		returnBook.add(blank, "cell 0 1,grow");
 		blank.setLayout(null);
 	}
 
 	public JPanel getPanel() {
-		return rentBook;
+		return returnBook;
 	}
 	
 	public void setrentinfoClear(){

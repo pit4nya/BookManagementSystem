@@ -68,6 +68,7 @@ public class tabR_memMngt {
 		mem_Mngt.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));
 
 		inner_bookMngt = new JPanel();
+		inner_bookMngt.setBackground(Color.WHITE);
 		inner_bookMngt.setLayout(null);
 		mem_Mngt.add(inner_bookMngt, "cell 0 0,grow");
 

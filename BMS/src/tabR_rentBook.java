@@ -78,6 +78,7 @@ public class tabR_rentBook {
 		rentBook.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));
 
 		inner_rentBook = new JPanel();
+		inner_rentBook.setBackground(Color.WHITE);
 		inner_rentBook.setLayout(null);
 		rentBook.add(inner_rentBook, "cell 0 0,grow");
 
@@ -242,7 +243,7 @@ public class tabR_rentBook {
 
 					DAO_DB dao = new DAO_DB();
 					use_numCalc = dao.rentedBook_selectAll();
-					if(use_numCalc.size() == 0){
+					if (use_numCalc.size() == 0) {
 						num = 1;
 					}
 					for (int i = 0; i < use_numCalc.size(); i++) {
