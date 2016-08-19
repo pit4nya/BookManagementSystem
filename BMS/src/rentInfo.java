@@ -32,7 +32,7 @@ public class rentInfo {
 	public void setmemNum(int memNum) {
 		this.memNum = memNum;
 	}
-	
+
 	public int getbookNum() {
 		return bookNum;
 	}

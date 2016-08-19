@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class searchFrame_Member_return extends JFrame {
 	Toolkit tk = Toolkit.getDefaultToolkit();
-	
+
 	private JPanel pn_Info;
 	private JTable member_table;
 	private JScrollPane scrollPane_Mem;
@@ -60,7 +60,6 @@ public class searchFrame_Member_return extends JFrame {
 		DAO_DB dao_Member = new DAO_DB();
 		data_Member = dao_Member.mem_selectName(member);
 		model_Member.setDataVector(data_Member, title_Member);
-		
 
 		member_table.addMouseListener(new MyMouseListener_return_() {
 			@Override
@@ -68,16 +67,17 @@ public class searchFrame_Member_return extends JFrame {
 				if (e.getClickCount() == 2) {
 					DAO_DB dao_Member = new DAO_DB();
 					data_Member = dao_Member.mem_selectName(member);
-					
+
 					Vector inner_Book = new Vector();
 					inner_Book = (Vector) data_Member.elementAt(member_table.getSelectedRow());
 
-					tr.setMemTextField(Integer.parseInt(inner_Book.elementAt(0).toString()), inner_Book.elementAt(1).toString(), inner_Book.elementAt(2).toString());
+					tr.setMemTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
+							inner_Book.elementAt(1).toString(), inner_Book.elementAt(2).toString());
 					setVisible(false);
 				} // 더블클릭
 			}
 		});
-		
+
 		pn_Info.add(scrollPane_Mem);
 	}
 

@@ -39,7 +39,7 @@ public class tabR_returnBook {
 	JLabel lb_bookName;
 	JLabel lb_Author;
 	JLabel lb_Pub;
-	
+
 	JTextArea ta_Memo_Up;
 	JTextArea ta_Memo_Down;
 
@@ -58,13 +58,13 @@ public class tabR_returnBook {
 	JButton bt_return;
 	JButton bt_memSearch;
 	JButton bt_bookSearch;
-	
+
 	Book book;
 	Member member;
-	
+
 	Vector title_rentinfo = new Vector();
 	Vector data_rentinfo = new Vector();
-	
+
 	tabPanel_Left tbpl = new tabPanel_Left();
 
 	public tabR_returnBook() {
@@ -77,7 +77,7 @@ public class tabR_returnBook {
 	public void init() {
 		book = new Book();
 		member = new Member();
-		
+
 		returnBook = new JPanel();
 		returnBook.setLayout(new MigLayout("", "[grow]", "[524.00,grow][grow]"));
 
@@ -235,25 +235,25 @@ public class tabR_returnBook {
 		bt_return = new JButton("반납");
 		bt_return.setBounds(425, 249, 97, 23);
 		book_Info.add(bt_return);
-		
+
 		title_rentinfo.add("번호");
 		title_rentinfo.add("도서번호");
 		title_rentinfo.add("회원번호");
 		title_rentinfo.add("대여일");
 		title_rentinfo.add("반납일");
-		
+
 		bt_return.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == bt_return) {
-					
-				    book.setNum(Integer.parseInt(tf_bookNum.getText().toString()));
-				    member.setNum(Integer.parseInt(tf_memNum.getText().toString()));
-				    //DB TABLE에 BOOKNUM UNIQUE로 바꾸고 NUM 없는 값 찾아서 알아서 입력 하도록
-				    
+
+					book.setNum(Integer.parseInt(tf_bookNum.getText().toString()));
+					member.setNum(Integer.parseInt(tf_memNum.getText().toString()));
+					// DB TABLE에 BOOKNUM UNIQUE로 바꾸고 NUM 없는 값 찾아서 알아서 입력 하도록
+
 					DAO_DB delete_rentInfo = new DAO_DB();
 					delete_rentInfo.delete_rentBook(book, member);
-					
+
 					DAO_DB db_Refresh_Insert = new DAO_DB();
 					data_rentinfo = db_Refresh_Insert.rentedBook_selectAll();
 					tbpl.set_rentinfoTable(data_rentinfo, title_rentinfo);
@@ -270,8 +270,8 @@ public class tabR_returnBook {
 	public JPanel getPanel() {
 		return returnBook;
 	}
-	
-	public void setrentinfoClear(){
+
+	public void setrentinfoClear() {
 		tf_memNum.setText("");
 		tf_memName.setText("");
 		tf_memTel.setText("");
@@ -280,7 +280,7 @@ public class tabR_returnBook {
 		tf_Author.setText("");
 		tf_Pub.setText("");
 	}
-	
+
 	public void setBookTextField(int num, String name, String author, String pub) {
 		tf_bookNum.setText(Integer.toString(num));
 		tf_bookName.setText(name);
@@ -293,6 +293,5 @@ public class tabR_returnBook {
 		tf_memName.setText(name);
 		tf_memTel.setText(tel);
 	}
-
 
 }

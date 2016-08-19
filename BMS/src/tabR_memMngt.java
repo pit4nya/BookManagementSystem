@@ -270,13 +270,15 @@ public class tabR_memMngt {
 		});
 
 	}
-	public void setMemTextField(String num, String name, String tel, String email, String addr){
+
+	public void setMemTextField(String num, String name, String tel, String email, String addr) {
 		tf_memNum.setText(num);
 		tf_memName.setText(name);
 		tf_memTel.setText(tel);
 		tf_Email.setText(email);
 		tf_Addr.setText(addr);
 	}
+
 	public void setClear() {
 		tf_memNum.setText("");
 		tf_memName.setText("");

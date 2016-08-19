@@ -111,13 +111,13 @@ public class mainFrame extends JFrame {
 							}
 						}
 					};
-					
+
 					tabpL.book_table.setModel(model_Book);
 
 					DAO_DB dao_Book = new DAO_DB();
 					data_Book = dao_Book.book_selectAll();
 					model_Book.setDataVector(data_Book, title_Book);
-					
+
 					tabpL.scrollPane_Book.setViewportView(tabpL.book_table);
 
 				}

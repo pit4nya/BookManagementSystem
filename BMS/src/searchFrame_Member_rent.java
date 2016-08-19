@@ -68,7 +68,7 @@ public class searchFrame_Member_rent extends JFrame {
 				if (e.getClickCount() == 2) {
 					DAO_DB dao_Member = new DAO_DB();
 					data_Member = dao_Member.mem_selectName(member);
-					
+
 					Vector inner_Book = new Vector();
 					inner_Book = (Vector) data_Member.elementAt(member_table.getSelectedRow());
 

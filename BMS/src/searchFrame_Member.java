@@ -67,10 +67,10 @@ public class searchFrame_Member extends JFrame {
 				if (e.getClickCount() == 2) {
 					DAO_DB dao_Member = new DAO_DB();
 					data_Member = dao_Member.mem_selectName(member);
-					
+
 					Vector inner_Book = new Vector();
 					inner_Book = (Vector) data_Member.elementAt(member_table.getSelectedRow());
-					
+
 					tm.setMemTextField(inner_Book.elementAt(0).toString(), inner_Book.elementAt(1).toString(),
 							inner_Book.elementAt(2).toString(), inner_Book.elementAt(3).toString(),
 							inner_Book.elementAt(4).toString());
