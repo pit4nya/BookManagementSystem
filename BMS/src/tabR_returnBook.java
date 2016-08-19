@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
 
@@ -38,6 +39,9 @@ public class tabR_returnBook {
 	JLabel lb_bookName;
 	JLabel lb_Author;
 	JLabel lb_Pub;
+	
+	JTextArea ta_Memo_Up;
+	JTextArea ta_Memo_Down;
 
 	JScrollPane sp_Memo_Up;
 	JScrollPane sp_Memo_Down;
@@ -138,6 +142,9 @@ public class tabR_returnBook {
 
 		sp_Memo_Up = new JScrollPane();
 		sp_Memo_Up.setBounds(79, 98, 443, 137);
+		ta_Memo_Up = new JTextArea();
+		ta_Memo_Up.setEditable(false);
+		sp_Memo_Up.setViewportView(ta_Memo_Up);
 		mem_Info.add(sp_Memo_Up);
 
 		bt_memSearch = new JButton("°Ë»ö");
@@ -201,7 +208,10 @@ public class tabR_returnBook {
 		book_Info.add(tf_Pub);
 
 		sp_Memo_Down = new JScrollPane();
-		sp_Memo_Down.setBounds(79, 88, 443, 137);
+		sp_Memo_Down.setBounds(79, 98, 443, 137);
+		ta_Memo_Down = new JTextArea();
+		ta_Memo_Down.setEditable(false);
+		sp_Memo_Down.setViewportView(ta_Memo_Down);
 		book_Info.add(sp_Memo_Down);
 
 		lb_Memo_Down = new JLabel();
