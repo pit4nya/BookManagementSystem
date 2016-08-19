@@ -75,14 +75,14 @@ public class tabR_memMngt {
 		lb_memInfo = new JLabel();
 		lb_memInfo.setText("회원정보");
 		lb_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
-		lb_memInfo.setBounds(24, 10, 62, 23);
+		lb_memInfo.setBounds(22, 10, 62, 23);
 		inner_bookMngt.add(lb_memInfo);
 
 		mem_Info = new JPanel();
 		mem_Info.setLayout(null);
 		mem_Info.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		mem_Info.setBackground(Color.WHITE);
-		mem_Info.setBounds(12, 22, 548, 544);
+		mem_Info.setBounds(12, 21, 548, 544);
 		inner_bookMngt.add(mem_Info);
 
 		lb_memGrade = new JLabel();
