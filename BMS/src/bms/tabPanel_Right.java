@@ -1,3 +1,4 @@
+package bms;
 import javax.swing.JTabbedPane;
 
 public class tabPanel_Right extends JTabbedPane {

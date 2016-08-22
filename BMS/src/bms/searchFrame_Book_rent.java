@@ -1,3 +1,4 @@
+package bms;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,22 +10,22 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class searchFrame_Book_return extends JFrame {
+public class searchFrame_Book_rent extends JFrame {
 	Toolkit tk = Toolkit.getDefaultToolkit();
 
 	private JPanel pn_Info;
 	private JTable book_table;
 	private JScrollPane scrollPane_Mem;
-	private tabR_returnBook tr;
+	private tabR_rentBook tr;
 	private Vector data_Book = new Vector();
 	private Vector title_Book = new Vector();
 	private Book book = new Book();
 
-	public searchFrame_Book_return() {
+	public searchFrame_Book_rent() {
 	}
 
-	public searchFrame_Book_return(String name) {
-		super("도서 검색");
+	public searchFrame_Book_rent(String name) {
+		super("회원 검색");
 		setSize(500, 800);
 		setLocation((tk.getScreenSize().width - getWidth()) / 2, (tk.getScreenSize().height - getHeight()) / 2);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -34,7 +35,7 @@ public class searchFrame_Book_return extends JFrame {
 
 	public void init(String name) {
 		pn_Info = new JPanel();
-		tr = new tabR_returnBook();
+		tr = new tabR_rentBook();
 		scrollPane_Mem = new JScrollPane();
 
 		DefaultTableModel model_book = new DefaultTableModel() {
@@ -55,12 +56,12 @@ public class searchFrame_Book_return extends JFrame {
 		title_Book.add("출판사");
 		book.setName(name);
 		// TextField 에서 text 받아와서 Book에 setName 해주고 book넘김
-
+		
 		DAO_DB dao_Book = new DAO_DB();
 		data_Book = dao_Book.book_selectName(book);
 		model_book.setDataVector(data_Book, title_Book);
 
-		book_table.addMouseListener(new MyMouseListener_return() {
+		book_table.addMouseListener(new MyMouseListener_rent() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getClickCount() == 2) {
@@ -83,6 +84,6 @@ public class searchFrame_Book_return extends JFrame {
 
 }
 
-abstract class MyMouseListener_return extends MouseAdapter {
+abstract class MyMouseListener_rent extends MouseAdapter {
 	abstract public void mouseClicked(MouseEvent e);
 }

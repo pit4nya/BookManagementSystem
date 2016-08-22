@@ -1,3 +1,4 @@
+package bms;
 public class Member {
 
 	int num;

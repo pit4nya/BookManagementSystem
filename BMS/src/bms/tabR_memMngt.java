@@ -1,3 +1,4 @@
+package bms;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -206,24 +207,21 @@ public class tabR_memMngt {
 						member.setTel(tf_memTel.getText());
 						member.setAddr(tf_Addr.getText());
 						member.setEmail(tf_Email.getText());
-						member.setId("pit4nya");
-						member.setPass("hi");
+						member.setId("pit4nya" + Integer.parseInt(tf_memNum.getText()));
+						member.setPass("123");
 						db_Access.insert_Member(member);
 					} catch (FileNotFoundException e1) {
 						errMsg = e1.getMessage();
 						System.out.println(errMsg);
 						JOptionPane.showMessageDialog(null, "파일을 찾을 수 없습니다.");
-						System.out.println("파일을 찾을 수 없습니다.");
 					} catch (IOException e1) {
 						errMsg = e1.getMessage();
 						System.out.println(errMsg);
 						JOptionPane.showMessageDialog(null, "IOException");
-						System.out.println("IOException");
 					} catch (NumberFormatException e1) {
 						errMsg = e1.getMessage();
 						System.out.println(errMsg);
 						JOptionPane.showMessageDialog(null, "회원번호 형식을 확인해 주세요.");
-						System.out.println("회원번호 형식을 확인해 주세요.");
 					}
 				DAO_DB db_Refresh_Insert = new DAO_DB();
 				data_Member = db_Refresh_Insert.mem_selectAll();
