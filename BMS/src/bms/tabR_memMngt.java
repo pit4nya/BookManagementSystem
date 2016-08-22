@@ -1,4 +1,5 @@
 package bms;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -209,6 +210,7 @@ public class tabR_memMngt {
 						member.setEmail(tf_Email.getText());
 						member.setId("pit4nya" + Integer.parseInt(tf_memNum.getText()));
 						member.setPass("123");
+						member.setPermission(0);
 						db_Access.insert_Member(member);
 					} catch (FileNotFoundException e1) {
 						errMsg = e1.getMessage();

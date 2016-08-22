@@ -44,6 +44,7 @@ public class DAO_DB {
 			pstmt.setString(5, member.getEmail());
 			pstmt.setString(6, member.getId());
 			pstmt.setString(7, member.getPass());
+			pstmt.setInt(8, member.getPermission());
 
 			int n = pstmt.executeUpdate();
 

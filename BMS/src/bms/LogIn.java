@@ -89,7 +89,7 @@ public class LogIn extends JFrame {
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-					if(check == true)
+					if (check == true)
 						setVisible(false);
 
 				}
@@ -131,7 +131,7 @@ public class LogIn extends JFrame {
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				if(check == true)
+				if (check == true)
 					setVisible(false);
 			}
 		});

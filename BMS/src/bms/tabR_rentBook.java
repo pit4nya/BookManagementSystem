@@ -1,4 +1,5 @@
 package bms;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -40,7 +41,7 @@ public class tabR_rentBook {
 	JLabel lb_bookName;
 	JLabel lb_Author;
 	JLabel lb_Pub;
-	
+
 	JTextArea ta_Memo_Up;
 	JTextArea ta_Memo_Down;
 

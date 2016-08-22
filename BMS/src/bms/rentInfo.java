@@ -1,4 +1,5 @@
 package bms;
+
 public class rentInfo {
 
 	int num;

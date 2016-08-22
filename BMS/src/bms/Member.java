@@ -1,4 +1,5 @@
 package bms;
+
 public class Member {
 
 	int num;
@@ -8,11 +9,13 @@ public class Member {
 	String email;
 	String id;
 	String password;
+	int permission;
 
 	public Member() {
 	}
 
-	public Member(int _num, String _name, String _tel, String _addr, String _email, String _id, String _password) {
+	public Member(int _num, String _name, String _tel, String _addr, String _email, String _id, String _password,
+			int _permission) {
 		this.num = _num;
 		this.name = _name;
 		this.tel = _tel;
@@ -20,6 +23,7 @@ public class Member {
 		this.email = _email;
 		this.id = _id;
 		this.password = _password;
+		this.permission = _permission;
 	}
 
 	public int getNum() {
@@ -76,5 +80,13 @@ public class Member {
 
 	public void setPass(String password) {
 		this.password = password;
+	}
+
+	public int getPermission() {
+		return permission;
+	}
+
+	public void setPermission(int permission) {
+		this.permission = permission;
 	}
 }

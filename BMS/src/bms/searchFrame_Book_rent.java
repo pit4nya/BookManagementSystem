@@ -1,4 +1,5 @@
 package bms;
+
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -56,7 +57,7 @@ public class searchFrame_Book_rent extends JFrame {
 		title_Book.add("출판사");
 		book.setName(name);
 		// TextField 에서 text 받아와서 Book에 setName 해주고 book넘김
-		
+
 		DAO_DB dao_Book = new DAO_DB();
 		data_Book = dao_Book.book_selectName(book);
 		model_book.setDataVector(data_Book, title_Book);
