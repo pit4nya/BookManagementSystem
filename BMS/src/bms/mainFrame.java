@@ -25,8 +25,8 @@ public class mainFrame extends JFrame {
 	JFileChooser fileChooser = new JFileChooser();
 
 	public static void main(String[] args) {
-		mainFrame frame = new mainFrame("BookManagementSystem Version 1.0");
-		frame.setVisible(true);
+		LogIn login = new LogIn();
+		login.setVisible(true);
 	}
 
 	public mainFrame(String title) {
