@@ -42,6 +42,7 @@ public class tabPanel_Left extends JTabbedPane {
 		tabR_infoView tbpr_iV = new tabR_infoView();
 		tabR_rentBook tbpr_rent = new tabR_rentBook();
 		tabR_returnBook tbpr_return = new tabR_returnBook();
+		tabR_memMngt tbpr_memMngt = new tabR_memMngt();
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
 		scrollPane_Mem = new JScrollPane();
@@ -82,8 +83,9 @@ public class tabPanel_Left extends JTabbedPane {
 							(String) inner_Member.elementAt(2));
 					tbpr_rent.setMemTextField(Integer.parseInt(inner_Member.elementAt(0).toString()),
 							(String) inner_Member.elementAt(1), (String) inner_Member.elementAt(2));
-					tbpr_return.setMemTextField(Integer.parseInt(inner_Member.elementAt(0).toString()),
-							(String) inner_Member.elementAt(1), (String) inner_Member.elementAt(2));
+					tbpr_memMngt.setMemTextField(inner_Member.elementAt(0).toString(),
+							(String) inner_Member.elementAt(1), (String) inner_Member.elementAt(2),
+							(String) inner_Member.elementAt(4), (String) inner_Member.elementAt(3));
 				}
 			}
 		});
@@ -129,10 +131,6 @@ public class tabPanel_Left extends JTabbedPane {
 							(String) inner_Book.elementAt(3));
 
 					tbpr_rent.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
-							(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
-							(String) inner_Book.elementAt(3));
-
-					tbpr_return.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
 							(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
 							(String) inner_Book.elementAt(3));
 				}
@@ -190,13 +188,6 @@ public class tabPanel_Left extends JTabbedPane {
 					tbpr_iV.setMemTextField(Integer.parseInt(inner_Mem.elementAt(0).toString()),
 							(String) inner_Mem.elementAt(1), (String) inner_Mem.elementAt(2));
 
-					tbpr_rent.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
-							(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
-							(String) inner_Book.elementAt(3));
-
-					tbpr_rent.setMemTextField(Integer.parseInt(inner_Mem.elementAt(0).toString()),
-							(String) inner_Mem.elementAt(1), (String) inner_Mem.elementAt(2));
-
 					tbpr_return.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
 							(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
 							(String) inner_Book.elementAt(3));
@@ -221,7 +212,7 @@ public class tabPanel_Left extends JTabbedPane {
 		member_table.setModel(model_Temp);
 		model_Temp.setDataVector(data_Member, title_Member);
 	}
-	
+
 	public void setBookTable(Vector data_Book, Vector title_Book) {
 		DefaultTableModel model_Temp = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
