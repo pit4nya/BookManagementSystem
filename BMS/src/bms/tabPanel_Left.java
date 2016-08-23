@@ -20,15 +20,15 @@ public class tabPanel_Left extends JTabbedPane {
 	static JTable member_table;
 
 	private JTabbedPane tabbedPane;
-	JScrollPane scrollPane_Mem;
-	JScrollPane scrollPane_Book;
-	JScrollPane scrollPane_isRented;
-	Vector data_Book = new Vector();
-	Vector title_Book = new Vector();
-	Vector data_Member = new Vector();
-	Vector title_Member = new Vector();
-	Vector data_rentinfo = new Vector();
-	Vector title_rentinfo = new Vector();
+	private JScrollPane scrollPane_Mem;
+	protected JScrollPane scrollPane_Book;
+	private JScrollPane scrollPane_isRented;
+	private Vector data_Book = new Vector();
+	private Vector title_Book = new Vector();
+	private Vector data_Member = new Vector();
+	private Vector title_Member = new Vector();
+	private Vector data_rentinfo = new Vector();
+	private Vector title_rentinfo = new Vector();
 
 	public tabPanel_Left() {
 	}
