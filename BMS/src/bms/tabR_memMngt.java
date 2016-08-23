@@ -75,7 +75,7 @@ public class tabR_memMngt {
 		mem_Mngt.add(inner_bookMngt, "cell 0 0,grow");
 
 		lb_memInfo = new JLabel();
-		lb_memInfo.setText("회원정보");
+		lb_memInfo.setText("회원관리");
 		lb_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
 		lb_memInfo.setBounds(22, 10, 62, 23);
 		inner_bookMngt.add(lb_memInfo);
@@ -93,9 +93,8 @@ public class tabR_memMngt {
 		mem_Info.add(lb_memGrade);
 
 		cb_memGrade = new JComboBox();
-		cb_memGrade.setModel(new DefaultComboBoxModel(new String[] { "추후 구현" }));
+		cb_memGrade.setModel(new DefaultComboBoxModel(new String[] { "일반 회원", "관리자" }));
 		cb_memGrade.setBounds(79, 24, 187, 21);
-		cb_memGrade.setEnabled(false);
 		mem_Info.add(cb_memGrade);
 
 		lb_memNum = new JLabel();
@@ -210,7 +209,12 @@ public class tabR_memMngt {
 						member.setEmail(tf_Email.getText());
 						member.setId("pit4nya" + Integer.parseInt(tf_memNum.getText()));
 						member.setPass("123");
-						member.setPermission(0);
+						if(cb_memGrade.getSelectedItem().equals("일반 회원"))
+							member.setPermission(0);
+						else if(cb_memGrade.getSelectedItem().equals("관리자"))
+							member.setPermission(1);
+						else
+							System.out.println("뭔가 이상하다.");
 						db_Access.insert_Member(member);
 					} catch (FileNotFoundException e1) {
 						errMsg = e1.getMessage();

@@ -15,7 +15,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class tabPanel_Left extends JTabbedPane {
-	JTable book_table;
+	static JTable book_table;
 	static JTable isRented_table;
 	static JTable member_table;
 
@@ -220,6 +220,20 @@ public class tabPanel_Left extends JTabbedPane {
 		};
 		member_table.setModel(model_Temp);
 		model_Temp.setDataVector(data_Member, title_Member);
+	}
+	
+	public void setBookTable(Vector data_Book, Vector title_Book) {
+		DefaultTableModel model_Temp = new DefaultTableModel() {
+			public boolean isCellEditable(int row, int column) {
+				if (column >= 0) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+		};
+		book_table.setModel(model_Temp);
+		model_Temp.setDataVector(data_Book, title_Book);
 	}
 
 	public void set_rentinfoTable(Vector data_rentinfo, Vector title_rentinfo) {

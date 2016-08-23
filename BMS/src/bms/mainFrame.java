@@ -1,6 +1,5 @@
 package bms;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -16,14 +15,19 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
 public class mainFrame extends JFrame {
 	private JPanel contentPane;
+	Vector data_Book = new Vector();
+	Vector title_Book = new Vector();
 	Toolkit tk = Toolkit.getDefaultToolkit();
 	JFileChooser fileChooser = new JFileChooser();
+	tabPanel_Left tbpl = new tabPanel_Left();
 
 	public static void main(String[] args) {
 		LogIn login = new LogIn();
@@ -49,11 +53,30 @@ public class mainFrame extends JFrame {
 
 		JMenuItem open_Menu = new JMenuItem("Open DataBase");
 		file_Menu.add(open_Menu);
+		
+		title_Book.add("도서번호");
+		title_Book.add("도서명");
+		title_Book.add("저자");
+		title_Book.add("출판사");
 
 		open_Menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fileChooser.setCurrentDirectory(new File("D:\\"));
-				int result = fileChooser.showOpenDialog(contentPane);
+//				fileChooser.setCurrentDirectory(new File("D:\\"));
+//				int result = fileChooser.showOpenDialog(contentPane);
+
+				FileFilter filter = new FileNameExtensionFilter("xlsx 파일", "xlsx");
+				fileChooser.addChoosableFileFilter(filter);
+				int result = fileChooser.showOpenDialog(null);
+				
+				if(result == JFileChooser.APPROVE_OPTION){
+					System.out.println("선택한 파일: " + fileChooser.getSelectedFile().getName());
+					System.out.println("파일이 있는 디렉토리: " + fileChooser.getSelectedFile());
+					readExcel readEx = new readExcel(fileChooser.getSelectedFile().toString());
+					
+					DAO_DB db_Refresh_Insert = new DAO_DB();
+					data_Book = db_Refresh_Insert.book_selectAll();
+					tbpl.setBookTable(data_Book, title_Book);
+				}
 			}
 		});
 

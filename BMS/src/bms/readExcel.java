@@ -27,12 +27,12 @@ public class readExcel {
 		return retVec;
 	}
 
-	public readExcel() {
+	public readExcel(String path) {
 		DAO_DB dao_deleteAll = new DAO_DB();
 		dao_deleteAll.deleteAll_Book();
 		fis = null;
 		try {
-			fis = new FileInputStream("XlsxRead.xlsx");
+			fis = new FileInputStream(path);
 		} catch (FileNotFoundException e) {
 			System.err.println("파일을 찾을 수 없습니다.");
 		}

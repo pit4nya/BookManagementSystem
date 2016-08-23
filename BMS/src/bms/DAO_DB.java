@@ -119,7 +119,7 @@ public class DAO_DB {
 
 		} catch (SQLException e) {
 			// e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "대여 중인 책입니다.");
+			JOptionPane.showMessageDialog(null, "존재하지 않거나 대여 중인 책입니다.");
 		}
 	}
 
