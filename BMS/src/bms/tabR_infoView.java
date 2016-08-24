@@ -61,18 +61,24 @@ public class tabR_infoView extends JTabbedPane {
 		inner_bookMngt.setLayout(null);
 		book_Mngt.add(inner_bookMngt, "cell 0 0,grow");
 
+		lb_memInfo = new JLabel();
+		lb_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
+		lb_memInfo.setText("회원정보");
+		lb_memInfo.setBounds(22, 10, 62, 23);
+		inner_bookMngt.add(lb_memInfo);
+
+		lb_bookInfo = new JLabel();
+		lb_bookInfo.setBounds(22, 280, 62, 23);
+		lb_bookInfo.setText("도서정보");
+		lb_bookInfo.setFont(new Font("굴림", Font.PLAIN, 14));
+		inner_bookMngt.add(lb_bookInfo);
+
 		mem_Info = new JPanel();
 		mem_Info.setBackground(Color.WHITE);
 		mem_Info.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		mem_Info.setBounds(12, 21, 548, 249);
 		mem_Info.setLayout(null);
 		inner_bookMngt.add(mem_Info);
-		
-		lb_memInfo = new JLabel();
-		lb_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
-		lb_memInfo.setText("회원정보");
-		lb_memInfo.setBounds(22, 10, 62, 23);
-		inner_bookMngt.add(lb_memInfo);
 
 		lb_memNum = new JLabel();
 		lb_memNum.setText("회원번호");
@@ -126,12 +132,6 @@ public class tabR_infoView extends JTabbedPane {
 		book_Info.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		book_Info.setBounds(12, 294, 548, 298);
 		inner_bookMngt.add(book_Info);
-		
-		lb_bookInfo = new JLabel();
-		lb_bookInfo.setBounds(22, 280, 62, 23);
-		lb_bookInfo.setText("도서정보");
-		lb_bookInfo.setFont(new Font("굴림", Font.PLAIN, 14));
-		inner_bookMngt.add(lb_bookInfo);
 
 		lb_bookNum = new JLabel();
 		lb_bookNum.setText("도서번호");
