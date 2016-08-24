@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Vector;
 
+import javax.swing.JOptionPane;
+
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -86,7 +88,6 @@ public class readExcel {
 							break;
 						}
 					}
-					System.out.println(value);
 					dataVec.add(value);
 				}
 				book.setNum(Integer.parseInt(dataVec.elementAt(0).toString()));
@@ -104,5 +105,6 @@ public class readExcel {
 				retVec.add(dataVec);
 			}
 		}
+		JOptionPane.showMessageDialog(null, "책 정보가 등록되었습니다.\n파일 경로: " + path);
 	}
 }

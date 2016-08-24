@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileFilter;
@@ -68,7 +69,8 @@ public class mainFrame extends JFrame {
 				fileChooser.addChoosableFileFilter(filter);
 				int result = fileChooser.showOpenDialog(null);
 
-				if (result == JFileChooser.APPROVE_OPTION) {
+				if (result == JFileChooser.APPROVE_OPTION
+						&& fileChooser.getSelectedFile().getName().contains(".xlsx")) {
 					System.out.println("선택한 파일: " + fileChooser.getSelectedFile().getName());
 					System.out.println("파일이 있는 디렉토리: " + fileChooser.getSelectedFile());
 					readExcel readEx = new readExcel(fileChooser.getSelectedFile().toString());
@@ -76,12 +78,14 @@ public class mainFrame extends JFrame {
 					DAO_DB db_Refresh_Insert = new DAO_DB();
 					data_Book = db_Refresh_Insert.book_selectAll();
 					tbpl.setBookTable(data_Book, title_Book);
+				} else {
+					JOptionPane.showMessageDialog(null, "올바른 파일 형식이 아닙니다.");
 				}
 			}
 		});
 
-		JMenuItem refresh_Menu = new JMenuItem("Refresh");
-		file_Menu.add(refresh_Menu);
+		// JMenuItem refresh_Menu = new JMenuItem("Refresh");
+		// file_Menu.add(refresh_Menu);
 
 		JMenuItem exit_Menu = new JMenuItem("Exit");
 		file_Menu.add(exit_Menu);
@@ -108,39 +112,39 @@ public class mainFrame extends JFrame {
 		tabPanel_Left tabpL = new tabPanel_Left("");
 		tabPanel_Right tabpR = new tabPanel_Right("");
 
-		refresh_Menu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == refresh_Menu) {
-					refresh_Menu.setSelected(false);
-					Vector title_Book = new Vector();
-					Vector data_Book = new Vector();
-					title_Book.add("도서번호");
-					title_Book.add("도서명");
-					title_Book.add("저자");
-					title_Book.add("출판사");
-
-					DefaultTableModel model_Book = new DefaultTableModel() {
-						public boolean isCellEditable(int row, int column) {
-							if (column >= 0) {
-								return false;
-							} else {
-								return true;
-							}
-						}
-					};
-
-					tabpL.book_table.setModel(model_Book);
-
-					DAO_DB dao_Book = new DAO_DB();
-					data_Book = dao_Book.book_selectAll();
-					model_Book.setDataVector(data_Book, title_Book);
-
-					tabpL.scrollPane_Book.setViewportView(tabpL.book_table);
-
-				}
-
-			}
-		});
+		// refresh_Menu.addActionListener(new ActionListener() {
+		// public void actionPerformed(ActionEvent e) {
+		// if (e.getSource() == refresh_Menu) {
+		// refresh_Menu.setSelected(false);
+		// Vector title_Book = new Vector();
+		// Vector data_Book = new Vector();
+		// title_Book.add("도서번호");
+		// title_Book.add("도서명");
+		// title_Book.add("저자");
+		// title_Book.add("출판사");
+		//
+		// DefaultTableModel model_Book = new DefaultTableModel() {
+		// public boolean isCellEditable(int row, int column) {
+		// if (column >= 0) {
+		// return false;
+		// } else {
+		// return true;
+		// }
+		// }
+		// };
+		//
+		// tabPanel_Left.book_table.setModel(model_Book);
+		//
+		// DAO_DB dao_Book = new DAO_DB();
+		// data_Book = dao_Book.book_selectAll();
+		// model_Book.setDataVector(data_Book, title_Book);
+		//
+		// tabpL.scrollPane_Book.setViewportView(tabPanel_Left.book_table);
+		//
+		// }
+		//
+		// }
+		// });
 		contentPane.add(tabpL.getPanel(), "cell 0 1,grow");
 		contentPane.add(tabpR.getPanel(), "cell 1 1,grow");
 	}
