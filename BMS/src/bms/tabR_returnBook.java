@@ -24,50 +24,50 @@ import javax.swing.border.EtchedBorder;
 import net.miginfocom.swing.MigLayout;
 
 public class tabR_returnBook {
-	JPanel returnBook;
-	JPanel inner_returnBook;
-	JPanel mem_Info;
-	JPanel book_Info;
-	JPanel blank;
+	private JPanel returnBook;
+	private JPanel inner_returnBook;
+	private JPanel mem_Info;
+	private JPanel book_Info;
+	private JPanel blank;
 
-	JLabel lb_memInfo;
-	JLabel lb_bookInfo;
-	JLabel lb_memNum;
-	JLabel lb_memName;
-	JLabel lb_memTel;
-	JLabel lb_Memo_Up;
-	JLabel lb_Memo_Down;
-	JLabel lb_bookNum;
-	JLabel lb_bookName;
-	JLabel lb_Author;
-	JLabel lb_Pub;
+	private JLabel lb_memInfo;
+	private JLabel lb_bookInfo;
+	private JLabel lb_memNum;
+	private JLabel lb_memName;
+	private JLabel lb_memTel;
+	private JLabel lb_Memo_Up;
+	private JLabel lb_Memo_Down;
+	private JLabel lb_bookNum;
+	private JLabel lb_bookName;
+	private JLabel lb_Author;
+	private JLabel lb_Pub;
 
-	JTextArea ta_Memo_Up;
-	JTextArea ta_Memo_Down;
+	private JTextArea ta_Memo_Up;
+	private JTextArea ta_Memo_Down;
 
-	JScrollPane sp_Memo_Up;
-	JScrollPane sp_Memo_Down;
+	private JScrollPane sp_Memo_Up;
+	private JScrollPane sp_Memo_Down;
 
-	static JTextField tf_memNum;
-	static JTextField tf_memName;
-	static JTextField tf_memTel;
+	static protected JTextField tf_memNum;
+	static protected JTextField tf_memName;
+	static protected JTextField tf_memTel;
 
-	static JTextField tf_Author;
-	static JTextField tf_bookNum;
-	static JTextField tf_bookName;
-	static JTextField tf_Pub;
+	static protected JTextField tf_Author;
+	static protected JTextField tf_bookNum;
+	static protected JTextField tf_bookName;
+	static protected JTextField tf_Pub;
 
-	JButton bt_return;
-	JButton bt_memSearch;
-	JButton bt_bookSearch;
+	private JButton bt_return;
+	private JButton bt_memSearch;
+	private JButton bt_bookSearch;
 
-	Book book;
-	Member member;
+	private Book book;
+	private Member member;
 
-	Vector title_rentinfo = new Vector();
-	Vector data_rentinfo = new Vector();
+	private Vector title_rentinfo = new Vector();
+	private Vector data_rentinfo = new Vector();
 
-	tabPanel_Left tbpl = new tabPanel_Left();
+	private tabPanel_Left tbpl = new tabPanel_Left();
 
 	public tabR_returnBook() {
 	}
