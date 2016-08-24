@@ -209,9 +209,9 @@ public class tabR_memMngt {
 						member.setEmail(tf_Email.getText());
 						member.setId("pit4nya" + Integer.parseInt(tf_memNum.getText()));
 						member.setPass("123");
-						if(cb_memGrade.getSelectedItem().equals("일반 회원"))
+						if (cb_memGrade.getSelectedItem().equals("일반 회원"))
 							member.setPermission(0);
-						else if(cb_memGrade.getSelectedItem().equals("관리자"))
+						else if (cb_memGrade.getSelectedItem().equals("관리자"))
 							member.setPermission(1);
 						else
 							System.out.println("뭔가 이상하다.");

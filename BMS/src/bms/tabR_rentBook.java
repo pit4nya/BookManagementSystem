@@ -212,7 +212,7 @@ public class tabR_rentBook {
 		lb_Memo_Down.setText("¸Þ      ¸ð");
 		lb_Memo_Down.setBounds(12, 86, 54, 21);
 		book_Info.add(lb_Memo_Down);
-		
+
 		sp_Memo_Down = new JScrollPane();
 		sp_Memo_Down.setBounds(79, 88, 443, 137);
 		ta_Memo_Down = new JTextArea();
