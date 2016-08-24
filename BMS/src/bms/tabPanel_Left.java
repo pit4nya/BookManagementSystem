@@ -19,7 +19,7 @@ public class tabPanel_Left extends JTabbedPane {
 	static JTable isRented_table;
 	static JTable member_table;
 
-	private JTabbedPane tabbedPane;
+	protected static JTabbedPane tabbedPane;
 	private JScrollPane scrollPane_Mem;
 	protected JScrollPane scrollPane_Book;
 	private JScrollPane scrollPane_isRented;
@@ -45,50 +45,6 @@ public class tabPanel_Left extends JTabbedPane {
 		tabR_memMngt tbpr_memMngt = new tabR_memMngt();
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
-		scrollPane_Mem = new JScrollPane();
-		tabbedPane.addTab("회원현황", null, scrollPane_Mem, null);
-
-		DefaultTableModel model_Member = new DefaultTableModel() {
-			public boolean isCellEditable(int row, int column) {
-				if (column >= 0) {
-					return false;
-				} else {
-					return true;
-				}
-			}
-		};
-		member_table = new JTable(model_Member);
-		scrollPane_Mem.setViewportView(member_table);
-		title_Member.add("회원번호");
-		title_Member.add("회원명");
-		title_Member.add("전화번호");
-		title_Member.add("주소");
-		title_Member.add("이메일");
-		title_Member.add("ID");
-
-		DAO_DB dao_Member = new DAO_DB();
-		data_Member = dao_Member.mem_selectAll();
-		model_Member.setDataVector(data_Member, title_Member);
-
-		member_table.addMouseListener(new MyMouseListener_Member() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (e.getButton() == 1) {
-					DAO_DB dao_Member = new DAO_DB();
-					data_Member = dao_Member.mem_selectAll();
-
-					Vector inner_Member = new Vector();
-					inner_Member = (Vector) data_Member.elementAt(member_table.getSelectedRow());
-					tbpr_iV.setMemTextField((int) inner_Member.elementAt(0), (String) inner_Member.elementAt(1),
-							(String) inner_Member.elementAt(2));
-					tbpr_rent.setMemTextField(Integer.parseInt(inner_Member.elementAt(0).toString()),
-							(String) inner_Member.elementAt(1), (String) inner_Member.elementAt(2));
-					tbpr_memMngt.setMemTextField(inner_Member.elementAt(0).toString(),
-							(String) inner_Member.elementAt(1), (String) inner_Member.elementAt(2),
-							(String) inner_Member.elementAt(4), (String) inner_Member.elementAt(3));
-				}
-			}
-		});
 		scrollPane_Book = new JScrollPane();
 		tabbedPane.addTab("도서현황", null, scrollPane_Book, null);
 
@@ -133,6 +89,51 @@ public class tabPanel_Left extends JTabbedPane {
 					tbpr_rent.setBookTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
 							(String) inner_Book.elementAt(1), (String) inner_Book.elementAt(2),
 							(String) inner_Book.elementAt(3));
+				}
+			}
+		});
+
+		scrollPane_Mem = new JScrollPane();
+		tabbedPane.addTab("회원현황", null, scrollPane_Mem, null);
+
+		DefaultTableModel model_Member = new DefaultTableModel() {
+			public boolean isCellEditable(int row, int column) {
+				if (column >= 0) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+		};
+		member_table = new JTable(model_Member);
+		scrollPane_Mem.setViewportView(member_table);
+		title_Member.add("회원번호");
+		title_Member.add("회원명");
+		title_Member.add("전화번호");
+		title_Member.add("주소");
+		title_Member.add("이메일");
+		title_Member.add("ID");
+
+		DAO_DB dao_Member = new DAO_DB();
+		data_Member = dao_Member.mem_selectAll();
+		model_Member.setDataVector(data_Member, title_Member);
+
+		member_table.addMouseListener(new MyMouseListener_Member() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (e.getButton() == 1) {
+					DAO_DB dao_Member = new DAO_DB();
+					data_Member = dao_Member.mem_selectAll();
+
+					Vector inner_Member = new Vector();
+					inner_Member = (Vector) data_Member.elementAt(member_table.getSelectedRow());
+					tbpr_iV.setMemTextField((int) inner_Member.elementAt(0), (String) inner_Member.elementAt(1),
+							(String) inner_Member.elementAt(2));
+					tbpr_rent.setMemTextField(Integer.parseInt(inner_Member.elementAt(0).toString()),
+							(String) inner_Member.elementAt(1), (String) inner_Member.elementAt(2));
+					tbpr_memMngt.setMemTextField(inner_Member.elementAt(0).toString(),
+							(String) inner_Member.elementAt(1), (String) inner_Member.elementAt(2),
+							(String) inner_Member.elementAt(4), (String) inner_Member.elementAt(3));
 				}
 			}
 		});
@@ -244,6 +245,10 @@ public class tabPanel_Left extends JTabbedPane {
 	public JTabbedPane getPanel() {
 		return tabbedPane;
 	}
+}
+
+abstract class MyMouseListener extends MouseAdapter {
+	abstract public void mouseClicked(MouseEvent e);
 }
 
 abstract class MyMouseListener_Book extends MouseAdapter {

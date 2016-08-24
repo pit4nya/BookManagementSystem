@@ -21,24 +21,24 @@ public class tabR_infoView extends JTabbedPane {
 	private JPanel book_Mngt;
 	private JPanel inner_bookMngt;
 
-	private JLabel tp_bookInfo;
-	private JLabel tp_memInfo;
-	private JLabel tp_memNum;
+	private JLabel lb_bookInfo;
+	private JLabel lb_memInfo;
+	private JLabel lb_memNum;
 	private static JTextField tf_memNum;
-	private JLabel tp_memName;
+	private JLabel lb_memName;
 	private static JTextField tf_memName;
-	private JLabel tp_telNum;
+	private JLabel lb_telNum;
 	private static JTextField tf_telNum;
-	private JLabel tp_bookNum;
+	private JLabel lb_bookNum;
 	private static JTextField tf_bookNum;
-	private JLabel tp_bookName;
+	private JLabel lb_bookName;
 	private static JTextField tf_bookName;
-	private JLabel tp_Author;
+	private JLabel lb_Author;
 	private static JTextField tf_Author;
-	private JLabel tp_Pub;
+	private JLabel lb_Pub;
 	private static JTextField tf_Pub;
-	private JLabel tp_Memo_Up;
-	private JLabel tp_Memo_Down;
+	private JLabel lb_Memo_Up;
+	private JLabel lb_Memo_Down;
 	private JScrollPane scrollPane_Up;
 	private JScrollPane scrollPane_Down;
 	private static JTextArea ta_Memo_Up;
@@ -61,17 +61,17 @@ public class tabR_infoView extends JTabbedPane {
 		inner_bookMngt.setLayout(null);
 		book_Mngt.add(inner_bookMngt, "cell 0 0,grow");
 
-		tp_memInfo = new JLabel();
-		tp_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
-		tp_memInfo.setText("회원정보");
-		tp_memInfo.setBounds(22, 10, 62, 23);
-		inner_bookMngt.add(tp_memInfo);
+		lb_memInfo = new JLabel();
+		lb_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
+		lb_memInfo.setText("회원정보");
+		lb_memInfo.setBounds(22, 10, 62, 23);
+		inner_bookMngt.add(lb_memInfo);
 
-		tp_bookInfo = new JLabel();
-		tp_bookInfo.setBounds(22, 280, 62, 23);
-		tp_bookInfo.setText("도서정보");
-		tp_bookInfo.setFont(new Font("굴림", Font.PLAIN, 14));
-		inner_bookMngt.add(tp_bookInfo);
+		lb_bookInfo = new JLabel();
+		lb_bookInfo.setBounds(22, 280, 62, 23);
+		lb_bookInfo.setText("도서정보");
+		lb_bookInfo.setFont(new Font("굴림", Font.PLAIN, 14));
+		inner_bookMngt.add(lb_bookInfo);
 
 		mem_Info = new JPanel();
 		mem_Info.setBackground(Color.WHITE);
@@ -80,10 +80,10 @@ public class tabR_infoView extends JTabbedPane {
 		mem_Info.setLayout(null);
 		inner_bookMngt.add(mem_Info);
 
-		tp_memNum = new JLabel();
-		tp_memNum.setText("회원번호");
-		tp_memNum.setBounds(12, 32, 54, 21);
-		mem_Info.add(tp_memNum);
+		lb_memNum = new JLabel();
+		lb_memNum.setText("회원번호");
+		lb_memNum.setBounds(12, 32, 54, 21);
+		mem_Info.add(lb_memNum);
 
 		tf_memNum = new JTextField();
 		tf_memNum.setEditable(false);
@@ -91,10 +91,10 @@ public class tabR_infoView extends JTabbedPane {
 		tf_memNum.setColumns(10);
 		mem_Info.add(tf_memNum);
 
-		tp_memName = new JLabel();
-		tp_memName.setText("회원명");
-		tp_memName.setBounds(280, 32, 42, 21);
-		mem_Info.add(tp_memName);
+		lb_memName = new JLabel();
+		lb_memName.setText("회원명");
+		lb_memName.setBounds(280, 32, 42, 21);
+		mem_Info.add(lb_memName);
 
 		tf_memName = new JTextField();
 		tf_memName.setEditable(false);
@@ -102,10 +102,10 @@ public class tabR_infoView extends JTabbedPane {
 		tf_memName.setBounds(334, 32, 187, 21);
 		mem_Info.add(tf_memName);
 
-		tp_telNum = new JLabel();
-		tp_telNum.setText("전화번호");
-		tp_telNum.setBounds(12, 63, 54, 21);
-		mem_Info.add(tp_telNum);
+		lb_telNum = new JLabel();
+		lb_telNum.setText("전화번호");
+		lb_telNum.setBounds(12, 63, 54, 21);
+		mem_Info.add(lb_telNum);
 
 		tf_telNum = new JTextField();
 		tf_telNum.setEditable(false);
@@ -113,10 +113,10 @@ public class tabR_infoView extends JTabbedPane {
 		tf_telNum.setBounds(79, 63, 187, 21);
 		mem_Info.add(tf_telNum);
 
-		tp_Memo_Up = new JLabel();
-		tp_Memo_Up.setText("메      모");
-		tp_Memo_Up.setBounds(12, 96, 54, 21);
-		mem_Info.add(tp_Memo_Up);
+		lb_Memo_Up = new JLabel();
+		lb_Memo_Up.setText("메      모");
+		lb_Memo_Up.setBounds(12, 96, 54, 21);
+		mem_Info.add(lb_Memo_Up);
 
 		scrollPane_Up = new JScrollPane();
 		scrollPane_Up.setBounds(79, 98, 443, 137);
@@ -133,10 +133,10 @@ public class tabR_infoView extends JTabbedPane {
 		book_Info.setBounds(12, 294, 548, 298);
 		inner_bookMngt.add(book_Info);
 
-		tp_bookNum = new JLabel();
-		tp_bookNum.setText("도서번호");
-		tp_bookNum.setBounds(12, 24, 54, 21);
-		book_Info.add(tp_bookNum);
+		lb_bookNum = new JLabel();
+		lb_bookNum.setText("도서번호");
+		lb_bookNum.setBounds(12, 24, 54, 21);
+		book_Info.add(lb_bookNum);
 
 		tf_bookNum = new JTextField();
 		tf_bookNum.setEditable(false);
@@ -144,10 +144,10 @@ public class tabR_infoView extends JTabbedPane {
 		tf_bookNum.setBounds(79, 24, 187, 21);
 		book_Info.add(tf_bookNum);
 
-		tp_bookName = new JLabel();
-		tp_bookName.setText("도서명");
-		tp_bookName.setBounds(280, 24, 42, 21);
-		book_Info.add(tp_bookName);
+		lb_bookName = new JLabel();
+		lb_bookName.setText("도서명");
+		lb_bookName.setBounds(280, 24, 42, 21);
+		book_Info.add(lb_bookName);
 
 		tf_bookName = new JTextField();
 		tf_bookName.setEditable(false);
@@ -155,10 +155,10 @@ public class tabR_infoView extends JTabbedPane {
 		tf_bookName.setBounds(334, 24, 187, 21);
 		book_Info.add(tf_bookName);
 
-		tp_Author = new JLabel();
-		tp_Author.setText("저자");
-		tp_Author.setBounds(12, 55, 54, 21);
-		book_Info.add(tp_Author);
+		lb_Author = new JLabel();
+		lb_Author.setText("저자");
+		lb_Author.setBounds(12, 55, 54, 21);
+		book_Info.add(lb_Author);
 
 		tf_Author = new JTextField();
 		tf_Author.setEditable(false);
@@ -166,10 +166,10 @@ public class tabR_infoView extends JTabbedPane {
 		tf_Author.setBounds(79, 55, 187, 21);
 		book_Info.add(tf_Author);
 
-		tp_Pub = new JLabel();
-		tp_Pub.setText("출판사");
-		tp_Pub.setBounds(280, 55, 42, 21);
-		book_Info.add(tp_Pub);
+		lb_Pub = new JLabel();
+		lb_Pub.setText("출판사");
+		lb_Pub.setBounds(280, 55, 42, 21);
+		book_Info.add(lb_Pub);
 
 		tf_Pub = new JTextField();
 		tf_Pub.setEditable(false);
@@ -177,10 +177,10 @@ public class tabR_infoView extends JTabbedPane {
 		tf_Pub.setBounds(334, 55, 187, 21);
 		book_Info.add(tf_Pub);
 
-		tp_Memo_Down = new JLabel();
-		tp_Memo_Down.setText("메      모");
-		tp_Memo_Down.setBounds(12, 86, 54, 21);
-		book_Info.add(tp_Memo_Down);
+		lb_Memo_Down = new JLabel();
+		lb_Memo_Down.setText("메      모");
+		lb_Memo_Down.setBounds(12, 86, 54, 21);
+		book_Info.add(lb_Memo_Down);
 
 		scrollPane_Down = new JScrollPane();
 		scrollPane_Down.setBounds(79, 88, 443, 137);
