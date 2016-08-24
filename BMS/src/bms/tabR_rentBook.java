@@ -102,12 +102,6 @@ public class tabR_rentBook {
 		mem_Info.setBounds(12, 21, 548, 249);
 		inner_rentBook.add(mem_Info);
 
-		lb_bookInfo = new JLabel();
-		lb_bookInfo.setText("도서정보");
-		lb_bookInfo.setFont(new Font("굴림", Font.PLAIN, 14));
-		lb_bookInfo.setBounds(22, 280, 62, 23);
-		inner_rentBook.add(lb_bookInfo);
-
 		lb_memNum = new JLabel();
 		lb_memNum.setText("회원번호");
 		lb_memNum.setBounds(12, 32, 54, 21);
@@ -169,6 +163,12 @@ public class tabR_rentBook {
 		book_Info.setBackground(Color.WHITE);
 		book_Info.setBounds(12, 294, 548, 298);
 		inner_rentBook.add(book_Info);
+		
+		lb_bookInfo = new JLabel();
+		lb_bookInfo.setText("도서정보");
+		lb_bookInfo.setFont(new Font("굴림", Font.PLAIN, 14));
+		lb_bookInfo.setBounds(22, 280, 62, 23);
+		inner_rentBook.add(lb_bookInfo);
 
 		lb_bookNum = new JLabel();
 		lb_bookNum.setText("도서번호");

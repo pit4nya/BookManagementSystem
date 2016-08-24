@@ -74,18 +74,18 @@ public class tabR_memMngt {
 		inner_bookMngt.setLayout(null);
 		mem_Mngt.add(inner_bookMngt, "cell 0 0,grow");
 
-		lb_memInfo = new JLabel();
-		lb_memInfo.setText("회원관리");
-		lb_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
-		lb_memInfo.setBounds(22, 10, 62, 23);
-		inner_bookMngt.add(lb_memInfo);
-
 		mem_Info = new JPanel();
 		mem_Info.setLayout(null);
 		mem_Info.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		mem_Info.setBackground(Color.WHITE);
 		mem_Info.setBounds(12, 21, 548, 544);
 		inner_bookMngt.add(mem_Info);
+		
+		lb_memInfo = new JLabel();
+		lb_memInfo.setText("회원관리");
+		lb_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
+		lb_memInfo.setBounds(22, 10, 62, 23);
+		inner_bookMngt.add(lb_memInfo);
 
 		lb_memGrade = new JLabel();
 		lb_memGrade.setText("회원등급");

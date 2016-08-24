@@ -88,24 +88,18 @@ public class tabR_returnBook {
 		inner_returnBook.setLayout(null);
 		returnBook.add(inner_returnBook, "cell 0 0,grow");
 
-		lb_memInfo = new JLabel();
-		lb_memInfo.setText("회원정보");
-		lb_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
-		lb_memInfo.setBounds(22, 10, 62, 23);
-		inner_returnBook.add(lb_memInfo);
-
 		mem_Info = new JPanel();
 		mem_Info.setLayout(null);
 		mem_Info.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		mem_Info.setBackground(Color.WHITE);
 		mem_Info.setBounds(12, 21, 548, 249);
 		inner_returnBook.add(mem_Info);
-
-		lb_bookInfo = new JLabel();
-		lb_bookInfo.setText("도서정보");
-		lb_bookInfo.setFont(new Font("굴림", Font.PLAIN, 14));
-		lb_bookInfo.setBounds(22, 280, 62, 23);
-		inner_returnBook.add(lb_bookInfo);
+		
+		lb_memInfo = new JLabel();
+		lb_memInfo.setText("회원정보");
+		lb_memInfo.setFont(new Font("굴림", Font.PLAIN, 14));
+		lb_memInfo.setBounds(22, 10, 62, 23);
+		inner_returnBook.add(lb_memInfo);
 
 		lb_memNum = new JLabel();
 		lb_memNum.setText("회원번호");
@@ -168,6 +162,12 @@ public class tabR_returnBook {
 		book_Info.setBackground(Color.WHITE);
 		book_Info.setBounds(12, 294, 548, 298);
 		inner_returnBook.add(book_Info);
+		
+		lb_bookInfo = new JLabel();
+		lb_bookInfo.setText("도서정보");
+		lb_bookInfo.setFont(new Font("굴림", Font.PLAIN, 14));
+		lb_bookInfo.setBounds(22, 280, 62, 23);
+		inner_returnBook.add(lb_bookInfo);
 
 		lb_bookNum = new JLabel();
 		lb_bookNum.setText("도서번호");
