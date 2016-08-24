@@ -46,6 +46,9 @@ public class mainFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[933.00px,grow][589px]", "[47px][479px,grow]"));
 
+		FileFilter filter = new FileNameExtensionFilter("xlsx 파일", "xlsx");
+		fileChooser.addChoosableFileFilter(filter);
+
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
@@ -65,14 +68,10 @@ public class mainFrame extends JFrame {
 				// fileChooser.setCurrentDirectory(new File("D:\\"));
 				// int result = fileChooser.showOpenDialog(contentPane);
 
-				FileFilter filter = new FileNameExtensionFilter("xlsx 파일", "xlsx");
-				fileChooser.addChoosableFileFilter(filter);
 				int result = fileChooser.showOpenDialog(null);
 
 				if (result == JFileChooser.APPROVE_OPTION
 						&& fileChooser.getSelectedFile().getName().contains(".xlsx")) {
-					System.out.println("선택한 파일: " + fileChooser.getSelectedFile().getName());
-					System.out.println("파일이 있는 디렉토리: " + fileChooser.getSelectedFile());
 					readExcel readEx = new readExcel(fileChooser.getSelectedFile().toString());
 
 					DAO_DB db_Refresh_Insert = new DAO_DB();

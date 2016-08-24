@@ -251,13 +251,12 @@ public class tabR_returnBook {
 
 					book.setNum(Integer.parseInt(tf_bookNum.getText().toString()));
 					member.setNum(Integer.parseInt(tf_memNum.getText().toString()));
-					// DB TABLE에 BOOKNUM UNIQUE로 바꾸고 NUM 없는 값 찾아서 알아서 입력 하도록
 
 					DAO_DB delete_rentInfo = new DAO_DB();
 					delete_rentInfo.delete_rentBook(book, member);
 
-					DAO_DB db_Refresh_Insert = new DAO_DB();
-					data_rentinfo = db_Refresh_Insert.rentedBook_selectAll();
+					DAO_DB db_Refresh = new DAO_DB();
+					data_rentinfo = db_Refresh.rentedBook_selectAll();
 					tbpl.set_rentinfoTable(data_rentinfo, title_rentinfo);
 					setrentinfoClear();
 				}
