@@ -209,17 +209,17 @@ public class tabR_returnBook {
 		tf_Pub.setBounds(334, 55, 187, 21);
 		book_Info.add(tf_Pub);
 
-		sp_Memo_Down = new JScrollPane();
-		sp_Memo_Down.setBounds(79, 98, 443, 137);
-		ta_Memo_Down = new JTextArea();
-		ta_Memo_Down.setEditable(false);
-		sp_Memo_Down.setViewportView(ta_Memo_Down);
-		book_Info.add(sp_Memo_Down);
-
 		lb_Memo_Down = new JLabel();
 		lb_Memo_Down.setText("메      모");
 		lb_Memo_Down.setBounds(12, 86, 54, 21);
 		book_Info.add(lb_Memo_Down);
+		
+		sp_Memo_Down = new JScrollPane();
+		sp_Memo_Down.setBounds(79, 88, 443, 137);
+		ta_Memo_Down = new JTextArea();
+		ta_Memo_Down.setEditable(false);
+		sp_Memo_Down.setViewportView(ta_Memo_Down);
+		book_Info.add(sp_Memo_Down);
 
 		bt_bookSearch = new JButton("검색");
 		bt_bookSearch.setBounds(316, 249, 97, 23);
