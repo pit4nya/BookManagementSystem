@@ -4,6 +4,7 @@ package bms;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -55,6 +56,32 @@ public class LogIn extends JFrame {
 		passText.setBounds(100, 40, 160, 25);
 		panel.add(passText);
 
+		userText.addKeyListener(new keyListener() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					id = userText.getText();
+					pass = "";
+					char[] charedPass = passText.getPassword();
+					for (int i = 0; i < charedPass.length; i++) {
+						pass += Character.toString(charedPass[i]);
+					}
+
+					loginIdCheck LIC = new loginIdCheck();
+
+					try {
+						check = LIC.loginCheck(id, pass);
+					} catch (FileNotFoundException e1) {
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					if (check == true)
+						setVisible(false);
+				}
+
+			}
+		});
 		passText.addKeyListener(new keyListener() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -77,7 +104,6 @@ public class LogIn extends JFrame {
 					}
 					if (check == true)
 						setVisible(false);
-
 				}
 
 			}
@@ -86,18 +112,55 @@ public class LogIn extends JFrame {
 		btnInit = new JButton("다시작성");
 		btnInit.setBounds(10, 80, 100, 25);
 		panel.add(btnInit);
-		btnInit.addActionListener(new ActionListener() {
+		btnInit.addKeyListener(new keyListener() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					userText.setText("");
+					passText.setText("");
+					userText.requestFocus();
+				}
 
+			}
+		});
+		btnInit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				userText.setText("");
 				passText.setText("");
+				userText.requestFocus();
 			}
 		});
 
 		btnLogin = new JButton("로그인");
 		btnLogin.setBounds(160, 80, 100, 25);
 		panel.add(btnLogin);
+		btnLogin.addKeyListener(new keyListener() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					id = userText.getText();
+					pass = "";
+					char[] charedPass = passText.getPassword();
+					for (int i = 0; i < charedPass.length; i++) {
+						pass += Character.toString(charedPass[i]);
+					}
+
+					loginIdCheck LIC = new loginIdCheck();
+
+					try {
+						check = LIC.loginCheck(id, pass);
+					} catch (FileNotFoundException e1) {
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					if (check == true)
+						setVisible(false);
+				}
+
+			}
+		});
 		btnLogin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
