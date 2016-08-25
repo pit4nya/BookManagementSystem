@@ -25,7 +25,7 @@ public class tabPanel_Right extends JTabbedPane {
 		tabbedPane.add(tab_rB.getPanel(), "´ë    ¿©");
 		tabbedPane.add(tab_rtB.getPanel(), "¹Ý    ³³");
 
-		tabbedPane.addMouseListener(new MyMouseListener() {
+		tabbedPane.addMouseListener(new mouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (tabbedPane.getSelectedIndex() == 0) {

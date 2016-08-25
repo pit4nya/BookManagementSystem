@@ -62,7 +62,7 @@ public class searchFrame_Book_return extends JFrame {
 		data_Book = dao_Book.book_selectName(book);
 		model_book.setDataVector(data_Book, title_Book);
 
-		book_table.addMouseListener(new MyMouseListener_return() {
+		book_table.addMouseListener(new mouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getClickCount() == 2) {
@@ -83,8 +83,4 @@ public class searchFrame_Book_return extends JFrame {
 		pn_Info.add(scrollPane_Mem);
 	}
 
-}
-
-abstract class MyMouseListener_return extends MouseAdapter {
-	abstract public void mouseClicked(MouseEvent e);
 }

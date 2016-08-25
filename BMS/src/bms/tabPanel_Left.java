@@ -1,12 +1,6 @@
 package bms;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.sql.Time;
-import java.util.Timer;
 import java.util.Vector;
 
 import javax.swing.JScrollPane;
@@ -73,7 +67,7 @@ public class tabPanel_Left extends JTabbedPane {
 		// model_Book.setDataVector(data_Book, title_Book);
 		scrollPane_Book.setViewportView(book_table);
 
-		book_table.addMouseListener(new MyMouseListener_Book() {
+		book_table.addMouseListener(new mouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getButton() == 1) {
@@ -118,7 +112,7 @@ public class tabPanel_Left extends JTabbedPane {
 		data_Member = dao_Member.mem_selectAll();
 		model_Member.setDataVector(data_Member, title_Member);
 
-		member_table.addMouseListener(new MyMouseListener_Member() {
+		member_table.addMouseListener(new mouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getButton() == 1) {
@@ -164,7 +158,7 @@ public class tabPanel_Left extends JTabbedPane {
 		model_isRented.setDataVector(data_rentinfo, title_rentinfo);
 		scrollPane_isRented.setViewportView(isRented_table);
 
-		isRented_table.addMouseListener(new MyMouseListener_Book() {
+		isRented_table.addMouseListener(new mouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getButton() == 1) {
@@ -245,16 +239,4 @@ public class tabPanel_Left extends JTabbedPane {
 	public JTabbedPane getPanel() {
 		return tabbedPane;
 	}
-}
-
-abstract class MyMouseListener extends MouseAdapter {
-	abstract public void mouseClicked(MouseEvent e);
-}
-
-abstract class MyMouseListener_Book extends MouseAdapter {
-	abstract public void mouseClicked(MouseEvent e);
-}
-
-abstract class MyMouseListener_Member extends MouseAdapter {
-	abstract public void mouseClicked(MouseEvent e);
 }

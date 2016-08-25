@@ -65,9 +65,6 @@ public class mainFrame extends JFrame {
 
 		open_Menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// fileChooser.setCurrentDirectory(new File("D:\\"));
-				// int result = fileChooser.showOpenDialog(contentPane);
-
 				int result = fileChooser.showOpenDialog(null);
 
 				if (result == JFileChooser.APPROVE_OPTION
