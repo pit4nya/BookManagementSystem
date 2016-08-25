@@ -4,21 +4,15 @@ package bms;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.KeyStroke;
 
 public class LogIn extends JFrame {
 
@@ -61,15 +55,7 @@ public class LogIn extends JFrame {
 		passText.setBounds(100, 40, 160, 25);
 		panel.add(passText);
 
-		passText.addKeyListener(new KeyListener() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-			}
-
-			@Override
-			public void keyReleased(KeyEvent e) {
-			}
-
+		passText.addKeyListener(new keyListener() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
