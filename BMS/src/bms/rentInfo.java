@@ -2,11 +2,11 @@ package bms;
 
 public class rentInfo {
 
-	int num;
-	int bookNum;
-	int memNum;
-	String rentDate;
-	String returnDate;
+	private int num;
+	private int bookNum;
+	private int memNum;
+	private String rentDate;
+	private String returnDate;
 
 	public rentInfo() {
 	}

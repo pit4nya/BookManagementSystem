@@ -2,14 +2,14 @@ package bms;
 
 public class Member {
 
-	int num;
-	String name;
-	String tel;
-	String addr;
-	String email;
-	String id;
-	String password;
-	int permission;
+	private int num;
+	private String name;
+	private String tel;
+	private String addr;
+	private String email;
+	private String id;
+	private String password;
+	private int permission;
 
 	public Member() {
 	}

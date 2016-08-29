@@ -2,10 +2,10 @@ package bms;
 
 public class Book {
 
-	int num;
-	String name;
-	String author;
-	String pub;
+	private int num;
+	private String name;
+	private String author;
+	private String pub;
 
 	public Book() {
 	}

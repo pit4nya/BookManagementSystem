@@ -24,11 +24,11 @@ import net.miginfocom.swing.MigLayout;
 
 public class mainFrame extends JFrame {
 	private JPanel contentPane;
-	Vector data_Book = new Vector();
-	Vector title_Book = new Vector();
-	Toolkit tk = Toolkit.getDefaultToolkit();
-	JFileChooser fileChooser = new JFileChooser();
-	tabPanel_Left tbpl = new tabPanel_Left();
+	private Vector data_Book = new Vector();
+	private Vector title_Book = new Vector();
+	private Toolkit tk = Toolkit.getDefaultToolkit();
+	private JFileChooser fileChooser = new JFileChooser();
+	private tabPanel_Left tbpl = new tabPanel_Left();
 
 	public static void main(String[] args) {
 		LogIn login = new LogIn();
