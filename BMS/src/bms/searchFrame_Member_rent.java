@@ -56,7 +56,6 @@ public class searchFrame_Member_rent extends JFrame {
 		title_Member.add("전화번호");
 		title_Member.add("주소");
 		title_Member.add("이메일");
-		title_Member.add("ID");
 		// TextField 에서 text 받아와서 Member에 setName 해주고 member넘김\
 		member.setName(name);
 		DAO_DB dao_Member = new DAO_DB();

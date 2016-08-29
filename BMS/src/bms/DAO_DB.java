@@ -360,7 +360,6 @@ public class DAO_DB {
 				dataVec.add(rs.getString("tel"));
 				dataVec.add(rs.getString("addr"));
 				dataVec.add(rs.getString("email"));
-				dataVec.add(rs.getString("id"));
 				retVec.add(dataVec);
 			}
 		} catch (IOException e) {
