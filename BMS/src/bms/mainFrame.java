@@ -4,7 +4,6 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.util.Vector;
 
 import javax.swing.JFileChooser;
@@ -18,7 +17,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -46,7 +44,7 @@ public class mainFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[933.00px,grow][589px]", "[47px][479px,grow]"));
 
-		FileFilter filter = new FileNameExtensionFilter("xlsx ÆÄÀÏ", "xlsx");
+		FileFilter filter = new FileNameExtensionFilter("xlsx íŒŒì¼", "xlsx");
 		fileChooser.addChoosableFileFilter(filter);
 
 		JMenuBar menuBar = new JMenuBar();
@@ -58,10 +56,10 @@ public class mainFrame extends JFrame {
 		JMenuItem open_Menu = new JMenuItem("Open DataBase");
 		file_Menu.add(open_Menu);
 
-		title_Book.add("µµ¼­¹øÈ£");
-		title_Book.add("µµ¼­¸í");
-		title_Book.add("ÀúÀÚ");
-		title_Book.add("ÃâÆÇ»ç");
+		title_Book.add("ë„ì„œë²ˆí˜¸");
+		title_Book.add("ë„ì„œëª…");
+		title_Book.add("ì €ì");
+		title_Book.add("ì¶œíŒì‚¬");
 
 		open_Menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -75,7 +73,7 @@ public class mainFrame extends JFrame {
 					data_Book = db_Refresh_Insert.book_selectAll();
 					tbpl.setBookTable(data_Book, title_Book);
 				} else {
-					JOptionPane.showMessageDialog(null, "¿Ã¹Ù¸¥ ÆÄÀÏ Çü½ÄÀÌ ¾Æ´Õ´Ï´Ù.");
+					JOptionPane.showMessageDialog(null, "ì˜¬ë°”ë¥¸ íŒŒì¼ í˜•ì‹ì´ ì•„ë‹™ë‹ˆë‹¤.");
 				}
 			}
 		});
@@ -96,8 +94,8 @@ public class mainFrame extends JFrame {
 		name_Panel.setBounds(100, 100, 200, 200);
 		contentPane.add(name_Panel, "cell 0 0,grow");
 
-		JLabel label = new JLabel("µµ¼­°ü¸®ÇÁ·Î±×·¥");
-		label.setFont(new Font("ÈŞ¸ÕµÕ±ÙÇìµå¶óÀÎ", Font.PLAIN, 28));
+		JLabel label = new JLabel("ë„ì„œê´€ë¦¬í”„ë¡œê·¸ë¨");
+		label.setFont(new Font("íœ´ë¨¼ë‘¥ê·¼í—¤ë“œë¼ì¸", Font.PLAIN, 28));
 		label.setBounds(0, 0, 611, 47);
 		name_Panel.add(label);
 
@@ -114,10 +112,10 @@ public class mainFrame extends JFrame {
 		// refresh_Menu.setSelected(false);
 		// Vector title_Book = new Vector();
 		// Vector data_Book = new Vector();
-		// title_Book.add("µµ¼­¹øÈ£");
-		// title_Book.add("µµ¼­¸í");
-		// title_Book.add("ÀúÀÚ");
-		// title_Book.add("ÃâÆÇ»ç");
+		// title_Book.add("ë„ì„œë²ˆí˜¸");
+		// title_Book.add("ë„ì„œëª…");
+		// title_Book.add("ì €ì");
+		// title_Book.add("ì¶œíŒì‚¬");
 		//
 		// DefaultTableModel model_Book = new DefaultTableModel() {
 		// public boolean isCellEditable(int row, int column) {

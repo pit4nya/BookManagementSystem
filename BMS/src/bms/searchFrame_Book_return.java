@@ -1,7 +1,6 @@
 package bms;
 
 import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Vector;
 
@@ -26,7 +25,7 @@ public class searchFrame_Book_return extends JFrame {
 	}
 
 	public searchFrame_Book_return(String name) {
-		super("µµ¼­ °Ë»ö");
+		super("ë„ì„œ ê²€ìƒ‰");
 		setSize(500, 800);
 		setLocation((tk.getScreenSize().width - getWidth()) / 2, (tk.getScreenSize().height - getHeight()) / 2);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -51,12 +50,12 @@ public class searchFrame_Book_return extends JFrame {
 		book_table = new JTable(model_book);
 		scrollPane_Mem.setViewportView(book_table);
 
-		title_Book.add("µµ¼­¹øÈ£");
-		title_Book.add("µµ¼­¸í");
-		title_Book.add("ÀúÀÚ");
-		title_Book.add("ÃâÆÇ»ç");
+		title_Book.add("ë„ì„œë²ˆí˜¸");
+		title_Book.add("ë„ì„œëª…");
+		title_Book.add("ì €ì");
+		title_Book.add("ì¶œíŒì‚¬");
 		book.setName(name);
-		// TextField ¿¡¼­ text ¹Ş¾Æ¿Í¼­ Book¿¡ setName ÇØÁÖ°í book³Ñ±è
+		// TextField ì—ì„œ text ë°›ì•„ì™€ì„œ Bookì— setName í•´ì£¼ê³  bookë„˜ê¹€
 
 		DAO_DB dao_Book = new DAO_DB();
 		data_Book = dao_Book.book_selectName(book);
@@ -76,7 +75,7 @@ public class searchFrame_Book_return extends JFrame {
 							inner_Book.elementAt(1).toString(), inner_Book.elementAt(2).toString(),
 							inner_Book.elementAt(3).toString());
 					setVisible(false);
-				} // ´õºíÅ¬¸¯
+				} // ë”ë¸”í´ë¦­
 			}
 		});
 

@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.Properties;
 import java.util.Scanner;
 import java.util.Vector;
@@ -16,7 +15,7 @@ import javax.swing.JOptionPane;
 
 public class DAO_DB {
 
-	// pstmt.setDate(1, new java.sql.Timestamp(dat.getTime()); // DB¿¡ ½Ã°£ ÀÔ·Â
+	// pstmt.setDate(1, new java.sql.Timestamp(dat.getTime()); // DBì— ì‹œê°„ ì…ë ¥
 	static Scanner in = new Scanner(System.in);
 	static Connection con = null;
 	static PreparedStatement pstmt = null;
@@ -50,9 +49,9 @@ public class DAO_DB {
 			int n = pstmt.executeUpdate();
 
 			if (n != 0)
-				JOptionPane.showMessageDialog(null, "ÀÔ·ÂµÇ¾ú½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(null, "ì…ë ¥ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			else
-				JOptionPane.showMessageDialog(null, "ÀÔ·ÂÁ¤º¸°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(null, "ì…ë ¥ì •ë³´ê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 
 			con.commit();
 			discardConnection();
@@ -61,9 +60,9 @@ public class DAO_DB {
 			errMsg = e.getMessage();
 			System.out.println(errMsg);
 			if (errMsg.contains("unique")) {
-				JOptionPane.showMessageDialog(null, "È¸¿ø¹øÈ£ Áßº¹ ºÒ°¡!");
+				JOptionPane.showMessageDialog(null, "íšŒì›ë²ˆí˜¸ ì¤‘ë³µ ë¶ˆê°€!");
 			} else {
-				JOptionPane.showMessageDialog(null, "È¸¿ø¹øÈ£ ÀÌ¸§ ÀüÈ­¹øÈ£´Â ÇÊ¼ö ÀÔ·Â!");
+				JOptionPane.showMessageDialog(null, "íšŒì›ë²ˆí˜¸ ì´ë¦„ ì „í™”ë²ˆí˜¸ëŠ” í•„ìˆ˜ ì…ë ¥!");
 			}
 		}
 	}
@@ -82,9 +81,9 @@ public class DAO_DB {
 			int n = pstmt.executeUpdate();
 
 			if (n == 1)
-				System.out.println("ÀÔ·Â ¼º°ø.");
+				System.out.println("ì…ë ¥ ì„±ê³µ.");
 			else
-				System.out.println("ÀÔ·Â ½ÇÆĞ.");
+				System.out.println("ì…ë ¥ ì‹¤íŒ¨.");
 
 			con.commit();
 			discardConnection();
@@ -111,16 +110,16 @@ public class DAO_DB {
 			int n = pstmt.executeUpdate();
 
 			if (n == 1)
-				JOptionPane.showMessageDialog(null, "´ë¿©µÇ¾ú½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(null, "ëŒ€ì—¬ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			else
-				JOptionPane.showMessageDialog(null, "ÀÔ·Â Á¤º¸°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(null, "ì…ë ¥ ì •ë³´ê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 
 			con.commit();
 			discardConnection();
 
 		} catch (SQLException e) {
 			// e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Á¸ÀçÇÏÁö ¾Ê°Å³ª ´ë¿© ÁßÀÎ Ã¥ÀÔ´Ï´Ù.");
+			JOptionPane.showMessageDialog(null, "ì¡´ì¬í•˜ì§€ ì•Šê±°ë‚˜ ëŒ€ì—¬ ì¤‘ì¸ ì±…ì…ë‹ˆë‹¤.");
 		}
 	}
 
@@ -128,18 +127,18 @@ public class DAO_DB {
 		try {
 			pro = new Properties();
 			pro.load(new FileInputStream("src/properties/book.properties"));
-			System.out.println("¼öÁ¤ÇÒ µµ¼­ÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+			System.out.println("ìˆ˜ì •í•  ë„ì„œì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 			int num = in.nextInt();
 			in.nextLine();
 			String str;
 			book.setNum(num);
-			System.out.println(num + "¹ø Ã¥ÀÇ ÀÌ¸§ ÀÔ·Â");
+			System.out.println(num + "ë²ˆ ì±…ì˜ ì´ë¦„ ì…ë ¥");
 			str = in.nextLine();
 			book.setName(str);
-			System.out.println(num + "¹ø Ã¥ÀÇ ÀúÀÚ ÀÔ·Â");
+			System.out.println(num + "ë²ˆ ì±…ì˜ ì €ì ì…ë ¥");
 			str = in.nextLine();
 			book.setAuthor(str);
-			System.out.println(num + "¹øÀÇ ¼öÇĞÁ¡¼ö ÀÔ·Â");
+			System.out.println(num + "ë²ˆì˜ ìˆ˜í•™ì ìˆ˜ ì…ë ¥");
 			str = in.nextLine();
 			book.setPub(str);
 
@@ -151,9 +150,9 @@ public class DAO_DB {
 
 			int n = pstmt.executeUpdate();
 			if (n == 1)
-				System.out.println("¼öÁ¤ ¼º°ø.");
+				System.out.println("ìˆ˜ì • ì„±ê³µ.");
 			else
-				System.out.println("¼öÁ¤ ½ÇÆĞ.");
+				System.out.println("ìˆ˜ì • ì‹¤íŒ¨.");
 			con.commit();
 			discardConnection();
 
@@ -176,9 +175,9 @@ public class DAO_DB {
 
 			int n = pstmt.executeUpdate();
 			if (n != 0)
-				JOptionPane.showMessageDialog(null, "»èÁ¦µÇ¾ú½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(null, "ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
 			else
-				JOptionPane.showMessageDialog(null, "ÀÔ·ÂÁ¤º¸°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(null, "ì…ë ¥ì •ë³´ê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 
 			con.commit();
 			discardConnection();
@@ -198,9 +197,9 @@ public class DAO_DB {
 			int n = pstmt.executeUpdate();
 
 			if (n != 0)
-				System.out.println("BOOK TABLE ¸ğµÎ »èÁ¦ ¼º°ø.");
+				System.out.println("BOOK TABLE ëª¨ë‘ ì‚­ì œ ì„±ê³µ.");
 			else
-				System.out.println("BOOK TABLE ¸ğµÎ »èÁ¦ ½ÇÆĞ.");
+				System.out.println("BOOK TABLE ëª¨ë‘ ì‚­ì œ ì‹¤íŒ¨.");
 
 			con.commit();
 			discardConnection();
@@ -220,9 +219,9 @@ public class DAO_DB {
 
 			int n = pstmt.executeUpdate();
 			if (n != 0) {
-				JOptionPane.showMessageDialog(null, "¹İ³³µÇ¾ú½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(null, "ë°˜ë‚©ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			} else
-				JOptionPane.showMessageDialog(null, "ÀÔ·ÂÁ¤º¸°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(null, "ì…ë ¥ì •ë³´ê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 
 			con.commit();
 			discardConnection();
@@ -241,7 +240,7 @@ public class DAO_DB {
 				con.close();
 		} catch (SQLException e1) {
 			try {
-				System.out.println("·Ñ¹é!");
+				System.out.println("ë¡¤ë°±!");
 				con.rollback();
 			} catch (SQLException e) {
 				e.printStackTrace();

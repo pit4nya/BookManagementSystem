@@ -40,7 +40,7 @@ public class tabPanel_Left extends JTabbedPane {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
 		scrollPane_Book = new JScrollPane();
-		tabbedPane.addTab("µµ¼­ÇöÈ²", null, scrollPane_Book, null);
+		tabbedPane.addTab("ë„ì„œí˜„í™©", null, scrollPane_Book, null);
 
 		DefaultTableModel model_Book = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
@@ -54,10 +54,10 @@ public class tabPanel_Left extends JTabbedPane {
 		book_table = new JTable(model_Book);
 
 		Book book = new Book();
-		title_Book.add("µµ¼­¹øÈ£");
-		title_Book.add("µµ¼­¸í");
-		title_Book.add("ÀúÀÚ");
-		title_Book.add("ÃâÆÇ»ç");
+		title_Book.add("ë„ì„œë²ˆí˜¸");
+		title_Book.add("ë„ì„œëª…");
+		title_Book.add("ì €ì");
+		title_Book.add("ì¶œíŒì‚¬");
 
 		DAO_DB dao_Book = new DAO_DB();
 		data_Book = dao_Book.book_selectAll();
@@ -88,7 +88,7 @@ public class tabPanel_Left extends JTabbedPane {
 		});
 
 		scrollPane_Mem = new JScrollPane();
-		tabbedPane.addTab("È¸¿øÇöÈ²", null, scrollPane_Mem, null);
+		tabbedPane.addTab("íšŒì›í˜„í™©", null, scrollPane_Mem, null);
 
 		DefaultTableModel model_Member = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
@@ -101,11 +101,11 @@ public class tabPanel_Left extends JTabbedPane {
 		};
 		member_table = new JTable(model_Member);
 		scrollPane_Mem.setViewportView(member_table);
-		title_Member.add("È¸¿ø¹øÈ£");
-		title_Member.add("È¸¿ø¸í");
-		title_Member.add("ÀüÈ­¹øÈ£");
-		title_Member.add("ÁÖ¼Ò");
-		title_Member.add("ÀÌ¸ŞÀÏ");
+		title_Member.add("íšŒì›ë²ˆí˜¸");
+		title_Member.add("íšŒì›ëª…");
+		title_Member.add("ì „í™”ë²ˆí˜¸");
+		title_Member.add("ì£¼ì†Œ");
+		title_Member.add("ì´ë©”ì¼");
 		title_Member.add("ID");
 
 		DAO_DB dao_Member = new DAO_DB();
@@ -133,7 +133,7 @@ public class tabPanel_Left extends JTabbedPane {
 		});
 
 		scrollPane_isRented = new JScrollPane();
-		tabbedPane.addTab("´ë¿©Áß", null, scrollPane_isRented, null);
+		tabbedPane.addTab("ëŒ€ì—¬ì¤‘", null, scrollPane_isRented, null);
 
 		DefaultTableModel model_isRented = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
@@ -147,11 +147,11 @@ public class tabPanel_Left extends JTabbedPane {
 		isRented_table = new JTable(model_isRented);
 
 		rentInfo rentinfo = new rentInfo();
-		title_rentinfo.add("¹øÈ£");
-		title_rentinfo.add("µµ¼­¹øÈ£");
-		title_rentinfo.add("È¸¿ø¹øÈ£");
-		title_rentinfo.add("´ë¿©ÀÏ");
-		title_rentinfo.add("¹İ³³ÀÏ");
+		title_rentinfo.add("ë²ˆí˜¸");
+		title_rentinfo.add("ë„ì„œë²ˆí˜¸");
+		title_rentinfo.add("íšŒì›ë²ˆí˜¸");
+		title_rentinfo.add("ëŒ€ì—¬ì¼");
+		title_rentinfo.add("ë°˜ë‚©ì¼");
 
 		DAO_DB dao_rentInfo = new DAO_DB();
 		data_rentinfo = dao_rentInfo.rentedBook_selectAll();

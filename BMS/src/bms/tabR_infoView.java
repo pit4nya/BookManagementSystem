@@ -9,7 +9,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 import javax.swing.border.EtchedBorder;
 
 import net.miginfocom.swing.MigLayout;
@@ -62,15 +61,15 @@ public class tabR_infoView extends JTabbedPane {
 		book_Mngt.add(inner_bookMngt, "cell 0 0,grow");
 
 		lb_memInfo = new JLabel();
-		lb_memInfo.setFont(new Font("±¼¸²", Font.PLAIN, 14));
-		lb_memInfo.setText("È¸¿øÁ¤º¸");
+		lb_memInfo.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 14));
+		lb_memInfo.setText("íšŒì›ì •ë³´");
 		lb_memInfo.setBounds(22, 10, 62, 23);
 		inner_bookMngt.add(lb_memInfo);
 
 		lb_bookInfo = new JLabel();
 		lb_bookInfo.setBounds(22, 280, 62, 23);
-		lb_bookInfo.setText("µµ¼­Á¤º¸");
-		lb_bookInfo.setFont(new Font("±¼¸²", Font.PLAIN, 14));
+		lb_bookInfo.setText("ë„ì„œì •ë³´");
+		lb_bookInfo.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 14));
 		inner_bookMngt.add(lb_bookInfo);
 
 		mem_Info = new JPanel();
@@ -81,7 +80,7 @@ public class tabR_infoView extends JTabbedPane {
 		inner_bookMngt.add(mem_Info);
 
 		lb_memNum = new JLabel();
-		lb_memNum.setText("È¸¿ø¹øÈ£");
+		lb_memNum.setText("íšŒì›ë²ˆí˜¸");
 		lb_memNum.setBounds(12, 32, 54, 21);
 		mem_Info.add(lb_memNum);
 
@@ -92,7 +91,7 @@ public class tabR_infoView extends JTabbedPane {
 		mem_Info.add(tf_memNum);
 
 		lb_memName = new JLabel();
-		lb_memName.setText("È¸¿ø¸í");
+		lb_memName.setText("íšŒì›ëª…");
 		lb_memName.setBounds(280, 32, 42, 21);
 		mem_Info.add(lb_memName);
 
@@ -103,7 +102,7 @@ public class tabR_infoView extends JTabbedPane {
 		mem_Info.add(tf_memName);
 
 		lb_telNum = new JLabel();
-		lb_telNum.setText("ÀüÈ­¹øÈ£");
+		lb_telNum.setText("ì „í™”ë²ˆí˜¸");
 		lb_telNum.setBounds(12, 63, 54, 21);
 		mem_Info.add(lb_telNum);
 
@@ -114,7 +113,7 @@ public class tabR_infoView extends JTabbedPane {
 		mem_Info.add(tf_telNum);
 
 		lb_Memo_Up = new JLabel();
-		lb_Memo_Up.setText("¸Ş      ¸ğ");
+		lb_Memo_Up.setText("ë©”      ëª¨");
 		lb_Memo_Up.setBounds(12, 96, 54, 21);
 		mem_Info.add(lb_Memo_Up);
 
@@ -134,7 +133,7 @@ public class tabR_infoView extends JTabbedPane {
 		inner_bookMngt.add(book_Info);
 
 		lb_bookNum = new JLabel();
-		lb_bookNum.setText("µµ¼­¹øÈ£");
+		lb_bookNum.setText("ë„ì„œë²ˆí˜¸");
 		lb_bookNum.setBounds(12, 24, 54, 21);
 		book_Info.add(lb_bookNum);
 
@@ -145,7 +144,7 @@ public class tabR_infoView extends JTabbedPane {
 		book_Info.add(tf_bookNum);
 
 		lb_bookName = new JLabel();
-		lb_bookName.setText("µµ¼­¸í");
+		lb_bookName.setText("ë„ì„œëª…");
 		lb_bookName.setBounds(280, 24, 42, 21);
 		book_Info.add(lb_bookName);
 
@@ -156,7 +155,7 @@ public class tabR_infoView extends JTabbedPane {
 		book_Info.add(tf_bookName);
 
 		lb_Author = new JLabel();
-		lb_Author.setText("ÀúÀÚ");
+		lb_Author.setText("ì €ì");
 		lb_Author.setBounds(12, 55, 54, 21);
 		book_Info.add(lb_Author);
 
@@ -167,7 +166,7 @@ public class tabR_infoView extends JTabbedPane {
 		book_Info.add(tf_Author);
 
 		lb_Pub = new JLabel();
-		lb_Pub.setText("ÃâÆÇ»ç");
+		lb_Pub.setText("ì¶œíŒì‚¬");
 		lb_Pub.setBounds(280, 55, 42, 21);
 		book_Info.add(lb_Pub);
 
@@ -178,7 +177,7 @@ public class tabR_infoView extends JTabbedPane {
 		book_Info.add(tf_Pub);
 
 		lb_Memo_Down = new JLabel();
-		lb_Memo_Down.setText("¸Ş      ¸ğ");
+		lb_Memo_Down.setText("ë©”      ëª¨");
 		lb_Memo_Down.setBounds(12, 86, 54, 21);
 		book_Info.add(lb_Memo_Down);
 

@@ -39,20 +39,20 @@ public class loginIdCheck extends JFrame {
 
 			if (pass.equals(dbPass)) {
 				if (rs.getInt("permission") != 1) {
-					JOptionPane.showMessageDialog(null, "±ÇÇÑÀÌ ¾ø½À´Ï´Ù.");
+					JOptionPane.showMessageDialog(null, "ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤.");
 					return false;
 				}
-				JOptionPane.showMessageDialog(null, "·Î±×ÀÎ µÇ¾ú½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(null, "ë¡œê·¸ì¸ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 				mainFrame main = new mainFrame("BookManagementSystem Version 1.0");
 				main.setVisible(true);
 				return true;
 			} else if (!pass.equals(dbPass)) {
-				JOptionPane.showMessageDialog(null, "ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(null, "ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 				return false;
 			}
 
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "¾ÆÀÌµğ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+			JOptionPane.showMessageDialog(null, "ì•„ì´ë””ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 		}
 		return false;
 	}

@@ -12,7 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-//Excel ÆÄÀÏ¿¡¼­ Data¸¦ ÀĞ¾î¿Í Vector¿¡ ÀúÀåÇØÁÖ´Â Class
+//Excel íŒŒì¼ì—ì„œ Dataë¥¼ ì½ì–´ì™€ Vectorì— ì €ì¥í•´ì£¼ëŠ” Class
 public class readExcel {
 	Vector retVec = new Vector();
 	FileInputStream fis;
@@ -36,7 +36,7 @@ public class readExcel {
 		try {
 			fis = new FileInputStream(path);
 		} catch (FileNotFoundException e) {
-			System.err.println("ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+			System.err.println("íŒŒì¼ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 		}
 		workbook = null;
 		try {
@@ -46,27 +46,27 @@ public class readExcel {
 		}
 
 		sheet = workbook.getSheetAt(0);
-		// ÇàÀÇ ¼ö
+		// í–‰ì˜ ìˆ˜
 		int rows = sheet.getPhysicalNumberOfRows();
 		for (int rowindex = 1; rowindex < rows; rowindex++) {
-			// ÇàÀ»ÀĞ´Â´Ù
+			// í–‰ì„ì½ëŠ”ë‹¤
 			XSSFRow row = sheet.getRow(rowindex);
 			if (row != null) {
-				// ¼¿ÀÇ ¼ö
+				// ì…€ì˜ ìˆ˜
 				Vector dataVec = new Vector();
 				int cells = row.getPhysicalNumberOfCells();
 				if (cells == 0)
 					break;
 				for (int columnindex = 0; columnindex < cells; columnindex++) {
-					// ¼¿°ªÀ» ÀĞ´Â´Ù
+					// ì…€ê°’ì„ ì½ëŠ”ë‹¤
 					XSSFCell cell = row.getCell(columnindex);
 					String value = "";
 					int intValue = 0;
-					// ¼¿ÀÌ ºó°ªÀÏ°æ¿ì¸¦ À§ÇÑ ³ÎÃ¼Å©
+					// ì…€ì´ ë¹ˆê°’ì¼ê²½ìš°ë¥¼ ìœ„í•œ ë„ì²´í¬
 					if (cell == null) {
 						continue;
 					} else {
-						// Å¸ÀÔº°·Î ³»¿ë ÀĞ±â
+						// íƒ€ì…ë³„ë¡œ ë‚´ìš© ì½ê¸°
 						switch (cell.getCellType()) {
 						case XSSFCell.CELL_TYPE_FORMULA:
 							value = cell.getCellFormula();
@@ -98,13 +98,13 @@ public class readExcel {
 				try {
 					dao.insert_Book(book);
 				} catch (FileNotFoundException e) {
-					System.err.println("ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+					System.err.println("íŒŒì¼ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 				} catch (IOException e) {
 					System.err.println("IOException!");
 				}
 				retVec.add(dataVec);
 			}
 		}
-		JOptionPane.showMessageDialog(null, "Ã¥ Á¤º¸°¡ µî·ÏµÇ¾ú½À´Ï´Ù.\nÆÄÀÏ °æ·Î: " + path);
+		JOptionPane.showMessageDialog(null, "ì±… ì •ë³´ê°€ ë“±ë¡ë˜ì—ˆìŠµë‹ˆë‹¤.\níŒŒì¼ ê²½ë¡œ: " + path);
 	}
 }

@@ -1,7 +1,6 @@
 package bms;
 
 import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Vector;
 
@@ -26,7 +25,7 @@ public class searchFrame_Member_rent extends JFrame {
 	}
 
 	public searchFrame_Member_rent(String name) {
-		super("È¸¿ø °Ë»ö");
+		super("íšŒì› ê²€ìƒ‰");
 		setSize(500, 800);
 		setLocation((tk.getScreenSize().width - getWidth()) / 2, (tk.getScreenSize().height - getHeight()) / 2);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -51,12 +50,12 @@ public class searchFrame_Member_rent extends JFrame {
 		member_table = new JTable(model_Member);
 		scrollPane_Mem.setViewportView(member_table);
 
-		title_Member.add("È¸¿ø¹øÈ£");
-		title_Member.add("È¸¿ø¸í");
-		title_Member.add("ÀüÈ­¹øÈ£");
-		title_Member.add("ÁÖ¼Ò");
-		title_Member.add("ÀÌ¸ŞÀÏ");
-		// TextField ¿¡¼­ text ¹Ş¾Æ¿Í¼­ Member¿¡ setName ÇØÁÖ°í member³Ñ±è\
+		title_Member.add("íšŒì›ë²ˆí˜¸");
+		title_Member.add("íšŒì›ëª…");
+		title_Member.add("ì „í™”ë²ˆí˜¸");
+		title_Member.add("ì£¼ì†Œ");
+		title_Member.add("ì´ë©”ì¼");
+		// TextField ì—ì„œ text ë°›ì•„ì™€ì„œ Memberì— setName í•´ì£¼ê³  memberë„˜ê¹€\
 		member.setName(name);
 		DAO_DB dao_Member = new DAO_DB();
 		data_Member = dao_Member.mem_selectName(member);
@@ -75,7 +74,7 @@ public class searchFrame_Member_rent extends JFrame {
 					tr.setMemTextField(Integer.parseInt(inner_Book.elementAt(0).toString()),
 							inner_Book.elementAt(1).toString(), inner_Book.elementAt(2).toString());
 					setVisible(false);
-				} // ´õºíÅ¬¸¯
+				} // ë”ë¸”í´ë¦­
 			}
 		});
 

@@ -4,7 +4,6 @@ package bms;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -109,7 +108,7 @@ public class LogIn extends JFrame {
 			}
 		});
 
-		btnInit = new JButton("´Ù½ÃÀÛ¼º");
+		btnInit = new JButton("ë‹¤ì‹œì‘ì„±");
 		btnInit.setBounds(10, 80, 100, 25);
 		panel.add(btnInit);
 		btnInit.addKeyListener(new keyListener() {
@@ -132,7 +131,7 @@ public class LogIn extends JFrame {
 			}
 		});
 
-		btnLogin = new JButton("·Î±×ÀÎ");
+		btnLogin = new JButton("ë¡œê·¸ì¸");
 		btnLogin.setBounds(160, 80, 100, 25);
 		panel.add(btnLogin);
 		btnLogin.addKeyListener(new keyListener() {

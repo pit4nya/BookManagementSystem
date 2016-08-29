@@ -1,7 +1,6 @@
 package bms;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +13,6 @@ import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -88,8 +86,8 @@ public class tabR_rentBook {
 		rentBook.add(inner_rentBook, "cell 0 0,grow");
 
 		lb_memInfo = new JLabel();
-		lb_memInfo.setText("È¸¿øÁ¤º¸");
-		lb_memInfo.setFont(new Font("±¼¸²", Font.PLAIN, 14));
+		lb_memInfo.setText("íšŒì›ì •ë³´");
+		lb_memInfo.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 14));
 		lb_memInfo.setBounds(22, 10, 62, 23);
 		inner_rentBook.add(lb_memInfo);
 
@@ -101,13 +99,13 @@ public class tabR_rentBook {
 		inner_rentBook.add(mem_Info);
 
 		lb_bookInfo = new JLabel();
-		lb_bookInfo.setText("µµ¼­Á¤º¸");
-		lb_bookInfo.setFont(new Font("±¼¸²", Font.PLAIN, 14));
+		lb_bookInfo.setText("ë„ì„œì •ë³´");
+		lb_bookInfo.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 14));
 		lb_bookInfo.setBounds(22, 280, 62, 23);
 		inner_rentBook.add(lb_bookInfo);
 
 		lb_memNum = new JLabel();
-		lb_memNum.setText("È¸¿ø¹øÈ£");
+		lb_memNum.setText("íšŒì›ë²ˆí˜¸");
 		lb_memNum.setBounds(12, 32, 54, 21);
 		mem_Info.add(lb_memNum);
 
@@ -117,7 +115,7 @@ public class tabR_rentBook {
 		mem_Info.add(tf_memNum);
 
 		lb_memName = new JLabel();
-		lb_memName.setText("È¸¿ø¸í");
+		lb_memName.setText("íšŒì›ëª…");
 		lb_memName.setBounds(280, 32, 42, 21);
 		mem_Info.add(lb_memName);
 
@@ -127,7 +125,7 @@ public class tabR_rentBook {
 		mem_Info.add(tf_memName);
 
 		lb_memTel = new JLabel();
-		lb_memTel.setText("ÀüÈ­¹øÈ£");
+		lb_memTel.setText("ì „í™”ë²ˆí˜¸");
 		lb_memTel.setBounds(12, 63, 54, 21);
 		mem_Info.add(lb_memTel);
 
@@ -137,7 +135,7 @@ public class tabR_rentBook {
 		mem_Info.add(tf_memTel);
 
 		lb_Memo_Up = new JLabel();
-		lb_Memo_Up.setText("¸Ş      ¸ğ");
+		lb_Memo_Up.setText("ë©”      ëª¨");
 		lb_Memo_Up.setBounds(12, 96, 54, 21);
 		mem_Info.add(lb_Memo_Up);
 
@@ -148,7 +146,7 @@ public class tabR_rentBook {
 		sp_Memo_Up.setViewportView(ta_Memo_Up);
 		mem_Info.add(sp_Memo_Up);
 
-		bt_memSearch = new JButton("°Ë»ö");
+		bt_memSearch = new JButton("ê²€ìƒ‰");
 		bt_memSearch.setBounds(334, 61, 187, 23);
 		mem_Info.add(bt_memSearch);
 		bt_memSearch.addActionListener(new ActionListener() {
@@ -169,7 +167,7 @@ public class tabR_rentBook {
 		inner_rentBook.add(book_Info);
 
 		lb_bookNum = new JLabel();
-		lb_bookNum.setText("µµ¼­¹øÈ£");
+		lb_bookNum.setText("ë„ì„œë²ˆí˜¸");
 		lb_bookNum.setBounds(12, 24, 54, 21);
 		book_Info.add(lb_bookNum);
 
@@ -179,7 +177,7 @@ public class tabR_rentBook {
 		book_Info.add(tf_bookNum);
 
 		lb_bookName = new JLabel();
-		lb_bookName.setText("µµ¼­¸í");
+		lb_bookName.setText("ë„ì„œëª…");
 		lb_bookName.setBounds(280, 24, 42, 21);
 		book_Info.add(lb_bookName);
 
@@ -189,7 +187,7 @@ public class tabR_rentBook {
 		book_Info.add(tf_bookName);
 
 		lb_Author = new JLabel();
-		lb_Author.setText("ÀúÀÚ");
+		lb_Author.setText("ì €ì");
 		lb_Author.setBounds(12, 55, 54, 21);
 		book_Info.add(lb_Author);
 
@@ -199,7 +197,7 @@ public class tabR_rentBook {
 		book_Info.add(tf_Author);
 
 		lb_Pub = new JLabel();
-		lb_Pub.setText("ÃâÆÇ»ç");
+		lb_Pub.setText("ì¶œíŒì‚¬");
 		lb_Pub.setBounds(280, 55, 42, 21);
 		book_Info.add(lb_Pub);
 
@@ -209,7 +207,7 @@ public class tabR_rentBook {
 		book_Info.add(tf_Pub);
 
 		lb_Memo_Down = new JLabel();
-		lb_Memo_Down.setText("¸Ş      ¸ğ");
+		lb_Memo_Down.setText("ë©”      ëª¨");
 		lb_Memo_Down.setBounds(12, 86, 54, 21);
 		book_Info.add(lb_Memo_Down);
 
@@ -220,7 +218,7 @@ public class tabR_rentBook {
 		sp_Memo_Down.setViewportView(ta_Memo_Down);
 		book_Info.add(sp_Memo_Down);
 
-		bt_bookSearch = new JButton("°Ë»ö");
+		bt_bookSearch = new JButton("ê²€ìƒ‰");
 		bt_bookSearch.setBounds(316, 249, 97, 23);
 		book_Info.add(bt_bookSearch);
 		bt_bookSearch.addActionListener(new ActionListener() {
@@ -233,15 +231,15 @@ public class tabR_rentBook {
 			}
 		});
 
-		bt_rent = new JButton("´ë¿©");
+		bt_rent = new JButton("ëŒ€ì—¬");
 		bt_rent.setBounds(425, 249, 97, 23);
 		book_Info.add(bt_rent);
 
-		title_rentinfo.add("¹øÈ£");
-		title_rentinfo.add("µµ¼­¹øÈ£");
-		title_rentinfo.add("È¸¿ø¹øÈ£");
-		title_rentinfo.add("´ë¿©ÀÏ");
-		title_rentinfo.add("¹İ³³ÀÏ");
+		title_rentinfo.add("ë²ˆí˜¸");
+		title_rentinfo.add("ë„ì„œë²ˆí˜¸");
+		title_rentinfo.add("íšŒì›ë²ˆí˜¸");
+		title_rentinfo.add("ëŒ€ì—¬ì¼");
+		title_rentinfo.add("ë°˜ë‚©ì¼");
 
 		bt_rent.addActionListener(new ActionListener() {
 			@Override
@@ -269,7 +267,7 @@ public class tabR_rentBook {
 						}
 					}
 
-					// Æ¯Á¤ ÇüÅÂÀÇ ³¯Â¥·Î °ªÀ» »Ì±â
+					// íŠ¹ì • í˜•íƒœì˜ ë‚ ì§œë¡œ ê°’ì„ ë½‘ê¸°
 					DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 					String rentDate = df.format(cal.getTime());
 
@@ -278,7 +276,7 @@ public class tabR_rentBook {
 
 					book.setNum(Integer.parseInt(tf_bookNum.getText().toString()));
 					member.setNum(Integer.parseInt(tf_memNum.getText().toString()));
-					// DB TABLE¿¡ BOOKNUM UNIQUE·Î ¹Ù²Ù°í NUM ¾ø´Â °ª Ã£¾Æ¼­ ¾Ë¾Æ¼­ ÀÔ·Â ÇÏµµ·Ï\
+					// DB TABLEì— BOOKNUM UNIQUEë¡œ ë°”ê¾¸ê³  NUM ì—†ëŠ” ê°’ ì°¾ì•„ì„œ ì•Œì•„ì„œ ì…ë ¥ í•˜ë„ë¡\
 
 					DAO_DB insert_rentInfo = new DAO_DB();
 					try {

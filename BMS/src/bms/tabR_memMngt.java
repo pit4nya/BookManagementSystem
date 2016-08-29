@@ -11,14 +11,12 @@ import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 import javax.swing.border.EtchedBorder;
 
 import net.miginfocom.swing.MigLayout;
@@ -75,8 +73,8 @@ public class tabR_memMngt {
 		mem_Mngt.add(inner_bookMngt, "cell 0 0,grow");
 
 		lb_memInfo = new JLabel();
-		lb_memInfo.setText("È¸¿ø°ü¸®");
-		lb_memInfo.setFont(new Font("±¼¸²", Font.PLAIN, 14));
+		lb_memInfo.setText("íšŒì›ê´€ë¦¬");
+		lb_memInfo.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 14));
 		lb_memInfo.setBounds(22, 10, 62, 23);
 		inner_bookMngt.add(lb_memInfo);
 
@@ -88,17 +86,17 @@ public class tabR_memMngt {
 		inner_bookMngt.add(mem_Info);
 
 		lb_memGrade = new JLabel();
-		lb_memGrade.setText("È¸¿øµî±Ş");
+		lb_memGrade.setText("íšŒì›ë“±ê¸‰");
 		lb_memGrade.setBounds(12, 24, 54, 21);
 		mem_Info.add(lb_memGrade);
 
 		cb_memGrade = new JComboBox();
-		cb_memGrade.setModel(new DefaultComboBoxModel(new String[] { "ÀÏ¹İ È¸¿ø", "°ü¸®ÀÚ" }));
+		cb_memGrade.setModel(new DefaultComboBoxModel(new String[] { "ì¼ë°˜ íšŒì›", "ê´€ë¦¬ì" }));
 		cb_memGrade.setBounds(79, 24, 187, 21);
 		mem_Info.add(cb_memGrade);
 
 		lb_memNum = new JLabel();
-		lb_memNum.setText("È¸¿ø¹øÈ£");
+		lb_memNum.setText("íšŒì›ë²ˆí˜¸");
 		lb_memNum.setBounds(280, 24, 54, 21);
 		mem_Info.add(lb_memNum);
 
@@ -107,7 +105,7 @@ public class tabR_memMngt {
 		tf_memNum.setBounds(346, 24, 108, 21);
 		mem_Info.add(tf_memNum);
 
-		newButton = new JButton("½Å±Ô");
+		newButton = new JButton("ì‹ ê·œ");
 		newButton.setBounds(466, 24, 70, 23);
 
 		newButton.addActionListener(new ActionListener() {
@@ -134,7 +132,7 @@ public class tabR_memMngt {
 		mem_Info.add(newButton);
 
 		lb_memName = new JLabel();
-		lb_memName.setText("È¸  ¿ø  ¸í");
+		lb_memName.setText("íšŒ  ì›  ëª…");
 		lb_memName.setBounds(12, 55, 54, 21);
 		mem_Info.add(lb_memName);
 
@@ -144,7 +142,7 @@ public class tabR_memMngt {
 		mem_Info.add(tf_memName);
 
 		lb_memTel = new JLabel();
-		lb_memTel.setText("ÀüÈ­¹øÈ£");
+		lb_memTel.setText("ì „í™”ë²ˆí˜¸");
 		lb_memTel.setBounds(240, 55, 54, 21);
 		mem_Info.add(lb_memTel);
 
@@ -154,7 +152,7 @@ public class tabR_memMngt {
 		mem_Info.add(tf_memTel);
 
 		lb_Email = new JLabel();
-		lb_Email.setText("ÀÌ  ¸Ş  ÀÏ");
+		lb_Email.setText("ì´  ë©”  ì¼");
 		lb_Email.setBounds(12, 86, 54, 21);
 		mem_Info.add(lb_Email);
 
@@ -164,7 +162,7 @@ public class tabR_memMngt {
 		mem_Info.add(tf_Email);
 
 		lb_Addr = new JLabel();
-		lb_Addr.setText("ÁÖ        ¼Ò");
+		lb_Addr.setText("ì£¼        ì†Œ");
 		lb_Addr.setBounds(11, 117, 54, 21);
 		mem_Info.add(lb_Addr);
 
@@ -174,7 +172,7 @@ public class tabR_memMngt {
 		mem_Info.add(tf_Addr);
 
 		lb_Memo = new JLabel();
-		lb_Memo.setText("¸Ş        ¸ğ");
+		lb_Memo.setText("ë©”        ëª¨");
 		lb_Memo.setBounds(12, 214, 54, 21);
 		mem_Info.add(lb_Memo);
 
@@ -186,15 +184,15 @@ public class tabR_memMngt {
 		ta_Memo.setEditable(false);
 		sp_Memo.setViewportView(ta_Memo);
 
-		button_Save = new JButton("ÀúÀå");
+		button_Save = new JButton("ì €ì¥");
 		button_Save.setBounds(121, 509, 97, 23);
 		mem_Info.add(button_Save);
 
-		title_Member.add("È¸¿ø¹øÈ£");
-		title_Member.add("È¸¿ø¸í");
-		title_Member.add("ÀüÈ­¹øÈ£");
-		title_Member.add("ÁÖ¼Ò");
-		title_Member.add("ÀÌ¸ŞÀÏ");
+		title_Member.add("íšŒì›ë²ˆí˜¸");
+		title_Member.add("íšŒì›ëª…");
+		title_Member.add("ì „í™”ë²ˆí˜¸");
+		title_Member.add("ì£¼ì†Œ");
+		title_Member.add("ì´ë©”ì¼");
 		title_Member.add("ID");
 
 		button_Save.addActionListener(new ActionListener() {
@@ -209,17 +207,17 @@ public class tabR_memMngt {
 						member.setEmail(tf_Email.getText());
 						member.setId("pit4nya" + Integer.parseInt(tf_memNum.getText()));
 						member.setPass("123");
-						if (cb_memGrade.getSelectedItem().equals("ÀÏ¹İ È¸¿ø"))
+						if (cb_memGrade.getSelectedItem().equals("ì¼ë°˜ íšŒì›"))
 							member.setPermission(0);
-						else if (cb_memGrade.getSelectedItem().equals("°ü¸®ÀÚ"))
+						else if (cb_memGrade.getSelectedItem().equals("ê´€ë¦¬ì"))
 							member.setPermission(1);
 						else
-							System.out.println("¹º°¡ ÀÌ»óÇÏ´Ù.");
+							System.out.println("ë­”ê°€ ì´ìƒí•˜ë‹¤.");
 						db_Access.insert_Member(member);
 					} catch (FileNotFoundException e1) {
 						errMsg = e1.getMessage();
 						System.out.println(errMsg);
-						JOptionPane.showMessageDialog(null, "ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+						JOptionPane.showMessageDialog(null, "íŒŒì¼ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 					} catch (IOException e1) {
 						errMsg = e1.getMessage();
 						System.out.println(errMsg);
@@ -227,7 +225,7 @@ public class tabR_memMngt {
 					} catch (NumberFormatException e1) {
 						errMsg = e1.getMessage();
 						System.out.println(errMsg);
-						JOptionPane.showMessageDialog(null, "È¸¿ø¹øÈ£ Çü½ÄÀ» È®ÀÎÇØ ÁÖ¼¼¿ä.");
+						JOptionPane.showMessageDialog(null, "íšŒì›ë²ˆí˜¸ í˜•ì‹ì„ í™•ì¸í•´ ì£¼ì„¸ìš”.");
 					}
 				DAO_DB db_Refresh_Insert = new DAO_DB();
 				data_Member = db_Refresh_Insert.mem_selectAll();
@@ -236,7 +234,7 @@ public class tabR_memMngt {
 			}
 
 		});
-		button_Delete = new JButton("»èÁ¦");
+		button_Delete = new JButton("ì‚­ì œ");
 		button_Delete.setBounds(230, 509, 97, 23);
 		mem_Info.add(button_Delete);
 
@@ -249,7 +247,7 @@ public class tabR_memMngt {
 						member.setName(tf_memName.getText());
 						db_Access.delete(member);
 					} catch (NumberFormatException e1) {
-						System.out.println("ÀÔ·Â Çü½ÄÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.");
+						System.out.println("ì…ë ¥ í˜•ì‹ì´ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 					}
 				DAO_DB db_Refresh_Delete = new DAO_DB();
 				data_Member = db_Refresh_Delete.mem_selectAll();
@@ -259,7 +257,7 @@ public class tabR_memMngt {
 
 		});
 
-		button_Search = new JButton("°Ë»ö");
+		button_Search = new JButton("ê²€ìƒ‰");
 		button_Search.setBounds(339, 509, 97, 23);
 		mem_Info.add(button_Search);
 

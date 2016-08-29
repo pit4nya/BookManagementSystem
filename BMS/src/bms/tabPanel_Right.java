@@ -20,10 +20,10 @@ public class tabPanel_Right extends JTabbedPane {
 
 	public void init() {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.add(tab_iV.getPanel(), "Á¤º¸¿­¶÷");
-		tabbedPane.add(tab_mM.getPanel(), "È¸¿ø°ü¸®");
-		tabbedPane.add(tab_rB.getPanel(), "´ë    ¿©");
-		tabbedPane.add(tab_rtB.getPanel(), "¹İ    ³³");
+		tabbedPane.add(tab_iV.getPanel(), "ì •ë³´ì—´ëŒ");
+		tabbedPane.add(tab_mM.getPanel(), "íšŒì›ê´€ë¦¬");
+		tabbedPane.add(tab_rB.getPanel(), "ëŒ€    ì—¬");
+		tabbedPane.add(tab_rtB.getPanel(), "ë°˜    ë‚©");
 
 		tabbedPane.addMouseListener(new mouseListener() {
 			@Override
