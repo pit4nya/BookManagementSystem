@@ -44,7 +44,7 @@ public class mainFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[933.00px,grow][589px]", "[47px][479px,grow]"));
 
-		FileFilter filter = new FileNameExtensionFilter("xlsx 파일", "xlsx");
+		FileFilter filter = new FileNameExtensionFilter("Xlsx 파일", "xlsx");
 		fileChooser.addChoosableFileFilter(filter);
 
 		JMenuBar menuBar = new JMenuBar();
