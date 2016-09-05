@@ -3,6 +3,7 @@ package bms;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,8 +34,9 @@ public class DAO_DB {
 
 	public void insert_Member(Member member) throws FileNotFoundException, IOException {
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/member.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/member.properties"));
+			pro.load(in);
 
 			pstmt = con.prepareStatement(pro.getProperty("member_insert"));
 			pstmt.setInt(1, member.getNum());
@@ -69,8 +71,9 @@ public class DAO_DB {
 
 	public void insert_Book(Book book) throws FileNotFoundException, IOException {
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/book.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/book.properties"));
+			pro.load(in);
 
 			pstmt = con.prepareStatement(pro.getProperty("book_insert"));
 			pstmt.setInt(1, book.getNum());
@@ -97,8 +100,9 @@ public class DAO_DB {
 	public void insert_rentBook(int num, Book book, Member member, String rentDate, String returnDate)
 			throws FileNotFoundException, IOException {
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/rentedbook.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/rentedbook.properties"));
+			pro.load(in);
 
 			pstmt = con.prepareStatement(pro.getProperty("rentedbook_insert"));
 			pstmt.setInt(1, num);
@@ -125,8 +129,9 @@ public class DAO_DB {
 
 	public void modify(Book book) {
 		try {
+			InputStream inps = this.getClass().getClassLoader().getResourceAsStream("properties/book.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/book.properties"));
+			pro.load(inps);
 			System.out.println("수정할 도서의 번호를 입력하세요");
 			int num = in.nextInt();
 			in.nextLine();
@@ -167,8 +172,9 @@ public class DAO_DB {
 
 	public void delete(Member member) {
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/member.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/member.properties"));
+			pro.load(in);
 			pstmt = con.prepareStatement(pro.getProperty("member_delete"));
 			pstmt.setInt(1, member.getNum());
 			pstmt.setString(2, member.getName());
@@ -189,9 +195,9 @@ public class DAO_DB {
 
 	public void deleteAll_Book() {
 		try {
-
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/book.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/book.properties"));
+			pro.load(in);
 			pstmt = con.prepareStatement(pro.getProperty("book_deleteAll"));
 
 			int n = pstmt.executeUpdate();
@@ -211,8 +217,9 @@ public class DAO_DB {
 
 	public void delete_rentBook(Book book, Member member) {
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/rentedbook.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/rentedbook.properties"));
+			pro.load(in);
 			pstmt = con.prepareStatement(pro.getProperty("rentedbook_delete"));
 			pstmt.setInt(1, book.getNum());
 			pstmt.setInt(2, member.getNum());
@@ -257,8 +264,9 @@ public class DAO_DB {
 		String temp_str;
 
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/book.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/book.properties"));
+			pro.load(in);
 			pstmt = con.prepareStatement(pro.getProperty("book_selectAll"));
 			rs = pstmt.executeQuery();
 
@@ -287,8 +295,9 @@ public class DAO_DB {
 		String temp_str;
 
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/rentedbook.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/rentedbook.properties"));
+			pro.load(in);
 			pstmt = con.prepareStatement(pro.getProperty("rentedbook_selectAll"));
 			rs = pstmt.executeQuery();
 
@@ -317,8 +326,9 @@ public class DAO_DB {
 		String temp_str;
 
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/member.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/member.properties"));
+			pro.load(in);
 			pstmt = con.prepareStatement(pro.getProperty("member_selectAll"));
 			rs = pstmt.executeQuery();
 
@@ -346,8 +356,9 @@ public class DAO_DB {
 		Vector retVec = new Vector();
 
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/member.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/member.properties"));
+			pro.load(in);
 			pstmt = con.prepareStatement(pro.getProperty("member_selectName"));
 			pstmt.setString(1, member.getName());
 			rs = pstmt.executeQuery();
@@ -375,8 +386,9 @@ public class DAO_DB {
 		Vector dataVec = new Vector();
 
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/member.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/member.properties"));
+			pro.load(in);
 			pstmt = con.prepareStatement(pro.getProperty("member_selectNum"));
 			pstmt.setInt(1, member.getNum());
 			rs = pstmt.executeQuery();
@@ -406,8 +418,9 @@ public class DAO_DB {
 		String temp_str;
 
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/book.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/book.properties"));
+			pro.load(in);
 			pstmt = con.prepareStatement(pro.getProperty("book_selectName"));
 			pstmt.setString(1, book.getName());
 			rs = pstmt.executeQuery();
@@ -436,8 +449,9 @@ public class DAO_DB {
 		String temp_str;
 
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/book.properties");
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/book.properties"));
+			pro.load(in);
 			pstmt = con.prepareStatement(pro.getProperty("book_selectNum"));
 			pstmt.setInt(1, book.getNum());
 			rs = pstmt.executeQuery();

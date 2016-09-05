@@ -3,6 +3,7 @@ package bms;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,9 +26,10 @@ public class loginIdCheck extends JFrame {
 	public boolean loginCheck(String id, String pass) throws FileNotFoundException, IOException {
 
 		try {
+			InputStream in = this.getClass().getClassLoader().getResourceAsStream("properties/member.properties");
 
 			pro = new Properties();
-			pro.load(new FileInputStream("src/properties/member.properties"));
+			pro.load(in);
 			con = ConnectionUtil.getConnection();
 			pstmt = con.prepareStatement(pro.getProperty("member_select"));
 
