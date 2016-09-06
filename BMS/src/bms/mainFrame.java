@@ -78,9 +78,6 @@ public class mainFrame extends JFrame {
 			}
 		});
 
-		// JMenuItem refresh_Menu = new JMenuItem("Refresh");
-		// file_Menu.add(refresh_Menu);
-
 		JMenuItem exit_Menu = new JMenuItem("Exit");
 		file_Menu.add(exit_Menu);
 		exit_Menu.addActionListener(new ActionListener() {
@@ -106,39 +103,6 @@ public class mainFrame extends JFrame {
 		tabPanel_Left tabpL = new tabPanel_Left("");
 		tabPanel_Right tabpR = new tabPanel_Right("");
 
-		// refresh_Menu.addActionListener(new ActionListener() {
-		// public void actionPerformed(ActionEvent e) {
-		// if (e.getSource() == refresh_Menu) {
-		// refresh_Menu.setSelected(false);
-		// Vector title_Book = new Vector();
-		// Vector data_Book = new Vector();
-		// title_Book.add("도서번호");
-		// title_Book.add("도서명");
-		// title_Book.add("저자");
-		// title_Book.add("출판사");
-		//
-		// DefaultTableModel model_Book = new DefaultTableModel() {
-		// public boolean isCellEditable(int row, int column) {
-		// if (column >= 0) {
-		// return false;
-		// } else {
-		// return true;
-		// }
-		// }
-		// };
-		//
-		// tabPanel_Left.book_table.setModel(model_Book);
-		//
-		// DAO_DB dao_Book = new DAO_DB();
-		// data_Book = dao_Book.book_selectAll();
-		// model_Book.setDataVector(data_Book, title_Book);
-		//
-		// tabpL.scrollPane_Book.setViewportView(tabPanel_Left.book_table);
-		//
-		// }
-		//
-		// }
-		// });
 		contentPane.add(tabpL.getPanel(), "cell 0 1,grow");
 		contentPane.add(tabpR.getPanel(), "cell 1 1,grow");
 	}

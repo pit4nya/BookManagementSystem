@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionUtil {
-	public static String ID = "pitanya";
-	public static String PASSWORD = "1234";
+	public static String ID = "scott";
+	public static String PASSWORD = "tiger";
 	public static String IP = "localhost";
 
 	static {
